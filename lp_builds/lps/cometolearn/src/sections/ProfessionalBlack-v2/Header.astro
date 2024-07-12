@@ -1,0 +1,281 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import useFxoroBrandOutput from "../../../../../globals/composables/useFxoroBrandOutput";
+import useTextVersion from "../../../../../globals/composables/useTextVersion";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type {
+  TextVersionTranslation,
+  TranslationsType,
+} from "../../../../../globals/types/Translations";
+import bgImage from "../../assets/imgs/ProfessionalBlack-v2/bg.jpg";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const titleVs: TextVersionTranslation = {
+  v1: {
+    en: `Learn how to trade on the financial markets for <strong class='text-white uppercase'>free</strong>, with zero risk`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: "",
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: "",
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const title = useTextVersion(
+  titleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const para1Vs: TextVersionTranslation = {
+  v1: {
+    en: `Receive your <strong>free PDF <span class="text-white">guide for learning now</span>.</strong>`,
+    it: ``,
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const para1 = useTextVersion(
+  para1Vs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const para2Vs: TextVersionTranslation = {
+  v1: {
+    en: `${useFxoroBrandOutput(componentProps.brandObj.name)} is offering you the opportunity to learn how to trade and to exercise your skills on a <strong>free demo account with 10,000 EUR and 0 risk</strong>.`,
+    it: ``,
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const para2 = useTextVersion(
+  para2Vs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const formTitleVs: TextVersionTranslation = {
+  v1: {
+    en: `REGISTER NOW to receive your <strong class="uppercase">free pdf guide</strong>`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const formTitle = useTextVersion(
+  formTitleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const formButtonVs: TextVersionTranslation = {
+  v1: {
+    en: "Get the guide",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const formButton = useTextVersion(
+  formButtonVs,
+  componentProps.textVersion,
+) as TranslationsType;
+---
+
+<header id="header" class="relative py-4 lg:pb-20">
+  <Image
+    src={bgImage}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover object-bottom md:object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="container relative z-10 flex flex-col gap-8 lg:flex-row">
+    <div
+      class="flex flex-col justify-start gap-4 text-white md:gap-8 lg:basis-1/2 lg:gap-16"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-professional-black-v2-heading1 text-primary lg:w-[23ch]"
+      />
+      <p
+        set:html={para1[componentProps.lang]}
+        class="text-professional-black-paraLead text-primary lg:w-[20ch]"
+      />
+      <p
+        set:html={para2[componentProps.lang]}
+        class="text-professional-black-paraLead lg:w-[40ch]"
+      />
+    </div>
+    <div class="lg:basis-1/2">
+      <div
+        class="mx-auto flex flex-col items-center justify-center gap-6 bg-white p-6 shadow-lg lg:max-w-[400px] lg:pb-20"
+      >
+        <h2
+          set:html={formTitle[componentProps.lang]}
+          class="w-[25ch] text-center text-professional-black-formTitle"
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-[1px] left-0 right-0 top-auto h-[200px] w-full bg-background [clip-path:polygon(100%_0,0_100%,100%_100%)]"
+  >
+  </div>
+</header>
+
+<style lang="scss">
+  #header {
+  }
+</style>

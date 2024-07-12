@@ -1,0 +1,89 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { InfoSection } from "../../../types/InfoSection";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection1: InfoSection = {
+  title: {
+    en: "What information do we collect?",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "We collect information from you when you register on our site, place an order, subscribe to our newsletter, respond to a survey or fill out a form.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: "When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address or phone number. You may, however, visit our site anonymously.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: "Google, as a third party vendor, uses cookies to serve ads on your site. Google's use of the DART cookie enables it to serve ads to your users based on their visit to your sites and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section1" class="py-4">
+  <div class="container">
+    <h1 class="font-bold mb-4" set:html={infoSection1.title[componentProps.lang]} />
+    {infoSection1.paras?.map((para) => <p set:html={para[componentProps.lang]} class="mb-2" />)}
+  </div>
+</section>

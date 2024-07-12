@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import image from "../../../assets/imgs/v1/handPhone.png";
+import bg from "../../../assets/imgs/v1/s2bg.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Connect instantly: <span class="text-[#ffc000]">chat with us on whatsapp</span>`,
+  it: `Connettiti immediatamente: <span class="text-[#ffc000]">chatta con noi su whatsapp</span>`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Conéctate al instante: <span class="text-[#ffc000]">chatea con nosotros por whatsapp</span>`,
+  sv: `Få kontakt direkt: <span class="text-[#ffc000]">chatta med oss på whatsapp</span>`,
+  pt: ``,
+  fi: ``,
+  pl: `Połącz się natychmiast: <span class="text-[#ffc000]">czatuj z nami na whatsapp</span>`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para1: TranslationsType = {
+  en: `Ready to streamline your communication with us? Connect with our team instantly via WhatsApp! Simply click the WhatsApp button below, and you'll be connected directly to one of our representatives. Whether you have questions, need assistance, or want to explore our services further, we're here to help. <strong class="uppercase">Reach out to us on WhatsApp instantly!</strong>`,
+  it: `Pronto a semplificare la tua comunicazione con noi? Connettiti immediatamente con il nostro team tramite WhatsApp! Basta fare clic sul pulsante WhatsApp in basso e verrai collegato direttamente a uno dei nostri rappresentanti. Se hai domande, hai bisogno di assistenza o desideri esplorare ulteriormente i nostri servizi, siamo qui per aiutarti. <strong class="uppercase">Contattaci subito su WhatsApp!</strong>`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¿Listo para agilizar su comunicación con nosotros? ¡Conéctate con nuestro equipo al instante a través de WhatsApp! Simplemente haga clic en el botón de WhatsApp a continuación y se conectará directamente con uno de nuestros representantes. Si tiene preguntas, necesita ayuda o desea explorar más nuestros servicios, estamos aquí para ayudarlo. <strong class="uppercase">¡Comuníquese con nosotros por WhatsApp al instante!</strong>`,
+  sv: `Är du redo att effektivisera din kommunikation med oss? Kom i kontakt med vårt team direkt via WhatsApp! Klicka bara på WhatsApp-knappen nedan så kopplas du direkt till en av våra representanter. Oavsett om du har frågor, behöver hjälp eller vill utforska våra tjänster ytterligare är vi här för att hjälpa dig. <strong class="uppercase">Kontakta oss på WhatsApp direkt!</strong>`,
+  pt: ``,
+  fi: ``,
+  pl: `Chcesz usprawnić komunikację z nami? Połącz się z naszym zespołem natychmiast za pośrednictwem WhatsApp! Po prostu kliknij przycisk WhatsApp poniżej, a zostaniesz połączony bezpośrednio z jednym z naszych przedstawicieli. Niezależnie od tego, czy masz pytania, potrzebujesz pomocy, czy chcesz bliżej poznać nasze usługi, jesteśmy tu, aby Ci pomóc. Skontaktuj się z nami natychmiast na WhatsApp!`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Contact us`,
+  it: `Contattaci`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Contactenos`,
+  sv: `Kontakta oss`,
+  pt: ``,
+  fi: ``,
+  pl: `Skontaktuj się z nami`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="py-4 my-4 border-t-4 border-[#ffc000] relative text-white lg:border-t-[6px] lg:p-0 lg:mb-14">
+  <Image src={bg} alt="Background" class="absolute w-full h-full top-0 left-0 z-0 object-cover" widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]} sizes={"100vw"} />
+  <div class="absolute w-full h-full top-0 left-0 z-10 bg-[#250e58]/80"></div>
+  <div class="container flex flex-col lg:flex-row gap-8 relative z-20">
+    <div class="order-1 grow flex flex-col justify-center items-center text-center gap-4 lg:items-end lg:text-end lg:gap-8 lg:order-2 lg:py-4">
+      <h2 class="font-black uppercase text-heading-2 leading-tight" set:html={title[componentProps.lang]} />
+      <p class="text-para-s1" set:html={para1[componentProps.lang]} />
+      <a href={`https://wa.me/${componentProps.brandObj.whatsappNumber[componentProps.lang]}`} target="_blank" class="font-bold uppercase flex gap-1 items-center bg-background p-1 rounded-md text-black">
+        <span class="bg-[#ffc000] text-[#492e83] rounded-md py-1 px-2 text-primary-foreground">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"
+            ></path>
+          </svg>
+        </span>
+        <span class="px-4">
+          {buttonLabel[componentProps.lang]}
+        </span>
+      </a>
+    </div>
+    <div class="order-2 grid place-items-center relative lg:min-w-[350px] lg:w-[350px] lg:flex lg:justify-center lg:items-start lg:order-1">
+      <Image
+        src={image}
+        alt="Background"
+        class="max-w-[300px] w-full relative z-10 lg:-mt-8"
+        widths={[320, 576, image.width]}
+        sizes={`
+          (max-width: 320px) 270px,
+          350px
+        `}
+      />
+    </div>
+  </div>
+</section>

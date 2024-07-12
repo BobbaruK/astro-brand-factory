@@ -1,0 +1,85 @@
+---
+import ButtonWrapper from "@/components/ButtonWrapper.astro";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "Start Trading Now and Feel the Thrill of Working Efficiently!",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "¡Comience a operar ahora y sienta la emoción de trabajar de manera eficiente!",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Trading is not just about making investments; it's about the excitement of growth, the anticipation of returns, and the joy of receiving what you've earned swiftly. With ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}, you're not just trading; you're embarking on a journey of efficiency and success.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: `El trading no se trata sólo de hacer inversiones; se trata de la emoción del crecimiento, la anticipación de los rendimientos y la alegría de recibir rápidamente lo que has ganado. Con ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}, no sólo estás operando; te estás embarcando en un viaje de eficiencia y éxito.`,
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: "",
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Join the ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name} family today and elevate your trading experience. Because when you trade with us, your money is ready when you are!`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: `Únase a la familia ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name} hoy y mejore su experiencia comercial. ¡Porque cuando usted comercia con nosotros, su dinero estará listo cuando usted lo esté!`,
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: "",
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+---
+
+<section id="section3">
+  <div
+    class="container flex flex-col items-center justify-center gap-4 py-6 text-center md:gap-6 lg:gap-10"
+  >
+    <h2
+      class="text-h2 font-black leading-tight"
+      set:html={title[componentProps.lang]}
+    />
+    {
+      paras.map((para) => (
+        <p
+          class="max-w-[90ch] text-s3-paras leading-tight"
+          set:html={para[componentProps.lang]}
+        />
+      ))
+    }
+    <ButtonWrapper componentProps={componentProps} />
+  </div>
+</section>

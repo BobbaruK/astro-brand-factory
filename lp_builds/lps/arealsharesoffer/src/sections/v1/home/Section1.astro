@@ -1,0 +1,59 @@
+---
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `With ${useFxoroBrandOutput(componentProps.brandObj.name)}, you can choose among the most popular shares`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `Invest choosing from a variety of shares to build your portfolio. We use cutting-edge technology to allow you instant access to the most popular stocks worldwide. Choose from companies like Apple or Amazon, and many more to start your trading.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="p-4 sm:p-7 md:p-9 lg:p-10 xl:p-12">
+  <div class="container grid place-items-center gap-4">
+    <h2
+      class="max-w-[30ch] text-center text-v1-heading-2 font-extrabold leading-tight"
+      set:html={title[componentProps.lang]}
+    />
+    <p
+      class="max-w-[64ch] text-center text-v1-paraLead-2 leading-tight"
+      set:html={para[componentProps.lang]}
+    />
+  </div>
+</section>

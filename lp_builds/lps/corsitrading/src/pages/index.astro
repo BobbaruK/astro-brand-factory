@@ -1,0 +1,41 @@
+---
+// import HomePage from "@/layouts/Lecture/home.astro";
+// import HomePage from "@/layouts/BitcoinGuy/home.astro";
+import HomePage from "@/layouts/HipsterGuy/home.astro";
+import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
+import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
+import "../assets/styles/index.scss";
+
+const langTypeRegion: LandingPageLangType = "fsa";
+
+export interface CustomOptions {
+  logoSquare: boolean;
+}
+const componentProps: ComponentProps<
+  TradingProfilerSVGVariation,
+  CustomOptions
+> = {
+  lang: "en",
+  langType: langTypeRegion,
+  dir: "ltr",
+  lpName: "Corsitrading",
+  brandObj: useBrandFactory({
+    brand: "tradingprofiler",
+    region: langTypeRegion,
+    whatsapp: false,
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType: "classic",
+  formValidation: "classic",
+  textVersion: "v4",
+  customOptions: {
+    logoSquare: false,
+  },
+};
+---
+
+<HomePage componentProps={componentProps} />

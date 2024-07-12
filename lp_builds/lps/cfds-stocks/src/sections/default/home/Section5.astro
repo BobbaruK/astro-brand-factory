@@ -1,0 +1,131 @@
+---
+import ButtonWrapper from "@/components/ButtonWrapper";
+import {
+  buttonWrapperDisclaimer,
+  buttonWrapperLabel,
+} from "@/translations/buttonWrapper";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const titleCYSEC: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Wybierz swoje ulubione produkty`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const titleFSA: TranslationsType = {
+  en: "Trade in your favorite Product",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Giao dịch sản phẩm bạn yêu thích!",
+};
+
+const paraCYSEC: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Otwórz rachunek u nas i poszerz swoje portfolio`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const paraFSA: TranslationsType = {
+  en: `Open an account with ${componentProps.brandObj.name}, and diversify your portfolio by investing in a variety of products.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: `Mở tài khoản với ${componentProps.brandObj.name} và đa dạng hóa danh mục đầu tư của bạn bằng cách đầu tư vào nhiều loại sản phẩm.`,
+};
+---
+
+<section id="section2" class="py-7 md:py-8 lg:py-9 xl:py-11">
+  <div class="container flex flex-col items-center justify-center gap-12">
+    <h2
+      set:html={componentProps.langType === "cysec"
+        ? titleCYSEC[componentProps.lang]
+        : titleFSA[componentProps.lang]}
+      class="text-center text-heading2 font-bold"
+    />
+    <div
+      class="corners relative max-w-[60ch] px-4 py-8 text-center"
+      set:html={componentProps.langType === "cysec"
+        ? paraCYSEC[componentProps.lang]
+        : paraFSA[componentProps.lang]}
+    />
+    <ButtonWrapper
+      buttonLabel={buttonWrapperLabel[componentProps.lang]}
+      buttonDisclaimer={buttonWrapperDisclaimer[componentProps.lang]}
+      hrefTo="formWrapper"
+      whatsapp={componentProps.brandObj.whatsapp}
+      client:only
+    />
+  </div>
+</section>
+
+<style lang="scss">
+  .corners {
+    &::before,
+    &::after {
+      border: 5px solid #fbbf3c;
+      content: "";
+      height: 100%;
+      width: 100px;
+      position: absolute;
+      inset: 0 auto;
+    }
+
+    &::before {
+      border-width: 0 0 5px 5px;
+      left: 0;
+    }
+    &::after {
+      border-width: 5px 5px 0 0;
+      right: 0;
+    }
+  }
+</style>

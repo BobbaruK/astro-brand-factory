@@ -1,0 +1,130 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import mobile from "../../../assets/imgs/v1/m-desktop.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `How it works?`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `Choose your favorite publicly traded companies`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Invest as little or as much money as you like`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Shares can be delivered to your account within minutes`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+---
+
+<section class="bg-gray-200 p-4 lg:bg-transparent">
+  <div class="container flex flex-col gap-4 lg:flex-row">
+    <div
+      class="flex items-center justify-center text-center lg:order-2 lg:w-[50%] lg:min-w-[50%] lg:text-end"
+    >
+      <div
+        class="customBG relative flex flex-col justify-center gap-4 bg-gray-200 py-4"
+      >
+        <h2
+          class="text-[20px] font-extrabold"
+          set:html={title[componentProps.lang]}
+        />
+        <ul class="flex list-inside flex-col gap-2 lg:list-disc lg:justify-end">
+          {
+            list.map((li) => (
+              <li
+                class="text-v1-paraLead-2 leading-tight"
+                set:html={li[componentProps.lang]}
+              />
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="grid grow place-items-center lg:order-1">
+      <Image
+        src={mobile}
+        alt="Background"
+        class="relative z-10 w-full max-w-[400px] lg:max-w-full"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, mobile.width]}
+        sizes={`
+          (max-width: 320px) 320px,
+          (max-width: 576px) 576px,
+          640px
+        `}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .customBG {
+    box-shadow: 0 0 0 100vmax rgb(229 231 235 / 1); // check bg-gray-200 and get rgb
+    clip-path: inset(0 -100vmax);
+  }
+</style>

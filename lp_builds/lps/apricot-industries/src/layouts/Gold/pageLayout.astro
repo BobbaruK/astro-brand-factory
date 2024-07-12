@@ -1,0 +1,95 @@
+---
+import Dialog from "@/components/Dialog.astro";
+import { formButtonTranslation } from "@/composables/formButtonTranslation";
+import Footer from "@/sections/Footer.astro";
+import Header from "@/sections/Gold/Header.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import "../../globals-Gold.scss";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<html
+  lang={componentProps.lang}
+  dir={componentProps.dir}
+  data-brandname={componentProps.brandObj.name}
+  data-lptype={componentProps.lpType}
+  data-formvalidation={componentProps.formValidation}
+  data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
+  data-typage={componentProps.brandObj.typage[componentProps.lang]}
+  data-openwa={componentProps.brandObj.whatsapp && "true"}
+  data-wanumber={componentProps.brandObj.whatsapp
+    ? componentProps.brandObj.whatsappNumber[componentProps.lang]
+    : false}
+>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={componentProps.brandObj.images.faviconLink}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Gold | {componentProps.brandObj.name}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <style>
+      /* latin */
+      @font-face {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 300 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/rubik/v28/iJWKBXyIfDnIV7nBrXw.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      body {
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="siteWrapper">
+      <Header componentProps={componentProps} />
+      <main>
+        <slot />
+      </main>
+      <Footer componentProps={componentProps} />
+    </div>
+    <Dialog
+      componentProps={componentProps}
+      formButton={formButtonTranslation[componentProps.lang]}
+    />
+    <script
+      type="module"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?Gold"
+      is:inline></script>
+  </body>
+</html>
+
+<script>
+  import { showModal } from "@/composables/modal";
+
+  const modalTrigger = Array.from(
+    document.querySelectorAll(".js-modal-trigger"),
+  ) as HTMLButtonElement[];
+
+  for (let i = 0; i < modalTrigger.length; i++) {
+    modalTrigger[i].addEventListener("click", showModal);
+  }
+</script>

@@ -1,0 +1,184 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import yellowCard from "../../../assets/imgs/v1/signalskityellowcard.png";
+import { v1_icon1, v1_icon2, v1_icon3 } from "../../../constants.ts";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Odkryj narzędzia",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  title: TranslationsType;
+  para: TranslationsType;
+  iconImage: string;
+}[] = [
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "E-BOOK-i",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Nawiguj w świecie handlu",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: v1_icon1,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "WIDEO",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Wybierz jeden z naszych materiałów wideo, aby zrozumieć ABC handlu w swojej podróży.",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: v1_icon2,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "W GŁĘBOKIEJ EDUKACJI",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Wybieraj spośród różnorodnych kursów adresowanych do wszystkich typów traderów",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: v1_icon3,
+  },
+];
+---
+
+<section id="section3" class="py-9">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div class="lg:basis-1/2">
+      <h2 set:html={title[componentProps.lang]} class="text-heading2 text-center md:text-start font-bold pb-2 md:max-w-[40ch] uppercase" />
+      <div class="mt-8 gap-8 md:gap-x-4 lg:gap-x-2 grid md:grid-cols-2">
+        {
+          bullets.map((bullet, index) => (
+            <div class={`${index === bullets.length - 1 ? "md:col-span-2" : ""} text-center md:text-start flex flex-col gap-2 items-center md:items-start [&>svg]:max-h-16 [&>svg]:w-auto`}>
+              <Fragment set:html={bullet.iconImage} />
+              <h3 set:html={bullet.title[componentProps.lang]} class="text-lg font-bold italic" />
+              <p set:html={bullet.para[componentProps.lang]} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="lg:basis-1/2 grid place-items-center">
+      <Image
+        src={yellowCard}
+        alt="Graph presentation"
+        class="max-w-[350px] w-full"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, yellowCard.width]}
+        sizes={`
+          (max-width: 320px) 320px,
+          350px
+        `}
+      />
+    </div>
+  </div>
+
+  <style lang="scss">
+    h2 {
+    }
+  </style>
+</section>

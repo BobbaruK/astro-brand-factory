@@ -1,0 +1,135 @@
+---
+import ButtonDisclaimer from "@/components/ButtonDisclaimer.astro";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import bg from "../../../assets/imgs/v1/bg-desktop.jpg";
+import companyLogos from "../../../assets/imgs/v1/company_logos.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Big news to share!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `${componentProps.brandObj.name} makes investing more accessible and easier to understand, by launching <span class="text-secondary">Stocks</span>, meaning that you can invest in some of the largest US companies directly from your ${componentProps.brandObj.name} account.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Start Trading Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="relative">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
+  />
+  <div
+    class="container relative z-10 flex flex-col items-center justify-center gap-4 py-8 text-center text-background md:items-start md:gap-10 md:py-12 md:text-start lg:py-16"
+  >
+    <div
+      class="absolute -right-[10000px] top-0 z-0 hidden h-full w-[10000px] bg-secondary lg:-right-[9880px] lg:block xl:-right-[9770px]"
+    >
+    </div>
+    <h1
+      class="text-v1-heading1 font-bold uppercase italic leading-tight text-secondary"
+      set:html={title[componentProps.lang]}
+    />
+    <p
+      class="max-w-[33ch] text-v1-para-lead leading-tight"
+      set:html={para[componentProps.lang]}
+    />
+    <ButtonDisclaimer
+      buttonLabel={buttonLabel[componentProps.lang]}
+      lang={componentProps.lang}
+      whatsapp={componentProps.brandObj.whatsapp}
+    />
+    <Image
+      src={companyLogos}
+      alt="Background"
+      class="z-20 md:absolute md:-right-[300px] lg:-right-[200px] xl:-right-[100px]"
+      widths={[320, 576, companyLogos.width]}
+      sizes={`
+        (max-width: 320px) 320px,
+        576px
+      `}
+    />
+  </div>
+</section>
+
+<style lang="scss">
+  .container {
+    &::before,
+    &::after {
+      @apply absolute bottom-0 left-auto top-0 hidden h-full w-[250px] md:block;
+      -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%, 0% 50%);
+      clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%, 0% 50%);
+      content: "";
+    }
+
+    &::before {
+      @apply z-[2] bg-secondary md:-right-[5px] lg:right-[120px] xl:right-[220px];
+    }
+    &::after {
+      @apply right-0 z-[1] bg-background lg:right-[125px] xl:right-[225px];
+    }
+  }
+</style>

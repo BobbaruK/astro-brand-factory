@@ -1,0 +1,15 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import V2 from "@/layouts/v2/pageLayout.astro";
+import Section1 from "@/sections/v2/home/Section1.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<V2 componentProps={componentProps}>
+  <Section1 componentProps={componentProps} />
+</V2>

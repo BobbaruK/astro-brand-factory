@@ -1,0 +1,62 @@
+---
+import ButtonDisclaimer from "@/components/ButtonDisclaimer.astro";
+import MasterCard from "../../../../../../globals/components/logos/misc/MasterCard/MasterCard.astro";
+import Neteller from "../../../../../../globals/components/logos/misc/Neteller/Neteller.astro";
+import PostePay from "../../../../../../globals/components/logos/misc/PostePay/PostePay.astro";
+import SSLSecured from "../../../../../../globals/components/logos/misc/SSLSecured/SSLSecured.astro";
+import Skrill from "../../../../../../globals/components/logos/misc/Skrill/Skrill.astro";
+import Visa from "../../../../../../globals/components/logos/misc/Visa/Visa.astro";
+import Webmoney from "../../../../../../globals/components/logos/misc/Webmoney/Webmoney.astro";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Start trading shares`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="py-4 sm:py-7 md:py-9 lg:py-10 xl:py-12">
+  <div class="flex flex-col gap-16">
+    <div>
+      <div class="container grid place-items-center">
+        <ButtonDisclaimer
+          buttonLabel={buttonLabel[componentProps.lang]}
+          lang={componentProps.lang}
+          whatsapp={componentProps.brandObj.whatsapp}
+        />
+        <!-- <Form componentProps={componentProps} button={"testing"} id="form1" /> -->
+      </div>
+    </div>
+    <div>
+      <div class="container flex flex-wrap items-center justify-around gap-4">
+        <SSLSecured class="h-auto w-full max-w-[70px]" />
+        <Skrill class="h-auto w-full max-w-[70px]" />
+        <PostePay class="h-auto w-full max-w-[70px]" />
+        <Visa class="h-auto w-full max-w-[70px]" />
+        <MasterCard class="h-auto w-full max-w-[70px]" />
+        <Neteller class="h-auto w-full max-w-[70px]" />
+        <!-- <BankTransfer class="max-w-[70px] w-full h-auto" /> -->
+        <Webmoney class="h-auto w-full max-w-[70px]" />
+      </div>
+    </div>
+  </div>
+</section>

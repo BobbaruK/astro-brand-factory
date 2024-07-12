@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import texture from "../../../assets/imgs/v1/texture-left.png";
+import AccordionWrapper from "../../../components/AccordionWrapper";
+import type { LPAccordionItem } from "../../../types/lpAccordionItem";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Domande frequenti riguardo al trading di CFD su Bitcoin.",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Vanliga frågor om CFD:er för Bitcoin-handel.",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const accordionItems: LPAccordionItem[] = [
+  {
+    title: {
+      en: "",
+      it: "Cos'è il trading con i CFD su Bitcoin?",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "Vad är handel med Bitcoin CFDs?",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    content: {
+      en: "",
+      it: "Fare trading con i CFD su Bitcoin o qualsiasi altra risorsa finanziaria come il petrolio e il petrolio greggio può essere impegnativo. Può essere difficile trovare il giusto equilibrio tra vari broker, spread e commissioni di gestione, che possono essere molto elevate. È per questo che, per molti trader, potrebbe essere meglio fare affidamento sulle discrepanze di prezzo per gestire il proprio investimento",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "Att handla med Bitcoin CFD:er eller någon annan finansiell tillgång såsom olja och råolja kan vara utmanande. Det kan vara svårt att hitta rätt bland olika mäklare, spreads och förvaltningsavgifter, som kan vara mycket höga. Det är därför som det för många handlare kan vara bättre att förlita sig på prisavvikelser för att hantera sin investering.",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    value: "title1",
+  },
+  {
+    title: {
+      en: "",
+      it: "Quali strumenti hai a disposizione?",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "Vilka verktyg har ni tillgängliga?",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    content: {
+      en: "",
+      it: "Accesso alle ultime notizie di mercato, informazioni educative e molto altro",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "Tillgång till de senaste marknadsnyheterna, utbildningsinformation och mycket mer.",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    value: "title2",
+  },
+  {
+    title: {
+      en: "",
+      it: "Cosa abbiamo da offrire?",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "Vad har ni att erbjuda?",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    content: {
+      en: "",
+      it: "Comprendiamo l'importanza di stare al passo nel mondo frenetico della finanza. Pertanto, aggiorniamo continuamente i nostri strumenti e risorse per allinearci alle ultime tendenze e sviluppi del mercato. Ci distinguiamo dalle altre aziende fornendo strumenti all'avanguardia e informazioni aggiornate sui mercati finanziari.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "Vi förstår vikten av att ligga steget före i den snabbrörliga finansvärlden. Därför uppdaterar vi kontinuerligt våra verktyg och resurser för att anpassa dem till de senaste marknadstrenderna och den senaste utvecklingen. Vi skiljer oss från andra företag genom att tillhandahålla banbrytande verktyg och aktuell information om finansmarknaderna.",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    value: "title3",
+  },
+];
+---
+
+<section
+  id="section4"
+  class="relative overflow-hidden bg-[#dbdbdb] py-5 md:py-6 lg:py-8 xl:py-9 2xl:py-20"
+>
+  <Image
+    src={texture}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-full w-10 object-cover object-right lg:w-20 xl:w-[180px]"
+    widths={[180, texture.width]}
+    sizes={`
+      (max-width: 1280px) 180px,
+      ${texture.width}px
+    `}
+  />
+  <Image
+    src={texture}
+    alt="Background"
+    class="absolute right-0 top-0 z-0 h-full w-10 -scale-x-100 object-cover object-right lg:w-20 xl:w-[180px]"
+    widths={[180, texture.width]}
+    sizes={`
+      (max-width: 1280px) 180px,
+      ${texture.width}px
+    `}
+  />
+  <div class="container relative z-10 flex flex-col gap-6 lg:text-center">
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <AccordionWrapper
+      items={accordionItems}
+      componentsProps={componentProps}
+      client:load
+    />
+  </div>
+</section>

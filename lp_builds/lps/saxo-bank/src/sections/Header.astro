@@ -1,0 +1,147 @@
+---
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import moneyhand from "../assets/moneyhand.png";
+import ButtonDisclaimer from "../components/ButtonDisclaimer.astro";
+import useFxoroBrandOutput from "../../../../globals/composables/useFxoroBrandOutput";
+import { siteBtn } from "../composables/siteBtn";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+import Logo from "../../../../globals/components/logos/MainLogo/Logo.astro";
+import type { TranslationsType } from "../../../../globals/types/Translations";
+
+const title: TranslationsType = {
+  en: `What does the <span>future hold</span>?`,
+  it: `Cosa riserva <span>il futuro</span>?`,
+  tr: ``,
+  ro: `Ce ne <span>rezervă viitorul</span>?`,
+  ar: ``,
+  de: ``,
+  es: `¿Qué depara <span>el futuro</span>?`,
+  sv: `Hur ser framtiden ut?`,
+  pt: ``,
+  fi: ``,
+  pl: `Co przyniesie przyszłość?`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `The global financial landscape continues to evolve, presenting new challenges and opportunities. At ${useFxoroBrandOutput(componentProps.brandObj.name)}, we understand that staying ahead in these dynamic times requires not just adaptability, but also 
+a deep understanding of the underlying trends shaping our economic future.`,
+  it: `Il panorama finanziario globale continua ad evolversi, presentando nuove sfide e opportunità. Noi di ${useFxoroBrandOutput(componentProps.brandObj.name)} comprendiamo che restare al passo in questi tempi dinamici richiede non solo adattabilità, ma anche una profonda comprensione delle tendenze sottostanti che modellano il nostro futuro economico.`,
+  tr: ``,
+  ro: `Peisajul financiar global continuă să evolueze, prezentând noi provocări și oportunități. La ${useFxoroBrandOutput(componentProps.brandObj.name)}, înțelegem că a rămâne înaintea acestor vremuri dinamice necesită nu doar adaptabilitate, ci și o înțelegere profundă a tendințelor subiacente care formează viitorul nostru economic.`,
+  ar: ``,
+  de: ``,
+  es: `El panorama financiero mundial sigue evolucionando, presentando nuevos retos y oportunidades. En ${useFxoroBrandOutput(componentProps.brandObj.name)} somos conscientes de que mantenerse a la vanguardia en estos tiempos dinámicos requiere no sólo adaptabilidad, sino también un profundo conocimiento de las tendencias subyacentes que configuran nuestro futuro económico.`,
+  sv: `När vi tar steget in i 2024 fortsätter det globala finansiella landskapet att utvecklas, med nya utmaningar och möjligheter. På ${useFxoroBrandOutput(
+    componentProps.brandObj.name
+  )} förstår vi att för att ligga steget före i dessa dynamiska tider krävs inte bara anpassningsförmåga, utan också en djup förståelse för de underliggande trender som formar vår ekonomiska framtid.`,
+  pt: ``,
+  fi: ``,
+  pl: `Globalny krajobraz finansowy nadal ewoluuje, stwarzając nowe wyzwania i możliwości. W ${useFxoroBrandOutput(componentProps.brandObj.name)} rozumiemy, że utrzymanie pozycji lidera w tych dynamicznych czasach wymaga nie tylko zdolności adaptacyjnych, ale także głębokiego zrozumienia podstawowych trendów kształtujących naszą przyszłość gospodarczą.`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<header id="header" class="siteHeader">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6 col-xl-7 siteHeader__InnerText">
+        <Logo brandObj={componentProps.brandObj} />
+        <h1 set:html={title[componentProps.lang]} />
+        <p set:html={para[componentProps.lang]} />
+        <ButtonDisclaimer buttonLabel={siteBtn[componentProps.lang]} lang={componentProps.lang} />
+      </div>
+      <div class="col-12 col-lg-6 col-xl-5">
+        <img src={moneyhand.src} alt="Hand with coins" width={moneyhand.width} height={moneyhand.height} />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss" is:global>
+  @use "../scss-lp/abstracts/mixins" as mxns;
+
+  @layer components {
+    .siteHeader {
+      border-bottom: 1px solid var(--clr-main_blue);
+      @include mxns.mediamin(xl) {
+        overflow: hidden;
+        padding: 0;
+      }
+      &__InnerText {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-9);
+        justify-content: center;
+
+        @include mxns.mediamin(lg) {
+          align-items: flex-start;
+          // padding-block: var(--spacing-7);
+        }
+        @include mxns.mediamin(xl) {
+          padding-block: var(--spacing-9);
+        }
+
+        > * {
+          margin: 0;
+        }
+      }
+      h1,
+      p {
+        text-align: center;
+        @include mxns.mediamin(lg) {
+          text-align: start;
+        }
+      }
+      h1 {
+        text-transform: uppercase;
+
+        @include mxns.mediamax(lg) {
+          // max-width: 15ch;
+        }
+        span {
+          color: var(--clr-accent_blue);
+        }
+      }
+      p {
+        font-size: clamp(1rem, 0.8519rem + 0.7407vw, 1.5rem);
+        line-height: clamp(1.25rem, 1.0278rem + 1.1111vw, 2rem);
+        @include mxns.mediamin(lg) {
+          max-width: 40ch;
+        }
+      }
+
+      img {
+        width: 100%;
+        @include mxns.mediamax(lg) {
+          display: block;
+          max-width: 400px;
+          margin: var(--spacing-10) auto 0;
+        }
+        @include mxns.mediamin(xl) {
+          position: absolute;
+          inset: 60px auto auto 10px;
+          width: 530px;
+          height: auto;
+          max-width: none;
+        }
+        @include mxns.mediamin(xxl) {
+          inset: 20px auto auto 0px;
+          width: 570px;
+        }
+      }
+    }
+  }
+</style>

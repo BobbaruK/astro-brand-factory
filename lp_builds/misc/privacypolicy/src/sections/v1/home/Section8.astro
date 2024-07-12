@@ -1,0 +1,55 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { InfoSection } from "../../../types/InfoSection";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection8: InfoSection = {
+  title: {
+    en: "Your Consent",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "By using our site, you consent to our Privacy Policy.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section8" class="py-4">
+  <div class="container">
+    <h2 class="font-bold mb-4" set:html={infoSection8.title[componentProps.lang]} />
+    {infoSection8.paras?.map((para) => <p set:html={para[componentProps.lang]} class="mb-2" />)}
+  </div>
+</section>

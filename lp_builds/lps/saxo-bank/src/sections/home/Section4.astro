@@ -1,0 +1,55 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import ButtonDisclaimer from "../../components/ButtonDisclaimer.astro";
+import { siteBtn } from "../../composables/siteBtn";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+// const title: translationstype = {
+//   en: `market observations for 2024`,
+//   it: ``,
+//   tr: ``,
+//   ro: ``,
+//   ar: ``,
+//   de: ``,
+//   es: ``,
+//   sv: ``,
+//   pt: ``,
+//   fi: ``,
+//   pl: ``,
+//   hu: ``,
+//   th: ``,
+//   ms: ``,
+//   vi: ``,
+// };
+---
+
+<section id="section4" class="section4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 section4__Inner">
+        <ButtonDisclaimer buttonLabel={siteBtn[componentProps.lang]} lang={componentProps.lang} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../scss-lp/abstracts/mixins" as mxns;
+
+  .section4 {
+    background-color: var(--clr-main_blue);
+    color: var(--clr-white);
+
+    &__Inner {
+      display: flex;
+      gap: var(--spacing-3);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>

@@ -1,0 +1,211 @@
+---
+import {
+  professionalBlackSection1Icon1,
+  professionalBlackSection1Icon2,
+  professionalBlackSection1Icon3,
+} from "@/constants";
+import useTextVersion from "../../../../../../globals/composables/useTextVersion";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type {
+  TextVersionTranslation,
+  TranslationsType,
+} from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const titleVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "Inizia in modo intelligente con 3 passi",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Kom igång på ett intelligent sätt med 3 steg`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const title = useTextVersion(
+  titleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const bullets: {
+  title: TextVersionTranslation;
+  svgIcon: string;
+}[] = [
+  {
+    title: {
+      v1: {
+        en: "",
+        it: "Compila il modulo in questa pagina.",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: `Fyll i formuläret på denna sida.`,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      v2: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    svgIcon: professionalBlackSection1Icon1,
+  },
+  {
+    title: {
+      v1: {
+        en: "",
+        it: "Sarai in contatto con uno dei nostri broker partner regolamentati.",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: `Du kommer att komma i kontakt med en av våra reglerade mäklarpartners.`,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      v2: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    svgIcon: professionalBlackSection1Icon2,
+  },
+  {
+    title: {
+      v1: {
+        en: "",
+        it: "Ottieni il corso educativo gratuito per imparare a fare trading.",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: `Få den pedagogiska gratiskursen för att lära dig hur man handlar.`,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      v2: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    svgIcon: professionalBlackSection1Icon3,
+  },
+];
+---
+
+<section id="section1" class="mb-12">
+  <div class="container flex flex-col gap-6 md:gap-8 lg:gap-12">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-professional-black-heading2 font-extrabold uppercase text-primary"
+    />
+    <div class="flex flex-col gap-6 md:flex-row lg:gap-8 xl:gap-28">
+      {
+        bullets.map((bullet) => {
+          const actualBullet = useTextVersion(
+            bullet.title,
+            componentProps.textVersion,
+          ) as TranslationsType;
+
+          return (
+            <div class="md:basis-1/3">
+              <div
+                set:html={bullet.svgIcon}
+                class="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
+              />
+              <p set:html={actualBullet[componentProps.lang]} class="" />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

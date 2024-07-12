@@ -1,0 +1,19 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import { useReturnSVG } from "../../../../../globals/composables/useReturnSVG";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const svgLogo = useReturnSVG(componentProps, "blackGreen");
+---
+
+<header id="header" class="py-4 bg-background text-foreground">
+  <div class="container">
+    <Fragment set:html={svgLogo} />
+  </div>
+</header>
+
+<style></style>

@@ -1,0 +1,110 @@
+---
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `What ${useFxoroBrandOutput(componentProps.brandObj.name)} can offer?`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Co oferuje ${useFxoroBrandOutput(componentProps.brandObj.name)}?`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `<span class="text-primary">Trading toolkits to navigate</span> the financial markets`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Narzędzia do poruszania się po rynkach finansowych`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `<span class="text-primary">Training and support</span> to help you to get started`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Szkolenia i wsparcie, które pomogą Ci zacząć tradować`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `MT4, the most popular trading platform in the world on your <span class="text-primary">desktop, mobile devices or tablets</span>`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `MT4, najpopularniejsza platforma transakcyjna na świecie na Twoim komputerze oraz urządzeniach mobilnych`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `<span class="text-primary">Fixed</span> or <span>variable</span> spreads to suit your trading style`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Wybieraj między stałym oraz płynnym spreadem`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+---
+
+<section
+  class="bg-secondary py-4 text-white sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14"
+>
+  <div class="container flex flex-col gap-5 text-center md:gap-6 lg:gap-14">
+    <h2 class="text-heading2 font-bold" set:html={title[componentProps.lang]} />
+    <ol class="flex list-inside list-decimal flex-col gap-3 font-bold">
+      {list.map((el) => <li set:html={el[componentProps.lang]} />)}
+    </ol>
+  </div>
+</section>

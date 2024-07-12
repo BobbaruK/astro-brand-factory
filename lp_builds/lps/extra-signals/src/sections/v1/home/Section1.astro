@@ -1,0 +1,58 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Reciba <span class="text-secondary">3</span> señales, <span class="text-primary">3</span> veces al día`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Todo operador financiero sabe que la diferencia entre el éxito y el fracaso es la información oportuna. Obtenga señales de trading gratuitas directamente en su teléfono inteligente o por correo electrónico para que siempre pueda estar al tanto de la evolución del mercado.`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section class="py-5 sm:py-7 md:py-9 lg:py-10 xl:py-12">
+  <div class="container flex flex-col gap-5">
+    <h1
+      class="text-v1-heading1 font-black leading-tight"
+      set:html={title[componentProps.lang]}
+    />
+    <p
+      class="max-w-[70ch] font-semibold"
+      set:html={para[componentProps.lang]}
+    />
+  </div>
+</section>

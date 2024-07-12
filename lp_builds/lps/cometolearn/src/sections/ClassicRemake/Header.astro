@@ -1,0 +1,265 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import useFxoroBrandOutput from "../../../../../globals/composables/useFxoroBrandOutput";
+import useTextVersion from "../../../../../globals/composables/useTextVersion";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type {
+  TextVersionTranslation,
+  TranslationsType,
+} from "../../../../../globals/types/Translations";
+import bgImage from "../../assets/imgs/ClassicRemake/topBG.jpg";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const titleVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Rozpocznij handel na rynku finansowym przy wsparciu narzędzi edukacyjnych`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Poszerz swoją wiedzę na temat handlu CFD.`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const title = useTextVersion(
+  titleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const paraVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `${useFxoroBrandOutput(componentProps.brandObj.name)} oferuje Ci możliwość nauki handlu oraz doskonalenia umiejętności tradingowych dzięki wszechstronnym materiałom edukacyjnym.`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Załóż konto i otrzymaj darmowe materiały szkoleniow`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const para = useTextVersion(
+  paraVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const formTitleVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Zarejestruj się, aby dowiedzieć się więcej`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Załóż konto i otrzymaj darmowe materiały szkoleniowe`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const formTitle = useTextVersion(
+  formTitleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const formButtonVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Otrzymaj kursy związane z tradingiem`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Zarejestruj się`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const formButton = useTextVersion(
+  formButtonVs,
+  componentProps.textVersion,
+) as TranslationsType;
+---
+
+<header id="header" class="relative">
+  <Image
+    src={bgImage}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="container relative z-10 flex flex-col md:flex-row md:gap-4">
+    <div
+      class="flex flex-col gap-4 py-5 text-white sm:py-7 md:basis-1/2 md:justify-between md:py-9 lg:basis-2/3 lg:py-10 xl:py-12 2xl:py-14"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-classic-remake-heading1 uppercase md:mt-auto"
+      />
+      <p
+        set:html={para[componentProps.lang]}
+        class="text-classic-paraLead font-bold uppercase md:mb-auto"
+      />
+    </div>
+    <div
+      class="formWrapper flex flex-col gap-8 bg-primary px-4 py-5 sm:py-7 md:basis-1/2 md:py-9 lg:basis-1/3 lg:py-10 xl:py-12 2xl:py-14"
+    >
+      <h2
+        set:html={formTitle[componentProps.lang]}
+        class="text-center text-classic-remake-formTitle uppercase"
+      />
+      <Form
+        componentProps={componentProps}
+        button={formButton[componentProps.lang]}
+        id="form1"
+      />
+    </div>
+  </div>
+</header>
+
+<style lang="scss" is:global>
+  #header svg {
+    @apply max-w-full;
+  }
+  .formWrapper {
+    @media (max-width: 767px) {
+      box-shadow: 0 0 0 100vmax hsl(var(--primary));
+      clip-path: inset(0 -100vmax);
+    }
+  }
+
+  form.registerForm {
+    .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex h-auto max-w-full gap-4 text-wrap bg-secondary uppercase text-secondary-foreground hover:text-primary hover:opacity-90;
+      }
+    }
+  }
+</style>

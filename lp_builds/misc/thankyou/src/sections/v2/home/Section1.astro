@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import image from '../../../assets/imgs/v2/guy.png';
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Thank you for your <span class="text-primary">registration!</span>`,
+  it: `Grazie per la tua <span class="text-primary">registrazione!</span>`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Gracias por su <span class="text-primary">registro!</span>`,
+  sv: `Tack för din <span class="text-primary">registrering!</span>`,
+  pt: ``,
+  fi: ``,
+  pl: `Dziękujemy za <span class="text-primary">rejestrację!</span>`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para1: TranslationsType = {
+  en: `Your interest means a great deal, and we're excited to connect with you soon. We're committed to providing you with personalized attention and information you might need, so expect a call from our team within the next 24 to 48 working hours.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Su interés significa mucho y estamos entusiasmados de conectarnos con usted pronto. Estamos comprometidos a brindarle la atención personalizada y la información que pueda necesitar, así que espere una llamada de nuestro equipo dentro de las próximas 24 a 48 horas hábiles.`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+
+
+
+---
+
+<section id="section1" class="py-4 lg:py-10">
+  <div class="container grid place-items-center  gap-8">
+    <div class="grow flex flex-col justify-center items-center text-center gap-4  lg:gap-8 ">
+      <h1 class="font-black uppercase text-heading-1 leading-tight" set:html={title[componentProps.lang]} />
+      <p class="text-para-s1" set:html={para1[componentProps.lang]} />
+    
+    </div>
+    <div class="grid place-items-center relative lg:min-w-[400px] lg:w-[400px] ">
+      <Image
+        src={image}
+        alt="Introduction to trading"
+        class="max-w-[350px] w-full relative z-10 lg:mt-8"
+        widths={[320, 576, image.width]}
+        loading="eager"
+        sizes={`
+          (max-width: 320px) 270px,
+          350px
+        `}
+      />
+
+      <!-- <svg width="389" height="362" viewBox="0 0 389 362" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute z-0 hidden lg:block right-3 h-auto w-[250px] text-secondary">
+        <path
+          d="M157.29 0C180.78 0.31 201.14 9.42 220.74 20.9C259.42 43.55 291.4 74.19 322.19 106.19C341.71 126.48 359.31 148.3 372.94 173.08C382.84 191.06 390.34 209.97 388.32 230.87C387.31 241.32 384.99 252.13 380.8 261.69C368.32 290.19 350.14 314.96 326.59 335.34C300.95 357.53 270.61 363.88 237.44 360.21C177.19 353.54 120.52 334.22 64.83 311.58C49.77 305.46 35.86 296.93 24.02 285.44C4.59999 266.61 -1.9 242.91 0.819999 217.08C7.47 154.08 33.22 98.66 71.49 48.91C88.03 27.42 108.4 10.14 135.61 3.26C142.67 1.5 150.06 1.06 157.29 0Z"
+          fill="currentColor"></path>
+      </svg> -->
+    </div>
+  </div>
+</section>

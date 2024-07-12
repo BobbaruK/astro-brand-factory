@@ -1,0 +1,127 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import bg from "../../assets/imgs/v1/bg.jpg";
+import laptop from "../../assets/imgs/v1/laptop.png";
+import phone from "../../assets/imgs/v1/mobile.png";
+import pencils from "../../assets/imgs/v1/pencils.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `
+    <span class="text-primary">Why pay for trading signals</span>
+    <span class="font-extrabold">
+      when you can get professional ones
+      <span class="text-secondary underline decoration-8 underline-offset-[8px]">
+        for free?
+      </span>
+    </span>`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const btnLabel: TranslationsType = {
+  en: `Start Now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<header class="relative overflow-hidden text-white lg:overflow-visible">
+  <Image
+    src={bg}
+    alt="Header Background"
+    class="absolute z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1536px,
+      100vw
+    `}
+  />
+
+  <Image
+    src={laptop}
+    alt="Header Background"
+    class="absolute right-0 top-0 hidden w-v1-laptop md:block"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, laptop.width]}
+    sizes={`
+      (max-width: 768px) 320px,
+    `}
+  />
+  <div class="relative z-20">
+    <div class="container py-4">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div
+      class="container relative flex flex-col items-center justify-center gap-8 py-5 sm:pt-7 md:items-start md:pb-12 md:pt-9 lg:pt-10 xl:pt-14"
+    >
+      <h1
+        class="max-w-[20ch] text-center text-v1-heading1 uppercase leading-tight md:text-start"
+        set:html={title[componentProps.lang]}
+      />
+      <a
+        href="#form1"
+        class={cn(
+          buttonVariants({ variant: "default" }),
+          "font-sans font-extrabold text-xl h-auto w-auto hover:bg-secondary hover:text-secondary-foreground",
+        )}
+        set:html={btnLabel[componentProps.lang]}
+      />
+      <Image
+        src={phone}
+        alt="Header Background"
+        class="left-[490px] -mb-64 md:absolute md:m-0"
+        widths={[320]}
+        sizes={`320px`}
+      />
+      <Image
+        src={pencils}
+        alt="Header Background"
+        class="absolute -bottom-[100px] right-0 hidden w-[285px] lg:block xl:w-auto"
+        widths={[320]}
+        sizes={`320px`}
+      />
+    </div>
+  </div>
+</header>
+
+<style define:vars={{}}></style>

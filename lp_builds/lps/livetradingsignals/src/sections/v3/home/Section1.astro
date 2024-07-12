@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import bg from "../../../assets/imgs/v2/bg.jpg";
+// import stampGreenEN_Image from "../../../assets/imgs/v2/stamp-green-en.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "¿Interesado en emprender un nuevo viaje comercial?",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: ``,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "Invertir en su conocimiento y la formación sobre el comercio es muy importante antes de comenzar su nuevo viaje. Por eso, FXORO ofrece una biblioteca educativa completa para apoyar mejor sus necesidades comerciales.",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+// const stampPic: {
+//   en: ImageMetadata;
+//   it: ImageMetadata | null;
+//   tr: ImageMetadata | null;
+//   ro: ImageMetadata | null;
+//   ar: ImageMetadata | null;
+//   de: ImageMetadata | null;
+//   es: ImageMetadata | null;
+//   sv: ImageMetadata | null;
+//   pt: ImageMetadata | null;
+//   fi: ImageMetadata | null;
+//   pl: ImageMetadata | null;
+//   hu: ImageMetadata | null;
+//   th: ImageMetadata | null;
+//   ms: ImageMetadata | null;
+//   vi: ImageMetadata | null;
+//   [key: string]: ImageMetadata | null;
+// } = {
+//   en: stampGreenEN_Image,
+//   it: null,
+//   tr: null,
+//   ro: null,
+//   ar: null,
+//   de: null,
+//   es: null,
+//   sv: null,
+//   pt: null,
+//   fi: null,
+//   pl: null,
+//   hu: null,
+//   th: null,
+//   ms: null,
+//   vi: null,
+// };
+---
+
+<section
+  class="relative overflow-hidden border-y-[10px] border-[hsl(var(--secondary-dark))]"
+>
+  <Image
+    src={bg}
+    alt="Apple Laptop Diploma"
+    class="absolute z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1536px,
+      100vw
+    `}
+  />
+
+  <div class="absolute z-10 h-full w-full bg-zinc-800/60"></div>
+  <div class="container relative z-20 flex flex-col gap-4 lg:flex-row">
+    <div
+      class="relative z-20 flex grow items-center justify-center py-9 text-center lg:z-0 lg:w-[50%] lg:min-w-[50%] lg:justify-start lg:p-0 lg:text-start"
+    >
+      <div class="flex max-w-[70ch] flex-col gap-4 text-white lg:py-10">
+        <h1
+          class="text-v3-heading1 font-bold leading-tight text-secondary"
+          set:html={title[componentProps.lang]}
+        />
+        <p class="text-start leading-tight">
+          <!-- <Image
+            src={stampPic[componentProps.lang] || stampPic.en}
+            alt="Apple Laptop Diploma"
+            class="float-end m-2 h-24 w-24 rotate-[20deg] object-fill"
+            widths={[320, 576, 640, 768, 1024, 1280, 1536, stampPic.en.width]}
+            sizes={`
+            (max-width: 320px) 576px,
+            (max-width: 576px) 768px,
+            (max-width: 768px) 1024px,
+            (max-width: 1024px) 1536px,
+            100vw
+          `}
+          /> -->
+          <Fragment set:html={para[componentProps.lang]} />
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1024px) {
+    .fullBleedPrimary {
+      box-shadow: 0 0 0 100vmax hsl(var(--primary));
+      clip-path: inset(0 -100vmax);
+    }
+  }
+</style>

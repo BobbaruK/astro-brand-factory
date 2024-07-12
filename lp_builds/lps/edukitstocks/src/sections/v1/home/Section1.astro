@@ -1,0 +1,162 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../../globals/components/Form/";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import phoneImage from "../../../assets/imgs/mobile.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Potenzia la tua conoscenza sul trading online",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Förbättra dina kunskaper om onlinehandel`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formBtn: TranslationsType = {
+  en: "",
+  it: "Scopri di più",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Upptäck mer!`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section
+  id="section1"
+  class="relative z-30 py-6 md:-mt-14 lg:-mt-14 xl:-mt-44 2xl:-mt-72"
+>
+  <div class="container md:flex">
+    <div class="flex flex-col gap-8 md:grow lg:justify-end">
+      <h2
+        class="text-heading2 uppercase xl:line-clamp-1"
+        set:html={title[componentProps.lang]}
+      />
+      <Form
+        componentProps={componentProps}
+        button={formBtn[componentProps.lang]}
+        id="form1"
+      />
+    </div>
+    <div>
+      <Image
+        src={phoneImage}
+        alt="Background"
+        class="hidden h-auto max-w-[275px] md:block"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, phoneImage.width]}
+        sizes={`275px`}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  form.registerForm {
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex h-12 gap-4 bg-secondary uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground;
+      }
+    }
+  }
+</style>

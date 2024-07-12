@@ -1,0 +1,230 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import background from "../../assets/imgs/BitcoinGuy/header.jpg";
+import graphBackground from "../../assets/imgs/BitcoinGuy/header_graph.png";
+import bitcoinGuy from "../../assets/imgs/BitcoinGuy/bitcoin.png";
+import arrrow from "../../assets/imgs/BitcoinGuy/arrow.png";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import type { CustomOptions } from "@/pages/index.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Trading di CFD su Bitcoin",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Handel kontraktami CFD na Bitcoina",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "Sei interessato a saperne di più sul trading di CFD su Bitcoin?",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Chcesz dowiedzieć się więcej o handlu kontraktami CFD na Bitcoin?",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: "",
+  it: "Scopri di più",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Odkryj więcej",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<header
+  id="header"
+  class="relative overflow-hidden pb-6 md:pb-8 xl:pb-12 2xl:pb-20"
+>
+  <Image
+    src={background}
+    alt="Main Background"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover object-left"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+  />
+  <div class="container relative z-30 flex flex-col gap-4 md:gap-6 lg:gap-8">
+    <div class="py-4">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="lg:flex lg:max-w-[83.333333%] lg:gap-4">
+      <div class="hidden items-start justify-center lg:flex">
+        <Image
+          src={arrrow}
+          alt="Arrow"
+          class="mt-14 h-auto w-12"
+          widths={[arrrow.width]}
+          sizes={`
+            (max-width: 1023px) 0px,
+            45px
+          `}
+        />
+      </div>
+      <div class="flex grow flex-col gap-4 md:gap-6">
+        <div>
+          <h1
+            class="font-raleway text-BitcoinGuy-heading1 font-extrabold"
+            set:html={title[componentProps.lang]}
+          />
+          <p class="text-sm font-bold" set:html={para[componentProps.lang]} />
+        </div>
+        <div class="rounded-md bg-primary p-2 text-primary-foreground">
+          <Form
+            componentProps={componentProps}
+            button={formButton[componentProps.lang]}
+            id="form1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <Image
+    src={bitcoinGuy}
+    alt="Graph presentation"
+    class="absolute -right-32 -top-32 z-10 hidden h-auto w-[800px] object-cover object-left lg:block xl:right-0"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bitcoinGuy.width]}
+    sizes={`100vw`}
+  />
+  <Image
+    src={graphBackground}
+    alt="Graph presentation"
+    class="absolute bottom-0 left-0 right-0 z-20 h-auto w-full object-cover object-left"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, graphBackground.width]}
+    sizes={`100vw`}
+  />
+</header>
+
+<style lang="scss" is:global>
+  form.registerForm {
+    .registerFormInner {
+      @apply gap-x-1 gap-y-2;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex h-12 gap-4 bg-secondary uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,232 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import useFxoroBrandOutput from "../../../../../globals/composables/useFxoroBrandOutput";
+import useTextVersion from "../../../../../globals/composables/useTextVersion";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type {
+  TextVersionTranslation,
+  TranslationsType,
+} from "../../../../../globals/types/Translations";
+import bgImage from "../../assets/imgs/ProfessionalBlack/ctlBG.jpg";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const titleVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "Inizia a fare trading sul mercato finanziario con il supporto di strumenti educativi",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "Börja handla på finansmarknaden med hjälp av utbildningsverktyg",
+    pt: "",
+    fi: "",
+    pl: "",
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: "",
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const title = useTextVersion(
+  titleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const paraVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: `${useFxoroBrandOutput(componentProps.brandObj.name)} ti offre l'opportunità di imparare a fare trading e migliorare le tue capacità di trading con l'aiuto di materiale didattico completo`,
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `${useFxoroBrandOutput(componentProps.brandObj.name)} erbjuder dig möjligheten att lära dig hur man handlar och förbättrar dina handelsfärdigheter med hjälp av omfattande utbildningsmaterial.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const para = useTextVersion(
+  paraVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const formTitleVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "Registrati per saperne di più",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Registrera dig för att få veta mer`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const formTitle = useTextVersion(
+  formTitleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+const formButtonVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "Ottieni i corsi di trading",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Få kurserna i trading`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const formButton = useTextVersion(
+  formButtonVs,
+  componentProps.textVersion,
+) as TranslationsType;
+---
+
+<header id="header" class="relative py-4">
+  <Image
+    src={bgImage}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover md:object-fill"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="container relative z-10 flex flex-col gap-8 lg:flex-row">
+    <div
+      class="flex flex-col justify-start gap-4 text-white md:gap-8 lg:basis-1/2 lg:gap-16"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-professional-black-heading1 font-thin text-primary"
+      />
+      <p
+        set:html={para[componentProps.lang]}
+        class="text-professional-black-paraLead"
+      />
+    </div>
+    <div class="lg:basis-1/2">
+      <div
+        class="mx-auto flex flex-col gap-6 bg-white p-6 shadow-lg lg:max-w-[400px] lg:pb-20"
+      >
+        <h2
+          set:html={formTitle[componentProps.lang]}
+          class="text-center text-professional-black-formTitle"
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  #header {
+  }
+</style>

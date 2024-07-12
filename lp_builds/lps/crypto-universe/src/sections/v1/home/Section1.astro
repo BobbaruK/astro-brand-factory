@@ -1,0 +1,36 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const para: TranslationsType = {
+  en: `<strong>${componentProps.brandObj.name}</strong> offers you all the trading knowledge that you need and the last generation tools in order for you to comfortably trade the <strong>cryptocurrency</strong> that is the most suitable for your financial goals`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="py-7">
+  <div class="container grid place-items-center">
+    <p
+      class="text-gold-para-lead2 max-w-[70ch] text-center"
+      set:html={para[componentProps.lang]}
+    />
+  </div>
+</section>

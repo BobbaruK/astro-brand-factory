@@ -1,0 +1,139 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import { s1bullet1, s1bullet2, s1bullet3 } from "../../../constants";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Why Choose ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}?`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `¿Por qué elegir ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}?`,
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: `At ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}, we understand the pulse of your market. You want your investments to move as fast as you do, and we're here to make that happen. Start trading with us, and experience the joy of seeing your profits processed within just 24 hours!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `En ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}, entendemos el pulso de su mercado. Quiere que sus inversiones avancen tan rápido como usted y estamos aquí para lograrlo. ¡Comience a operar con nosotros y experimente la alegría de ver sus ganancias procesadas en solo 24 horas!`,
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  image: string;
+  para: TranslationsType;
+}[] = [
+  {
+    image: s1bullet1("w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40"),
+    para: {
+      en: `<strong>Instant Withdrawal:</strong> Get access to your funds as soon as possible! No waiting, no hassle - just quick, efficient access to your earnings.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `<strong>Retiro instantáneo:</strong> ¡Obtenga acceso a sus fondos lo antes posible! Sin esperas ni complicaciones: solo acceso rápido y eficiente a sus ganancias.`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    image: s1bullet2("w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40"),
+    para: {
+      en: `<strong>Tailored for you:</strong> Whether you're trading from the bustling streets of your city or the serene landscapes of  the countryside, our platform is designed with you in mind.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `<strong>Hecho a medida para usted:</strong> ya sea que esté operando desde las bulliciosas calles de su ciudad o desde los serenos paisajes del campo, nuestra plataforma está diseñada pensando en usted.`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    image: s1bullet3("w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40"),
+    para: {
+      en: `<strong>Friendly Support:</strong> Our enthusiastic team is here to guide you at every step of your trading journey. Questions? We've got answers!`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `<strong>Soporte amigable:</strong> nuestro entusiasta equipo está aquí para guiarlo en cada paso de su viaje comercial. ¿Preguntas? ¡Tenemos respuestas!`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section id="section1" class="section1">
+  <div
+    class="container flex flex-col items-center justify-center gap-4 py-6 text-center md:gap-6 lg:gap-10"
+  >
+    <h2
+      class="text-h2 font-black leading-tight"
+      set:html={title[componentProps.lang]}
+    />
+    <p class="text-s3-paras" set:html={para[componentProps.lang]} />
+    <div
+      class="flex w-full flex-col items-start justify-between gap-12 lg:flex-row lg:gap-4"
+    >
+      {
+        bullets.map((bullet) => (
+          <div class="flex w-full grow flex-col items-center justify-center gap-4">
+            <Fragment set:html={bullet.image} />
+            <p
+              class="text-s3-paras"
+              set:html={bullet.para[componentProps.lang]}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

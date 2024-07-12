@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import appleLaptopImage from "../../../assets/imgs/v1/education-image-header.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Kostnadsfri trading-utbildning online`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `
+    <p class="text-paraLead">Forex är den största och mest likvida marknaden i världen. Den är säkerligen den marknad som kan garantera de högsta vinsterna och det är därför normalt att många nybörjare börjar med den. Vår utbildning låter alla, även de som inte har erfarenhet, starta valutahandeln framgångsrikt.</p>
+    <p class="text-paraLead">De som har inspirationen och lusten att följa vår valuta-utbildning kommer till slut ha möjligheten att upptäcka de allra bästa strategierna och de allra bästa indikatorerna för valutahandel. Att investera på finansmarknaden har aldrig varit enklare.</p>`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section1" class="customBg pb-8 xl:p-0">
+  <div class="container xl:flex xl:gap-8">
+    <div class="xl:flex xl:flex-col xl:justify-center xl:gap-6 xl:py-8">
+      <h1 set:html={title[componentProps.lang]} class="sectionTitle xl:pe-2" />
+      <div
+        set:html={paras[componentProps.lang]}
+        class="flex flex-col gap-4 py-8 xl:p-0"
+      />
+    </div>
+    <div class="grid place-items-center xl:flex xl:items-end xl:pt-8">
+      <Image
+        src={appleLaptopImage}
+        alt="Apple Laptop Diploma"
+        class="w-full max-w-[520px] xl:-mb-6 xl:w-auto xl:max-w-[570px] 2xl:-mb-8 2xl:max-w-[650px]"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, appleLaptopImage.width]}
+        sizes={`
+          (max-width: 320px) 320px,
+          (max-width: 1279px) 520px,
+          (max-width: 1535px) 570px,
+          750px
+        `}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .customBg {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(var(--primary-darken)) 0,
+      hsl(var(--primary-darken)) 10px,
+      transparent 0,
+      transparent 50%
+    );
+    background-size: 46px 46px;
+    background-color: hsl(var(--primary));
+  }
+
+  .sectionTitle {
+    @apply relative bg-white text-heading1 font-bold text-primary;
+
+    @media (max-width: 1279px) {
+      box-shadow: 0 0 0 100vmax hsl(var(--background));
+      clip-path: inset(0 -100vmax);
+    }
+
+    &::before {
+      @media (min-width: 1280px) {
+        content: "";
+        @apply absolute -left-[10000px] h-full w-[10000px] bg-white;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,200 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import heroBackground from "../../assets/imgs/Classic/hero-background.jpg";
+import heroForeground from "../../assets/imgs/Classic/hero-foreground.jpg";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Poszerz swoją wiedzę na temat handlu cfd.",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paraLead: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Załóż konto i otrzymaj darmowe materiały szkoleniowe",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formTitle: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Załóż konto",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formSubTitle: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "i otrzymaj darmowe materiały szkoleniowe",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formDisclaimer: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Handel jest ryzykowny. Możesz stracić zainwestowany kapitał.",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Zarejestruj się",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<header id="header" class="siteHeader relative">
+  <Image
+    src={heroBackground}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, heroBackground.width]}
+    sizes={"100vw"}
+  />
+  <div class="container relative z-20 px-0 text-center sm:flex sm:text-start">
+    <div
+      class="relative flex flex-col justify-center gap-4 px-4 py-4 sm:basis-1/2 [&>.logo]:mb-auto"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        class="text-classic-heading1 uppercase sm:max-w-[23ch]"
+        set:html={title[componentProps.lang]}
+      />
+      <p
+        class="lead mb-auto text-classic-paraLead font-bold uppercase text-primary sm:max-w-[25ch]"
+        set:html={paraLead[componentProps.lang]}
+      />
+      <Image
+        src={heroForeground}
+        alt="Background"
+        class="absolute -right-[0] bottom-0 -z-10 hidden h-full w-[560px] object-cover object-right xl:block"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, heroForeground.width]}
+        sizes={`
+        (max-width: 1279px) 0,
+        560px
+      `}
+      />
+    </div>
+    <div class="relative z-0 sm:basis-1/2">
+      <div class="relative z-10 flex flex-col gap-4 bg-primary p-4 [&>*]:m-0">
+        <h2
+          class="relative text-center text-3xl uppercase"
+          set:html={formTitle[componentProps.lang]}
+        />
+        <p
+          class="relative text-center text-2xl"
+          set:html={formSubTitle[componentProps.lang]}
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+        <p
+          class="relative text-center text-sm text-white"
+          set:html={formDisclaimer[componentProps.lang]}
+        />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  #header.siteHeader {
+  }
+</style>
+
+<style lang="scss" is:global>
+  .registerForm {
+    @apply relative;
+    button {
+      @apply bg-secondary;
+      &:hover {
+        @apply bg-secondary-foreground text-secondary;
+      }
+    }
+  }
+</style>

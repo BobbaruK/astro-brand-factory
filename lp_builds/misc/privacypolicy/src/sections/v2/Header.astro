@@ -1,0 +1,28 @@
+---
+import Logo from "../../../../../globals/components/logos/MainLogo/Logo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgColor = "#000";
+---
+
+<header id="header" class="siteHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <Logo brandObj={componentProps.brandObj} />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style define:vars={{ bgColor }}>
+  #header.siteHeader {
+    background-color: var(--bgColor);
+    color: white;
+  }
+</style>

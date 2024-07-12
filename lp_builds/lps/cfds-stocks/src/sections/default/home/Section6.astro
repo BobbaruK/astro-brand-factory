@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import brandsStrip from "../../../assets/imgs/brands-strip.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+componentProps;
+---
+
+<section id="section6" class="">
+  <Image
+    src={brandsStrip}
+    alt="Background"
+    class="mx-auto h-divider max-w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, brandsStrip.width]}
+    sizes={`
+      (max-width: 320px) 400px
+    `}
+  />
+</section>

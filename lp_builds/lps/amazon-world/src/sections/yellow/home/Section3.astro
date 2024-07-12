@@ -1,0 +1,210 @@
+---
+import { Image } from "astro:assets";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.js";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.js";
+import hand from "../../../assets/imgs/yellow/hand.png";
+import background from "../../../assets/imgs/yellow/s3bg.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Varför investera i Amazon med ${useFxoroBrandOutput(componentProps.brandObj.name)}?`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `6 punkter som gör ${useFxoroBrandOutput(componentProps.brandObj.name)} den perfekta mäklaren att investera i Amazon med.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const list: TranslationsType[] = [
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Diagrammen uppdateras i realtid.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Kostnadsfri registrering.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `24-timmars stöd och support.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Erfaren personlig mentor tilldelat till ditt konto.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Tillgång till enkla och precisa verktyg.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Utbildning för att utveckla teknik att hantera handel med Amazon.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+---
+
+<section id="section3" class="relative py-10">
+  <div class="arrow"></div>
+  <Image
+    src={background}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+  />
+  <div
+    class="container relative z-30 flex flex-col items-center justify-center gap-4 text-center lg:gap-8"
+  >
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p
+      class="max-w-[50ch] text-center text-sm sm:text-lg"
+      set:html={para[componentProps.lang]}
+    />
+    <div class="flex flex-col gap-4 md:flex-row md:items-center">
+      <ol class="shrink text-start lg:columns-2">
+        {
+          list.map((listItem) => (
+            <li
+              set:html={listItem[componentProps.lang]}
+              class="mb-4 flex items-center gap-4"
+            />
+          ))
+        }
+      </ol>
+      <Image
+        src={hand}
+        alt="Background"
+        class="m-auto h-auto w-full max-w-24"
+        widths={[320, hand.width]}
+        sizes={`96px`}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .arrow {
+    @apply absolute left-[50%] top-0 z-20 h-0 w-0 -translate-x-[50%];
+    border-style: solid;
+    border-width: 40px 160px 0 160px;
+    border-color: hsl(var(--foreground)) transparent transparent transparent;
+  }
+  ol {
+    counter-reset: listItem;
+    li::before {
+      counter-increment: listItem;
+      content: counter(listItem);
+      @apply grid min-h-6 min-w-6 place-items-center rounded-full bg-black text-white;
+    }
+  }
+</style>

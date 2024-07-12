@@ -1,0 +1,19 @@
+---
+import Form from "../../../../../../globals/components/Form/";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import { Button } from "@/components/ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+<section id="section1" class="section1">
+  <div class="container">
+    <h2>V1 Layout: section 1</h2>
+    <p>{componentProps.brandObj.name}</p>
+    <Button>Hello World</Button>
+    <Form componentProps={componentProps} button={"testing"} id="form1" />
+  </div>
+</section>

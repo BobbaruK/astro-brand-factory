@@ -1,0 +1,89 @@
+---
+import Footer from "@/sections/Footer.astro";
+import Header from "@/sections/BitcoinGuy/Header.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import "../../globals-BitcoinGuy.scss";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<html
+  lang={componentProps.lang}
+  dir={componentProps.dir}
+  data-brandname={componentProps.brandObj.name}
+  data-lptype={componentProps.lpType}
+  data-formvalidation={componentProps.formValidation}
+  data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
+  data-typage={componentProps.brandObj.typage[componentProps.lang]}
+  data-openwa={componentProps.brandObj.whatsapp && "true"}
+  data-wanumber={componentProps.brandObj.whatsapp
+    ? componentProps.brandObj.whatsappNumber[componentProps.lang]
+    : false}
+>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={componentProps.brandObj.images.faviconLink}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>BitcoinBubble | {componentProps.brandObj.name}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      @font-face {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Raleway";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/raleway/v29/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrE.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Raleway";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/raleway/v29/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtapbCIPrE.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="siteWrapper">
+      <Header componentProps={componentProps} />
+      <main>
+        <slot />
+      </main>
+      <Footer componentProps={componentProps} />
+    </div>
+    <script
+      type="module"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?v1"
+    ></script>
+  </body>
+</html>

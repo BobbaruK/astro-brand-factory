@@ -1,0 +1,257 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide color palette.
+// -----------------------------------------------------------------------------
+
+$degree: 15;
+
+// #273773
+$main_blue-h: 227.37; // Hue
+$main_blue-s: 49.35%; // Saturation
+$main_blue-l: 30.2%; // Lightness
+
+// #ffb10a
+$main_yellow-h: 40.9; // Hue
+$main_yellow-s: 100%; // Saturation
+$main_yellow-l: 51.96%; // Lightness
+
+// #1b75ba
+$accent_blue-h: 206.04; // Hue
+$accent_blue-s: 74.65%; // Saturation
+$accent_blue-l: 41.76%; // Lightness
+
+// #ef5a28
+$accent_orange-h: 15.08; // Hue
+$accent_orange-s: 86.15%; // Saturation
+$accent_orange-l: 54.71%; // Lightness
+
+// #010514
+$text_color-h: 227.37; // Hue
+$text_color-s: 90.48%; // Saturation
+$text_color-l: 4.12%; // Lightness
+
+// #F93154 - Danger
+$danger-h: 350; // Hue
+$danger-s: 94%; // Saturation
+$danger-l: 58%; // Lightness
+
+// #FFCC00 - Warning
+$warning-h: 48; // Hue
+$warning-s: 100%; // Saturation
+$warning-l: 50%; // Lightness
+
+// #00B74A - Success
+$success-h: 144; // Hue
+$success-s: 100%; // Saturation
+$success-l: 36%; // Lightness
+
+// #39C0ED - Info
+$info-h: 195; // Hue
+$info-s: 83%; // Saturation
+$info-l: 58%; // Lightness
+
+$brandColors: (
+  "wtb": (
+    "white": hsl(0, 0%, 100%),
+    "gray-100": hsl(0, 0%, 90%),
+    "gray-200": hsl(0, 0%, 80%),
+    "gray-300": hsl(0, 0%, 70%),
+    "gray-400": hsl(0, 0%, 60%),
+    "gray-500": hsl(0, 0%, 50%),
+    "gray-600": hsl(0, 0%, 40%),
+    "gray-700": hsl(0, 0%, 30%),
+    "gray-800": hsl(0, 0%, 20%),
+    "gray-900": hsl(0, 0%, 10%),
+    "black": hsl(0, 0%, 0%),
+  ),
+
+  // main blue
+  "mainBlue":
+    (
+      "main_blue": hsl($main_blue-h, $main_blue-s, $main_blue-l),
+      "main_blue-hue": $main_blue-h,
+      "main_blue-saturation": $main_blue-s,
+      "main_blue-lightness": $main_blue-l,
+    ),
+  "mainBlue_monocromatic": (
+    "main_blue-100": hsl($main_blue-h, $main_blue-s, 90%),
+    "main_blue-200": hsl($main_blue-h, $main_blue-s, 80%),
+    "main_blue-300": hsl($main_blue-h, $main_blue-s, 70%),
+    "main_blue-400": hsl($main_blue-h, $main_blue-s, 60%),
+    "main_blue-500": hsl($main_blue-h, $main_blue-s, 50%),
+    "main_blue-600": hsl($main_blue-h, $main_blue-s, 40%),
+    "main_blue-700": hsl($main_blue-h, $main_blue-s, 30%),
+    "main_blue-800": hsl($main_blue-h, $main_blue-s, 20%),
+    "main_blue-900": hsl($main_blue-h, $main_blue-s, 10%),
+  ),
+  "mainBlue_lighten": (
+    "main_blue-light": hsl($main_blue-h, $main_blue-s, $main_blue-l + 15%),
+  ),
+  "mainBlue_darken": (
+    "main_blue-dark": hsl($main_blue-h, $main_blue-s, $main_blue-l - 15%),
+  ),
+  "mainBlue_complement": (
+    "main_blue-complement": hsl($main_blue-h + 180, $main_blue-s, $main_blue-l),
+  ),
+  "mainBlue_triad": (
+    "main_blue-triada-1": hsl($main_blue-h + 120, $main_blue-s, $main_blue-l),
+    "main_blue-triada-2": hsl($main_blue-h + 240, $main_blue-s, $main_blue-l),
+  ),
+  "mainBlue_analogus": (
+    "main_blue-analogous-1": hsl($main_blue-h + $degree, $main_blue-s, $main_blue-l),
+    "main_blue-analogous-2": hsl($main_blue-h - $degree, $main_blue-s, $main_blue-l),
+  ),
+
+  // main yellow
+  "mainYellow":
+    (
+      "main_yellow": hsl($main_yellow-h, $main_yellow-s, $main_yellow-l),
+      "main_yellow-hue": $main_yellow-h,
+      "main_yellow-saturation": $main_yellow-s,
+      "main_yellow-lightness": $main_yellow-l,
+    ),
+  "mainYellow_monocromatic": (
+    "main_yellow-100": hsl($main_yellow-h, $main_yellow-s, 90%),
+    "main_yellow-200": hsl($main_yellow-h, $main_yellow-s, 80%),
+    "main_yellow-300": hsl($main_yellow-h, $main_yellow-s, 70%),
+    "main_yellow-400": hsl($main_yellow-h, $main_yellow-s, 60%),
+    "main_yellow-500": hsl($main_yellow-h, $main_yellow-s, 50%),
+    "main_yellow-600": hsl($main_yellow-h, $main_yellow-s, 40%),
+    "main_yellow-700": hsl($main_yellow-h, $main_yellow-s, 30%),
+    "main_yellow-800": hsl($main_yellow-h, $main_yellow-s, 20%),
+    "main_yellow-900": hsl($main_yellow-h, $main_yellow-s, 10%),
+  ),
+  "mainYellow_lighten": (
+    "main_yellow-light": hsl($main_yellow-h, $main_yellow-s, $main_yellow-l + 15%),
+  ),
+  "mainYellow_darken": (
+    "main_yellow-dark": hsl($main_yellow-h, $main_yellow-s, $main_yellow-l - 15%),
+  ),
+  "mainYellow_complement": (
+    "main_yellow-complement": hsl($main_yellow-h + 180, $main_yellow-s, $main_yellow-l),
+  ),
+  "mainYellow_triad": (
+    "main_yellow-triada-1": hsl($main_yellow-h + 120, $main_yellow-s, $main_yellow-l),
+    "main_yellow-triada-2": hsl($main_yellow-h + 240, $main_yellow-s, $main_yellow-l),
+  ),
+  "mainYellow_analogus": (
+    "main_yellow-analogous-1": hsl($main_yellow-h + $degree, $main_yellow-s, $main_yellow-l),
+    "main_yellow-analogous-2": hsl($main_yellow-h - $degree, $main_yellow-s, $main_yellow-l),
+  ),
+
+  // accent blue
+  "accentBlue":
+    (
+      "accent_blue": hsl($accent_blue-h, $accent_blue-s, $accent_blue-l),
+      "accent_blue-hue": $accent_blue-h,
+      "accent_blue-saturation": $accent_blue-s,
+      "accent_blue-lightness": $accent_blue-l,
+    ),
+  "accentBlue_monocromatic": (
+    "accent_blue-100": hsl($accent_blue-h, $accent_blue-s, 90%),
+    "accent_blue-200": hsl($accent_blue-h, $accent_blue-s, 80%),
+    "accent_blue-300": hsl($accent_blue-h, $accent_blue-s, 70%),
+    "accent_blue-400": hsl($accent_blue-h, $accent_blue-s, 60%),
+    "accent_blue-500": hsl($accent_blue-h, $accent_blue-s, 50%),
+    "accent_blue-600": hsl($accent_blue-h, $accent_blue-s, 40%),
+    "accent_blue-700": hsl($accent_blue-h, $accent_blue-s, 30%),
+    "accent_blue-800": hsl($accent_blue-h, $accent_blue-s, 20%),
+    "accent_blue-900": hsl($accent_blue-h, $accent_blue-s, 10%),
+  ),
+  "accentBlue_lighten": (
+    "accent_blue-light": hsl($accent_blue-h, $accent_blue-s, $accent_blue-l + 15%),
+  ),
+  "accentBlue_darken": (
+    "accent_blue-dark": hsl($accent_blue-h, $accent_blue-s, $accent_blue-l - 15%),
+  ),
+  // "accentBlue_complement": (
+  //   "accent_blue-complement": hsl($accent_blue-h + 180, $accent_blue-s, $accent_blue-l),
+  // ),
+  // "accentBlue_triad": (
+  //   "accent_blue-triada-1": hsl($accent_blue-h + 120, $accent_blue-s, $accent_blue-l),
+  //   "accent_blue-triada-2": hsl($accent_blue-h + 240, $accent_blue-s, $accent_blue-l),
+  // ),
+  // "accentBlue_analogus": (
+  //   "accent_blue-analogous-1": hsl($accent_blue-h + $degree, $accent_blue-s, $accent_blue-l),
+  //   "accent_blue-analogous-2": hsl($accent_blue-h - $degree, $accent_blue-s, $accent_blue-l),
+  // ),
+  // accent orange
+  "accentOrange":
+    (
+      "accent_orange": hsl($accent_orange-h, $accent_orange-s, $accent_orange-l),
+      "accent_orange-hue": $accent_orange-h,
+      "accent_orange-saturation": $accent_orange-s,
+      "accent_orange-lightness": $accent_orange-l,
+    ),
+  "accentOrange_monocromatic": (
+    "accent_orange-100": hsl($accent_orange-h, $accent_orange-s, 90%),
+    "accent_orange-200": hsl($accent_orange-h, $accent_orange-s, 80%),
+    "accent_orange-300": hsl($accent_orange-h, $accent_orange-s, 70%),
+    "accent_orange-400": hsl($accent_orange-h, $accent_orange-s, 60%),
+    "accent_orange-500": hsl($accent_orange-h, $accent_orange-s, 50%),
+    "accent_orange-600": hsl($accent_orange-h, $accent_orange-s, 40%),
+    "accent_orange-700": hsl($accent_orange-h, $accent_orange-s, 30%),
+    "accent_orange-800": hsl($accent_orange-h, $accent_orange-s, 20%),
+    "accent_orange-900": hsl($accent_orange-h, $accent_orange-s, 10%),
+  ),
+  "accentOrange_lighten": (
+    "accent_orange-light": hsl($accent_orange-h, $accent_orange-s, $accent_orange-l + 15%),
+  ),
+  "accentOrange_darken": (
+    "accent_orange-dark": hsl($accent_orange-h, $accent_orange-s, $accent_orange-l - 15%),
+  ),
+  // "accentOrange_complement": (
+  //   "accent_orange-complement": hsl($accent_orange-h + 180, $accent_orange-s, $accent_orange-l),
+  // ),
+  // "accentOrange_triad": (
+  //   "accent_orange-triada-1": hsl($accent_orange-h + 120, $accent_orange-s, $accent_orange-l),
+  //   "accent_orange-triada-2": hsl($accent_orange-h + 240, $accent_orange-s, $accent_orange-l),
+  // ),
+  // "accentOrange_analogus": (
+  //   "accent_orange-analogous-1": hsl($accent_orange-h + $degree, $accent_orange-s, $accent_orange-l),
+  //   "accent_orange-analogous-2": hsl($accent_orange-h - $degree, $accent_orange-s, $accent_orange-l),
+  // ),
+  // text color
+  "textColor":
+    (
+      "text_color": hsl($text_color-h, $text_color-s, $text_color-l),
+      "text_color-hue": $text_color-h,
+      "text_color-saturation": $text_color-s,
+      "text_color-lightness": $text_color-l,
+    ),
+  "textColor_monocromatic": (
+    "text_color-100": hsl($text_color-h, $text_color-s, 90%),
+    "text_color-200": hsl($text_color-h, $text_color-s, 80%),
+    "text_color-300": hsl($text_color-h, $text_color-s, 70%),
+    "text_color-400": hsl($text_color-h, $text_color-s, 60%),
+    "text_color-500": hsl($text_color-h, $text_color-s, 50%),
+    "text_color-600": hsl($text_color-h, $text_color-s, 40%),
+    "text_color-700": hsl($text_color-h, $text_color-s, 30%),
+    "text_color-800": hsl($text_color-h, $text_color-s, 20%),
+    "text_color-900": hsl($text_color-h, $text_color-s, 10%),
+  ),
+  "textColor_lighten": (
+    "text_color-light": hsl($text_color-h, $text_color-s, $text_color-l + 15%),
+  ),
+  "textColor_darken": (
+    "text_color-dark": hsl($text_color-h, $text_color-s, $text_color-l - 15%),
+  ),
+  // "textColor_complement": (
+  //   "text_color-complement": hsl($text_color-h + 180, $text_color-s, $text_color-l),
+  // ),
+  // "textColor_triad": (
+  //   "text_color-triada-1": hsl($text_color-h + 120, $text_color-s, $text_color-l),
+  //   "text_color-triada-2": hsl($text_color-h + 240, $text_color-s, $text_color-l),
+  // ),
+  // "textColor_analogus": (
+  //   "text_color-analogous-1": hsl($text_color-h + $degree, $text_color-s, $text_color-l),
+  //   "text_color-analogous-2": hsl($text_color-h - $degree, $text_color-s, $text_color-l),
+  // ),
+  // alerts
+  "alerts":
+    (
+      "danger": hsl($danger-h, $danger-s, $danger-l),
+      "warning": hsl($warning-h, $warning-s, $warning-l),
+      "success": hsl($success-h, $success-s, $success-l),
+      "info": hsl($info-h, $info-s, $info-l),
+    ),
+);

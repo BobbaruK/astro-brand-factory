@@ -1,0 +1,302 @@
+---
+import Form from "../../../../../../globals/components/Form/";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const formTitle: TranslationsType = {
+  en: "Receive free trading signals",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: "Register",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const list: {
+  percent: number;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    percent: 100,
+    title: {
+      en: "Reliability",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "Receive trading signals prepared for you by professional analysts.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    percent: 92,
+    title: {
+      en: "Accuracy",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: `You can count on ${useFxoroBrandOutput(componentProps.brandObj.name)} signals - a daily accuracy of 92%`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    percent: 100,
+    title: {
+      en: "Free",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: `FREE access to real-time trading signals`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section class="my-6 border-stone-500 lg:mt-24 lg:border-t-8">
+  <div class="container flex flex-col gap-4 lg:flex-row">
+    <div class="order-1 lg:order-2 lg:w-[50%] lg:min-w-[50%]">
+      <div
+        class="rounded-md border bg-background p-6 pt-0 shadow-xl lg:relative lg:z-20 lg:-mt-20"
+      >
+        <h2
+          class="mb-4 rounded-b-md bg-gradient-to-t from-stone-300 p-1 py-2 text-center text-heading2 md:py-4"
+          set:html={formTitle[componentProps.lang]}
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+    <div
+      class="order-2 flex grow items-center justify-center lg:order-1 lg:justify-start"
+    >
+      <ul class="flex flex-col gap-4 text-center lg:items-start lg:text-start">
+        {
+          list.map((li) => (
+            <li class="flex flex-col items-center justify-center gap-4 lg:flex-row">
+              <div class="grid h-28 w-28 place-items-center rounded-full border p-1 shadow-md lg:w-28 lg:min-w-28">
+                <div
+                  class="grid h-full w-full place-items-center rounded-full border bg-primary text-3xl font-bold text-background shadow-inner shadow-white"
+                  set:html={`${li.percent}%`}
+                />
+              </div>
+              <div>
+                <h3
+                  class="text-heading3 uppercase text-secondary"
+                  set:html={li.title[componentProps.lang]}
+                />
+                <p set:html={li.para[componentProps.lang]} />
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  form.registerForm {
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply h-12 bg-stone-100 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex h-12 gap-4 bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground md:text-2xl;
+      }
+    }
+  }
+</style>

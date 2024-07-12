@@ -1,0 +1,190 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { Bullets } from "../../types/bullets";
+import icon5 from "../../assets/icon5.svg";
+import icon6 from "../../assets/icon6.svg";
+import icon7 from "../../assets/icon7.svg";
+import icon8 from "../../assets/icon8.svg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bullets: Bullets[] = [
+  {
+    icon: icon5,
+    title: {
+      en: `Global trade dynamics`,
+      it: `Dinamiche del commercio globale`,
+      tr: ``,
+      ro: `Dinamica Tranzacționării Globală`,
+      ar: ``,
+      de: ``,
+      es: `Dinámica del comercio mundial`,
+      sv: `Dynamik i den globala handeln`,
+      pt: ``,
+      fi: ``,
+      pl: `Global Trade Dynamics`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Watching the impact of international trade renegotiations on markets.`,
+      it: `osservare l’impatto delle rinegoziazioni del commercio internazionale sui mercati.`,
+      tr: ``,
+      ro: `Urmărirea impactului renegocierilor comerciale internaționale asupra piețelor.`,
+      ar: ``,
+      de: ``,
+      es: `Observar el impacto de las renegociaciones comerciales internacionales en los mercados.`,
+      sv: `Se hur omförhandlingar av internationella handelsavtal påverkar marknaderna.`,
+      pt: ``,
+      fi: ``,
+      pl: `Obserwowanie wpływu renegocjacji handlu międzynarodowego na rynki.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon6,
+    title: {
+      en: `Political influences on markets`,
+      it: `Influenze politiche sui mercati`,
+      tr: ``,
+      ro: `Influențe Politice asupra Piețelor`,
+      ar: ``,
+      de: ``,
+      es: `Influencias políticas en los mercados`,
+      sv: `Politiska influenser på marknaderna`,
+      pt: ``,
+      fi: ``,
+      pl: `Wpływy polityczne na rynki`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Monitoring how political events may affect market trends.`,
+      it: `monitoraggio di come gli eventi politici possono influenzare le tendenze del mercato.`,
+      tr: ``,
+      ro: `Monitorizarea modului în care evenimentele politice pot afecta tendințele pieței.`,
+      ar: ``,
+      de: ``,
+      es: `Seguimiento de cómo los acontecimientos políticos pueden afectar a las tendencias de los mercados.`,
+      sv: `Övervakning av hur politiska händelser kan påverka marknadstrender.`,
+      pt: ``,
+      fi: ``,
+      pl: `monitorowanie wpływu wydarzeń politycznych na trendy rynkowe.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon7,
+    title: {
+      en: `Economic developments in asia`,
+      it: `Sviluppi economici in Asia`,
+      tr: ``,
+      ro: `Evoluții Economice în Asia`,
+      ar: ``,
+      de: ``,
+      es: `Evolución económica en Asia`,
+      sv: `Ekonomisk utveckling i Asien`,
+      pt: ``,
+      fi: ``,
+      pl: `Rozwój gospodarczy w Azji`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Keeping an eye on Japan’s economic policies and their market implications.`,
+      it: `tenere d'occhio le politiche economiche del Giappone e le loro implicazioni sul mercato.`,
+      tr: ``,
+      ro: `Urmărirea politicilor economice ale Japoniei și a implicațiilor acestora pe piață.`,
+      ar: ``,
+      de: ``,
+      es: `Seguimiento de las políticas económicas de Japón y sus implicaciones en el mercado. `,
+      sv: `Att hålla ett öga på Japans ekonomiska politik och dess marknadskonsekvenser.`,
+      pt: ``,
+      fi: ``,
+      pl: `śledzenie polityki gospodarczej Japonii i jej konsekwencji dla rynku.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon8,
+    title: {
+      en: `Shifts in luxury goods market`,
+      it: `Cambiamenti nel mercato dei beni di lusso`,
+      tr: ``,
+      ro: `Schimbări pe piața bunurilor de lux`,
+      ar: ``,
+      de: ``,
+      es: `Cambios en el mercado de artículos de lujo`,
+      sv: `Förändringar på marknaden för lyxvaror`,
+      pt: ``,
+      fi: ``,
+      pl: `Zmiany na rynku dóbr luksusowych`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Observing the potential impacts of new lax laws in Europe.`,
+      it: `osservazione dei potenziali impatti delle nuove leggi fiscali in Europa.`,
+      tr: ``,
+      ro: `Observarea impactului potențial al noilor legi fiscale în Europa.`,
+      ar: ``,
+      de: ``,
+      es: `Observar las posibles repercusiones de las nuevas leyes fiscales en Europa. `,
+      sv: `Bevakning av potentiella effekter av nya skattelagar i Europa.`,
+      pt: ``,
+      fi: ``,
+      pl: `obserwacja potencjalnych skutków nowych przepisów podatkowych w Europie.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section id="section3" class="section3">
+  <div class="container-fluid">
+    <div class="row">
+      {
+        bullets.map((bullet) => (
+          <div class="col-12 col-sm-6 col-lg-3 iconBullet">
+            <img src={bullet.icon?.src} alt={bullet.title[componentProps.lang]} width="230" height="230" />
+            <h3 set:html={bullet.title[componentProps.lang]} class="black" />
+            <p set:html={bullet.para[componentProps.lang]} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @use "../../scss-lp/abstracts/mixins" as mxns;
+
+  section#section3.section3 {
+    // background-color: var(--clr-main_blue);
+    // color: var(--clr-white);
+    padding-bottom: 0;
+  }
+</style>

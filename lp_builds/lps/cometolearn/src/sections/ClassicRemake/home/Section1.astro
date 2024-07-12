@@ -1,0 +1,232 @@
+---
+import { Image } from "astro:assets";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import useTextVersion from "../../../../../../globals/composables/useTextVersion";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type {
+  TextVersionTranslation,
+  TranslationsType,
+} from "../../../../../../globals/types/Translations";
+import icon1 from "../../../assets/imgs/ClassicRemake/icon1.png";
+import icon2 from "../../../assets/imgs/ClassicRemake/icon2.png";
+import icon3 from "../../../assets/imgs/ClassicRemake/icon3.png";
+import section1BG from "../../../assets/imgs/ClassicRemake/section1-BG-desktop.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const titleVs: TextVersionTranslation = {
+  v1: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Zacznij mądrze z 3 krokami`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  v2: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Zainteresowany zarabianiem poprzez inwestycje? sprawdź co oferuje ${useFxoroBrandOutput(componentProps.brandObj.name)}:`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+const title = useTextVersion(
+  titleVs,
+  componentProps.textVersion,
+) as TranslationsType;
+
+interface Bullet {
+  title: TextVersionTranslation;
+  image: ImageMetadata;
+}
+
+const bullets: Bullet[] = [
+  {
+    title: {
+      v1: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: `Wypełnij formularz na tej stronie.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      v2: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: `Materiały szkoleniowe`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    image: icon1,
+  },
+  {
+    title: {
+      v1: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: `Skontaktujemy Cię z jednym z naszych partnerów brokerskich działających zgodnie z regulacja`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      v2: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: `Sesje szkoleniowe`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    image: icon2,
+  },
+  {
+    title: {
+      v1: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: `Otrzymaj bezpłatny kurs edukacyjny, aby nauczyć się handlować.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      v2: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: `Tutorial wideo`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    image: icon3,
+  },
+];
+---
+
+<section
+  id="section1"
+  class="section1 lg:pb-26 relative mb-8 py-4 sm:pb-16 sm:pt-8 md:pb-28 lg:pt-12 xl:pt-20"
+>
+  <Image
+    src={section1BG}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 hidden h-full w-full sm:block"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, section1BG.width]}
+    sizes={"100vw"}
+  />
+  <div class="relative z-10">
+    <div class="container grid place-items-center pb-4 sm:pb-8 lg:pb-12">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="max-w-[50ch] text-center text-3xl font-bold uppercase text-primary"
+      />
+    </div>
+    <div class="container flex flex-col gap-8 md:flex-row">
+      {
+        bullets.map((bullet) => (
+          <div class="flex flex-col items-center justify-start gap-4 md:basis-1/3">
+            <Image
+              src={bullet.image}
+              alt="Background"
+              class=""
+              widths={[150, bullet.image.width]}
+              sizes={"150px"}
+            />
+            <h3
+              set:html={() => {
+                const bulletTitle = useTextVersion(
+                  bullet.title,
+                  componentProps.textVersion,
+                ) as TranslationsType;
+
+                return bulletTitle[componentProps.lang];
+              }}
+              class="max-w-[26ch] text-center font-bold italic"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

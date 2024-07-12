@@ -1,0 +1,217 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/Form";
+import { useReturnSVG } from "../../../../../globals/composables/useReturnSVG";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import topBg from "../../assets/imgs/v1/top-bg.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const svgLogo = useReturnSVG(componentProps, "default");
+
+const title: { main: TranslationsType; span: TranslationsType } = {
+  main: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Poszerz swoją wiedzę na temat kontraktów CFD.`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  span: {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: `Zdobądź nasz bezpłatny zestaw edukacyjny`,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+};
+
+const formBtn: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: `Dowiedz się więcej`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<header id="header" class="siteHeader">
+  <div class="top py-5">
+    <div class="container text-white [&>svg]:max-w-full">
+      <Fragment set:html={svgLogo} />
+    </div>
+  </div>
+  <div class="content relative">
+    <Image
+      src={topBg}
+      alt="Graph presentation"
+      class="absolute top-0 left-0 z-0 w-full object-cover object-left lg:object-center xl:object-top h-headerContentSection lg:h-full"
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, topBg.width]}
+      sizes={`
+        (max-width: 320px) 320px,
+        (max-width: 639px) 640px,
+        (max-width: 767px) 768px,
+        (max-width: 1023px) 1024px,
+        (max-width: 1279px) 1280px,
+        (max-width: 1535px) 1536px,
+        100vw
+      `}
+      loading={"eager"}
+    />
+    <div class="py-5 sm:py-8 md:py-9 lg:py-10 h-headerContentSection relative z-10 text-white">
+      <div class="container h-full flex md:items-center">
+        <h1 class="text-heading1 font-bold">
+          {title.main[componentProps.lang]}
+          <span class="text-heading1-span block px-1 max-w-[21ch] leading-tight" set:html={title.span[componentProps.lang]} />
+        </h1>
+      </div>
+    </div>
+    <div class="formWrapper relative z-10 py-5 lg:bg-black/50 text-white">
+      <div class="container">
+        <Form componentProps={componentProps} button={formBtn[componentProps.lang]} id="form1" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss" is:global>
+  #header.siteHeader {
+    .top {
+      background: repeating-linear-gradient(-45deg, black, black 1px, hsl(0, 0%, 10%) 2px, hsl(0, 0%, 10%) 4px);
+    }
+    h1 {
+      span {
+        background: repeating-linear-gradient(-48deg, hsl(42, 100%, 40%), hsl(42, 100%, 40%) 1px, hsl(var(--primary)) 2px, hsl(var(--primary)) 6px);
+      }
+    }
+  }
+  .formWrapper {
+    @media (max-width: 1023px) {
+      background: repeating-linear-gradient(-45deg, black, black 1px, hsl(0, 0%, 10%) 2px, hsl(0, 0%, 10%) 4px);
+    }
+  }
+
+  form.registerForm {
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply text-black  h-12;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply h-12 flex gap-4 uppercase bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground;
+      }
+    }
+  }
+</style>

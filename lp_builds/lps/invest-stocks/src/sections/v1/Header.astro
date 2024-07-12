@@ -1,0 +1,23 @@
+---
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgColor = "#000";
+---
+
+<header class="bg-primary py-4 text-white">
+  <div class="container [&>svg]:max-w-full">
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
+  </div>
+</header>
+
+<style define:vars={{ bgColor }}></style>

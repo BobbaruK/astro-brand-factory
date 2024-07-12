@@ -1,0 +1,30 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+
+import MasterCard from "../../../../../../globals/components/logos/misc/MasterCard/MasterCard.astro";
+import Neteller from "../../../../../../globals/components/logos/misc/Neteller/Neteller.astro";
+import PostePay from "../../../../../../globals/components/logos/misc/PostePay/PostePay.astro";
+import Skrill from "../../../../../../globals/components/logos/misc/Skrill/Skrill.astro";
+import SSLSecured from "../../../../../../globals/components/logos/misc/SSLSecured/SSLSecured.astro";
+import Visa from "../../../../../../globals/components/logos/misc/Visa/Visa.astro";
+import Webmoney from "../../../../../../globals/components/logos/misc/Webmoney/Webmoney.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+componentProps;
+---
+
+<section id="section2" class="section1 py-9">
+  <div class="container flex flex-wrap items-center justify-around gap-4">
+    <SSLSecured class="h-auto w-full max-w-[70px]" />
+    <Skrill class="h-auto w-full max-w-[70px]" />
+    <PostePay class="h-auto w-full max-w-[70px]" />
+    <Visa class="h-auto w-full max-w-[70px]" />
+    <MasterCard class="h-auto w-full max-w-[70px]" />
+    <Neteller class="h-auto w-full max-w-[70px]" />
+    <!-- <BankTransfer class="max-w-[70px] w-full h-auto" /> -->
+    <Webmoney class="h-auto w-full max-w-[70px]" />
+  </div>
+</section>

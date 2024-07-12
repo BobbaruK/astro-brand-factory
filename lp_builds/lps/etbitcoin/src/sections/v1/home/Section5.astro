@@ -1,0 +1,92 @@
+---
+import { Button } from "@/components/ui/button";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Interessato?",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Intresserad?",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "Unisciti a una comunità di trader provenienti da tutto il mondo.",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Gå med i en grupp av handlare från hela världen",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const buttonLabel: TranslationsType = {
+  en: "",
+  it: "Registrati adesso",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Registrera dig nu!",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section5" class="py-5 md:py-6 lg:py-8 xl:py-9 2xl:py-20">
+  <div
+    class="container flex flex-col items-center justify-center gap-6 lg:text-center"
+  >
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p set:html={para[componentProps.lang]} />
+    <Button
+      id="s5-scrollto-form"
+      variant={"default"}
+      className="font-bold"
+      set:html={buttonLabel[componentProps.lang]}
+    />
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector("form") as HTMLFormElement;
+  const button = document.getElementById(
+    "s5-scrollto-form",
+  ) as HTMLButtonElement;
+
+  button.addEventListener("click", () => {
+    form.scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+</script>

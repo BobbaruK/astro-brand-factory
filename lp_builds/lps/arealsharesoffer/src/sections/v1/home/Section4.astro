@@ -1,0 +1,66 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Start trading shares`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const btnDisclaimer: TranslationsType = {
+  en: `Trading is risky.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="relative py-4 md:py-9 lg:py-10 xl:py-12">
+  <div class="container grid place-items-center gap-1">
+    <a
+      href="#header"
+      class={cn(
+        buttonVariants({ variant: "secondary" }),
+        "font-bold",
+        "text-2xl",
+        "h-auto",
+      )}
+      set:html={buttonLabel[componentProps.lang]}
+    />
+    <p
+      class="max-w-[30ch] text-center text-xs"
+      set:html={btnDisclaimer[componentProps.lang]}
+    />
+  </div>
+</section>

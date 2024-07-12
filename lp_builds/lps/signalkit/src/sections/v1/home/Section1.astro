@@ -1,0 +1,219 @@
+---
+import SVGMask from "../../../../../../globals/components/SVGMask";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import {
+  bullet1,
+  bullet2,
+  bullet3,
+  bullet4,
+} from "../../../assets/imgs/v1/bullets";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Maximize your trading portfolio's potential with`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  icon: string;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: bullet1,
+    title: {
+      en: `Webinar`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Discover the newest forex trends and learn the language of the market.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: bullet2,
+    title: {
+      en: `1 on 1 Personal Training`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Get personal training & mentoring with our top analysts.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: bullet3,
+    title: {
+      en: `Live Support`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Given by specialized advisors in the teaching of financial trading.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: bullet4,
+    title: {
+      en: `MT4`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `An intuitive platform used on a daily basis by hundreds of traders worldwide, from novices to experts.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section class="p-4 text-primary sm:p-7 md:p-9 lg:p-10 xl:p-12">
+  <div class="container flex flex-col gap-6 lg:gap-10 xl:gap-16">
+    <h3
+      class="text-v1-heading3 font-extrabold uppercase"
+      set:html={title[componentProps.lang]}
+    />
+    <div
+      class="flex flex-col items-start justify-around gap-4 sm:flex-row sm:flex-wrap sm:gap-6"
+    >
+      {
+        bullets.map((bullet) => (
+          <div class="flex w-full max-w-[26ch] flex-col gap-4">
+            <div class="text-[60px]">
+              <SVGMask url={bullet.icon} />
+            </div>
+            <h4
+              class="text-[20px] font-medium"
+              set:html={bullet.title[componentProps.lang]}
+            />
+            <p
+              class="text-gray-700"
+              set:html={bullet.para[componentProps.lang]}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

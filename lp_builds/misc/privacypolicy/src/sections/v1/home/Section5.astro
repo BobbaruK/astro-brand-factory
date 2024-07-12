@@ -1,0 +1,72 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { InfoSection } from "../../../types/InfoSection";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection5: InfoSection = {
+  title: {
+    en: "Do we disclose any information to outside parties?",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: "Important to state that this website and any information contained herein is not intended nor addressed to anyone below the age of 18.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section5" class="py-4">
+  <div class="container">
+    <h2 class="font-bold mb-4" set:html={infoSection5.title[componentProps.lang]} />
+    {infoSection5.paras?.map((para) => <p set:html={para[componentProps.lang]} class="mb-2" />)}
+  </div>
+</section>

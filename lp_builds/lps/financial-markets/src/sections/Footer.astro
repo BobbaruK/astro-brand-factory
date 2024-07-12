@@ -1,0 +1,63 @@
+---
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+
+// import FooterContent from "../../../../globals/components/Footer/FooterContent.astro";
+
+import BrandFooter from "../../../../globals/components/Footer/BrandFooter.astro";
+import FxoroFooter from "../../../../globals/components/Footer/FxoroFooter.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+{
+  componentProps.fxoroFooter ? (
+    <FxoroFooter componentProps={componentProps} />
+  ) : (
+    <BrandFooter componentProps={componentProps} />
+  )
+}
+
+<style lang="scss" is:global>
+  .brandFooter {
+    @apply bg-stone-700 py-8 text-gray-100;
+
+    .container {
+      @apply flex flex-col gap-8;
+    }
+
+    .logoWrapper {
+      @apply grid place-items-center;
+    }
+  }
+
+  #globalFooter {
+    > .modal {
+      display: none !important;
+    }
+    .dfSomething {
+      // @apply mt-4;
+    }
+    .theApps {
+      @apply py-4;
+    }
+
+    #footer {
+      > .container > div:nth-child(2) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .disclaimer_footer {
+        @apply z-30;
+      }
+    }
+  }
+</style>

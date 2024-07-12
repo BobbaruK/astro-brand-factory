@@ -1,0 +1,144 @@
+---
+import ButtonDisclaimer from "@/components/ButtonDisclaimer.astro";
+import { Image } from "astro:assets";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import bgCandles from "../../assets/imgs/Gold/topBG-desktop-candles.png";
+import bg from "../../assets/imgs/Gold/topBG-desktop-gold.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgCandlesVar = `url("${bgCandles.src}")`;
+
+const title: TranslationsType = {
+  en: `Whatever your trading profile is, this could be your <span class="text-primary">golden moment</span>`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `In uncertain times like these, <span class="text-primary">gold represents a good investment for any trading typology</span>. Discover all the opportunities connected to it`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Register Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<header class="relative">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
+  />
+  <div class="absolute inset-0 z-10 bg-stone-800/90 xl:hidden"></div>
+  <div class="container relative z-20 text-white">
+    <div class="py-4 sm:py-5 md:py-8 lg:py-9 xl:py-11 [&>svg]:max-w-full">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="pb-7 sm:pb-10 md:pb-11 lg:pb-14 xl:pb-16">
+      <div
+        class="grid place-items-center gap-8 text-center leading-tight lg:gap-14"
+      >
+        <h1
+          class="max-w-[35ch] text-gold-heading1 font-bold"
+          set:html={title[componentProps.lang]}
+        />
+        <p
+          class="max-w-[40ch] text-gold-para-lead"
+          set:html={para[componentProps.lang]}
+        />
+        <ButtonDisclaimer
+          buttonLabel={buttonLabel[componentProps.lang]}
+          lang={componentProps.lang}
+          whatsapp={componentProps.brandObj.whatsapp}
+        />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss" define:vars={{ bgCandlesVar }}>
+  .container {
+    &::before,
+    &::after {
+      content: "";
+    }
+
+    &::before {
+      background: linear-gradient(
+        90deg,
+        #343434 0,
+        #343434 95%,
+        rgba(52, 52, 52, 0.9) 98%,
+        rgba(52, 52, 52, 0)
+      );
+      @apply absolute right-0 -z-10 hidden h-full w-[10000px] xl:block;
+    }
+    &::after {
+      background-image: var(--bgCandlesVar);
+      background-position: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      @apply absolute bottom-0 right-[500px] top-0 -z-[9] hidden h-full w-[1000px] xl:block;
+    }
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import fingerGuy from "../../../assets/imgs/v1/finger.png";
+import graph from "../../../assets/imgs/v1/graph.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Approfondimenti sul mercato del Bitcoin.",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Insikter i Bitcoin-marknaden",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "Resta aggiornato sulle ultime novità di Bitcoin utilizzando le notizie di mercato più recenti. Queste risorse offrono preziosi approfondimenti sulle performance in corso di Bitcoin, permettendoti di rimanere informato.",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Håll dig uppdaterad med den senaste Bitcoin-utvecklingen med hjälp av de senaste marknadsnyheterna. Dessa resurser erbjuder värdefulla insikter i den pågående utvecklingen av Bitcoin, så att du kan hålla dig informerad.",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section2" class="py-5 md:py-6 lg:py-8 xl:py-9 2xl:py-20">
+  <div class="container flex flex-col gap-4 text-background lg:flex-row">
+    <div class="flex grow items-center justify-end gap-4 lg:pe-6 lg:ps-8">
+      <div class="flex flex-col gap-4">
+        <h2
+          set:html={title[componentProps.lang]}
+          class="text-heading2 font-bold lg:w-[20ch]"
+        />
+        <p set:html={para[componentProps.lang]} class="lg:w-[40ch]" />
+      </div>
+    </div>
+    <div class="lg:w-[50%]">
+      <div class="relative max-w-[570px] bg-background p-2 sm:p-4">
+        <Image
+          src={fingerGuy}
+          alt="Background"
+          class=""
+          widths={[320, 576, fingerGuy.width]}
+          sizes={`
+            (max-width: 320px) 255px,
+            (max-width: 640px) 554px,
+            (max-width: 768px) 538px,
+            (max-width: 1024px) 455px,
+            538px
+          `}
+        />
+        <Image
+          src={graph}
+          alt="Background"
+          class="absolute -left-1 bottom-4 h-auto w-section2-smallImage shadow-lg sm:-left-8"
+          widths={[150, 320, graph.width]}
+          sizes={`
+            (max-width: 320px) 140px,
+            (max-width: 640px) 193px,
+            (max-width: 768px) 214px,
+            (max-width: 1024px) 257px,
+            300px
+          `}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  #section2 {
+    // background: radial-gradient(ellipse at center, rgb(49, 61, 67) 0%, rgb(12, 14, 16) 100%);
+    background: radial-gradient(
+      ellipse at center,
+      hsla(var(--secondary-foreground) / 0.85) 0%,
+      hsl(var(--secondary-foreground)) 100%
+    );
+  }
+</style>

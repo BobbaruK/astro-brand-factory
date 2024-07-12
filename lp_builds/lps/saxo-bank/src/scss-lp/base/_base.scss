@@ -1,0 +1,82 @@
+@layer base {
+  // HTML styles
+  html {
+    box-sizing: border-box;
+  }
+
+  // Universal styles
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  *:focus {
+    outline: 2px solid var(--clr-main_yellow);
+    outline-offset: 0px;
+    outline-style: dotted;
+  }
+
+  // Selection
+  ::selection {
+    color: var(--clr-main_blue);
+    background: var(--clr-main_yellow);
+  }
+
+  // Scrollbar
+  /* width */
+  ::-webkit-scrollbar {
+    width: var(--spacing-2);
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: var(--clr-main_blue);
+    // box-shadow: inset 0 0 5px var(--clr-main_yellow);
+    // border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--clr-accent_blue);
+    border-radius: var(--border-radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-main_yellow);
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    border: 2px solid var(--clr-main_blue-600);
+    border-radius: var(--border-radius);
+  }
+
+  // ::-webkit-scrollbar-track-piece:hover {
+  //   border: 2px solid var(--clr-main_yellow-600);
+  // }
+
+  // Body styles
+  body {
+    background-color: var(--clr-white);
+    color: var(--clr-text_color);
+    font-family: var(--ff-base);
+    font-display: swap;
+    line-height: 1.5;
+    #siteWrapper {
+      // overflow-x: hidden;
+    }
+  }
+
+  // Basic styles for sections
+  section,
+  header#header.siteHeader,
+  footer#footer.siteFooter {
+    padding: var(--spacing-7) 0;
+  }
+
+  // Images
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}

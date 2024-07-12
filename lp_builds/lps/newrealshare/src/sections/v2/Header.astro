@@ -1,0 +1,33 @@
+---
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgColor = "#000";
+
+---
+
+<header id="header" class="siteHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style define:vars={{ bgColor }}>
+  #header.siteHeader {
+    background-color: var(--bgColor);
+    color: white;
+  }
+</style>

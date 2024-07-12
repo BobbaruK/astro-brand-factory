@@ -1,0 +1,30 @@
+---
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+
+import FooterContent from "../../../../globals/components/Footer/FooterContent.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+<footer id="footer" class="siteFooter">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <FooterContent componentProps={componentProps} />
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../assets/scss-lp/abstracts/mixins" as mxns;
+
+  footer#footer.siteFooter {
+    background-color: var(--clr-gray-700);
+    color: var(--clr-white);
+    font-size: 80%;
+  }
+</style>

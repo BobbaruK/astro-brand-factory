@@ -1,0 +1,39 @@
+---
+import ButtonDisclaimer from "@/components/ButtonDisclaimer.astro";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Register Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="py-7">
+  <div class="container grid place-items-center">
+    <ButtonDisclaimer
+      buttonLabel={buttonLabel[componentProps.lang]}
+      lang={componentProps.lang}
+      whatsapp={componentProps.brandObj.whatsapp}
+      tw="shadow-2xl shadow-black/50"
+    />
+  </div>
+</section>

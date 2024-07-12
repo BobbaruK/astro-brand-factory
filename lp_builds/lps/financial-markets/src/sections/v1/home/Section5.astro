@@ -1,0 +1,195 @@
+---
+import { Image } from "astro:assets";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput.ts";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+import phoneImage from "../../../assets/imgs/v1/phone.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `We offer free education and the support you need to get started.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Bezpłatna edukacja i wsparcie, którego potrzebujesz.`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+interface ListEl {
+  title: TranslationsType;
+  para: TranslationsType;
+}
+
+const list: ListEl[] = [
+  {
+    title: {
+      en: `A variety of seminars and trainings`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Różnorodne seminaria i szkolenia`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Free Access and training guides from the <strong>${useFxoroBrandOutput(componentProps.brandObj.name)}</strong> library at any time.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Bezpłatny dostęp i przewodniki szkoleniowe z biblioteki <strong>${useFxoroBrandOutput(componentProps.brandObj.name)}</strong> w dowolnym momencie.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `TRADING CENTRAL`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `TRADING CENTRAL`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Free Access and training guides from the <strong>${useFxoroBrandOutput(componentProps.brandObj.name)}</strong> library at any time.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Free Access and training guides from the <strong>${useFxoroBrandOutput(componentProps.brandObj.name)}</strong> library at any time.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `We're here for you whenever you need us`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Jesteśmy dla Ciebie zawsze, gdy tego potrzebujesz`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `We offer support in your language five days a week by phone and email.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Oferujemy wsparcie w Twoim języku 24/5`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section
+  class="bg-secondary pt-4 text-white sm:pt-8 md:pt-9 lg:pt-10 xl:pt-12 2xl:pt-14"
+>
+  <div class="container mb-10">
+    <h2
+      class="text-center text-heading2 font-bold text-primary"
+      set:html={title[componentProps.lang]}
+    />
+  </div>
+  <div class="container flex flex-col gap-10 lg:flex-row lg:gap-4">
+    <div class="grow">
+      <ol class="flex flex-col gap-10 text-center lg:text-start">
+        {
+          list.map((el) => (
+            <li class="flex flex-col gap-2">
+              <h3
+                class="text-heading3 font-bold text-primary"
+                set:html={el.title[componentProps.lang]}
+              />
+              <p set:html={el.para[componentProps.lang]} />
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+    <div class="grid place-items-center lg:w-[40%] lg:min-w-[40%]">
+      <Image
+        src={phoneImage}
+        alt="Apple Laptop Diploma"
+        class=""
+        widths={[320, phoneImage.width]}
+        sizes={`285px`}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  ol {
+    counter-reset: title;
+    h3 {
+      &::before {
+        counter-increment: title;
+        content: counter(title) ". ";
+      }
+    }
+  }
+</style>

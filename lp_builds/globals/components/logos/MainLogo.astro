@@ -1,0 +1,215 @@
+---
+import { type BrandsNames } from "../../types/Brands/names";
+
+interface Props {
+  size: BrandsNames;
+  logo: string;
+  square?: boolean;
+}
+
+const { size, logo, square = false } = Astro.props;
+
+interface LogoCSSVars {
+  sm: {
+    width: number;
+    height: number;
+  };
+  lg: {
+    width: number;
+    height: number;
+  };
+  square?: {
+    sm: number;
+    lg: number;
+  };
+}
+
+const cssVars = (): LogoCSSVars => {
+  switch (size) {
+    case "genericBrand":
+      return {
+        sm: {
+          width: 150,
+          height: 16,
+        },
+        lg: {
+          width: 200,
+          height: 32,
+        },
+      };
+
+    case "daytradingstar":
+      return {
+        sm: {
+          width: 150,
+          height: 13,
+        },
+        lg: {
+          width: 200,
+          height: 17,
+        },
+      };
+
+    case "facoltaditrading":
+      return {
+        sm: {
+          width: 100,
+          height: 13,
+        },
+        lg: {
+          width: 200,
+          height: 25,
+        },
+      };
+
+    case "fxoro":
+      return {
+        sm: {
+          width: 100,
+          height: 35,
+        },
+        lg: {
+          width: 200,
+          height: 71,
+        },
+      };
+
+    case "fxoro_global":
+      return {
+        sm: {
+          width: 100,
+          height: 35,
+        },
+        lg: {
+          width: 200,
+          height: 71,
+        },
+      };
+
+    case "investingtips101":
+      return {
+        sm: {
+          width: 100,
+          height: 34,
+        },
+        lg: {
+          width: 200,
+          height: 69,
+        },
+      };
+
+    case "piutrading":
+      return {
+        sm: {
+          width: 100,
+          height: 20,
+        },
+        lg: {
+          width: 200,
+          height: 40,
+        },
+      };
+
+    case "protraderzone":
+      return {
+        sm: {
+          width: 100,
+          height: 35,
+        },
+        lg: {
+          width: 200,
+          height: 70,
+        },
+      };
+
+    case "tradersacademic":
+      return {
+        sm: {
+          width: 100,
+          height: 18,
+        },
+        lg: {
+          width: 200,
+          height: 36,
+        },
+      };
+
+    case "tradestrategyhub":
+      return {
+        sm: {
+          width: 100,
+          height: 38,
+        },
+        lg: {
+          width: 200,
+          height: 76,
+        },
+      };
+
+    case "tradingprofiler":
+      return {
+        sm: {
+          width: 150,
+          height: 51,
+        },
+        lg: {
+          width: 200,
+          height: 68,
+        },
+        square: {
+          sm: 70,
+          lg: 100,
+        },
+      };
+
+    default:
+      return {
+        sm: {
+          width: 100,
+          height: 100,
+        },
+        lg: {
+          width: 200,
+          height: 200,
+        },
+      };
+  }
+};
+
+const exposedCssVars = cssVars();
+const logoWidthSM = square
+  ? exposedCssVars.square?.sm + "px"
+  : exposedCssVars.sm.width + "px";
+const logoHeightSM = square ? logoWidthSM : exposedCssVars.sm.height + "px";
+const logoWidthLG = square
+  ? exposedCssVars.square?.lg + "px"
+  : exposedCssVars.lg.width + "px";
+const logoHeightLG = square ? logoWidthLG : exposedCssVars.lg.height + "px";
+---
+
+<div class="logoWrapper" set:html={logo} />
+
+<style
+  lang="scss"
+  define:vars={{ logoWidthSM, logoHeightSM, logoWidthLG, logoHeightLG }}
+  is:global
+>
+  .logoWrapper {
+    width: var(--logoWidthSM);
+    max-width: 100%;
+    height: var(--logoHeightSM);
+    max-height: 100%;
+
+    @media (min-width: 768px) {
+      width: var(--logoWidthLG);
+      height: var(--logoHeightLG);
+    }
+
+    > svg {
+      max-width: 100%;
+      width: 100%;
+      max-height: 100%;
+      height: 100%;
+    }
+  }
+</style>

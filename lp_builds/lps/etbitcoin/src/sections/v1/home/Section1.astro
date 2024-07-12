@@ -1,0 +1,55 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Ottieni informazioni su una delle criptovalute più popolari al mondo.",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Få insikter om en av de mest populära kryptovalutorna i världen.",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "Unisciti a una comunità di appassionati di trading.",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Gå med i en gemenskap av handelsentusiaster.",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section
+  id="section1"
+  class="mt-96 py-5 md:mt-0 md:py-6 lg:py-8 xl:py-9 2xl:py-20"
+>
+  <div class="container flex flex-col gap-6 lg:text-center">
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p set:html={para[componentProps.lang]} />
+  </div>
+</section>

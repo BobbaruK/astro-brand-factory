@@ -1,0 +1,39 @@
+---
+// import HomePage from "@/layouts/Gold/home.astro";
+import HomePage from "@/layouts/Oil/home.astro";
+import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
+import { type GenericBrandSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
+import "../assets/styles/index.scss";
+
+const langTypeRegion: LandingPageLangType = "fsa";
+
+export interface CustomOptions {
+  logoSquare: boolean;
+}
+const componentProps: ComponentProps<
+  GenericBrandSVGVariation,
+  CustomOptions
+> = {
+  lang: "en",
+  langType: langTypeRegion,
+  dir: "ltr",
+  lpName: "Apricot Industries",
+  brandObj: useBrandFactory({
+    brand: "genericBrand",
+    region: langTypeRegion,
+    whatsapp: false,
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType: "classic",
+  formValidation: "classic",
+  customOptions: {
+    logoSquare: false,
+  },
+};
+---
+
+<HomePage componentProps={componentProps} />

@@ -1,0 +1,30 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+---
+
+<header id="header" class="siteHeader bg-primary py-6">
+  <div class="container">
+    <div
+      class="max-w-[150px] [&>span>svg]:block [&>span>svg]:w-full [&>span]:block [&>span]:w-full"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  #header.siteHeader {
+    color: white;
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.js";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.js";
+import { Input } from "@/components/ui/input";
+import arrows from "../../../assets/imgs/yellow/arrows.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Hur stor är den potentiella avkastningen på Amazon?`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `På 600 dagarna har Amazon ökat med 141.85%. Detta är baserat från 24/12/2018 till 14/08/2020. Ta reda på hur mycket du hade tjänat om du hade investerar i Amazon.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section2" class="relative py-10">
+  <div class="arrow"></div>
+  <Image
+    src={arrows}
+    alt="Background"
+    class="absolute left-[50%] top-[50%] z-0 -translate-x-[50%] -translate-y-[50%] object-cover md:left-[5%] md:top-20 md:translate-x-0 md:translate-y-0"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, arrows.width]}
+    sizes={`100vw`}
+  />
+  <Image
+    src={arrows}
+    alt="Background"
+    class="absolute left-[50%] top-[50%] z-0 -translate-x-[50%] -translate-y-[50%] object-cover md:left-auto md:right-[5%] md:top-20 md:translate-x-0 md:translate-y-0 md:-scale-x-100"
+    widths={[320, arrows.width]}
+    sizes={`260px`}
+  />
+  <div
+    class="container relative z-30 flex flex-col items-center justify-center gap-4 text-center lg:gap-8"
+  >
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p
+      class="max-w-[78ch] text-center text-sm sm:text-lg"
+      set:html={para[componentProps.lang]}
+    />
+    <div
+      class="flex flex-col items-center justify-center gap-8 md:flex-row md:items-end md:gap-16"
+    >
+      <div
+        class="flex w-full flex-col items-center justify-center gap-4 md:w-52"
+      >
+        <p class="font-bold">Investerat belopp (€)</p>
+        <Input type="number" id="ammount" className="w-full text-center" />
+      </div>
+      <svg
+        class="md:mb-2 md:-rotate-90"
+        aria-hidden="true"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        width="20"
+      >
+        <path
+          fill="currentColor"
+          d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+        ></path>
+      </svg>
+      <div
+        class="flex w-full flex-col items-center justify-center gap-4 md:w-52"
+      >
+        <p class="flex flex-col">
+          <b>Potentiell rörelse (€) * </b>
+          <small>*baserat på statistik från 24/12/2018 till 14/08/2020</small>
+        </p>
+        <Input
+          type="number"
+          id="result"
+          disabled
+          className="w-full text-center"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .arrow {
+    @apply absolute left-[50%] top-0 z-20 h-0 w-0 -translate-x-[50%];
+    border-style: solid;
+    border-width: 40px 160px 0 160px;
+    border-color: hsl(var(--primary)) transparent transparent transparent;
+  }
+</style>
+
+<script>
+  // calculator
+  const inputAmmount = document.getElementById("ammount") as HTMLInputElement;
+  const inputResult = document.getElementById("result") as HTMLInputElement;
+
+  const calculateResult = () => {
+    const ammount = parseInt(inputAmmount.value);
+    const result = ammount * 1.41;
+    inputResult.value = result.toFixed(1);
+  };
+
+  inputAmmount.addEventListener("change", calculateResult);
+</script>

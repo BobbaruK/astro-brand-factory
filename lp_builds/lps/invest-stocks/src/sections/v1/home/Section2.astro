@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import bg from "../../../assets/imgs/v1/phone.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `<span class="text-white">Go further</span> and access Worldwide Exchanges:`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `You can be a <strong>long-term investor by buying physical shares of any company</strong> you believe in. You can choose companies from the best US performing sectors, and their evolution will be reflected over time in the value of your portfolio.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="mt-8 pb-8">
+  <div class="bg-secondary py-2">
+    <div class="container">
+      <h2
+        class="text-center text-v1-heading2 font-bold uppercase leading-tight"
+        set:html={title[componentProps.lang]}
+      />
+    </div>
+  </div>
+  <div class="container flex flex-col gap-4 pt-4 md:flex-row md:pt-8">
+    <div class="grid place-items-center text-center md:text-start">
+      <p
+        class="text-v1-para-lead leading-tight"
+        set:html={para[componentProps.lang]}
+      />
+    </div>
+    <div class="grid place-items-center md:w-[50%] md:min-w-[50%]">
+      <Image
+        src={bg}
+        alt="Background"
+        class=""
+        widths={[320, bg.width]}
+        sizes={`320px`}
+      />
+    </div>
+  </div>
+</section>

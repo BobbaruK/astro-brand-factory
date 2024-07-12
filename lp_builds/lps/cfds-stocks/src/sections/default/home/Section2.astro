@@ -1,0 +1,90 @@
+---
+import {
+  homeSection2Bullet1Icon,
+  homeSection2Bullet2Icon,
+  homeSection2Bullet3Icon,
+} from "@/constants";
+import type { Bullet } from "@/types/Bullet";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bullets: Bullet[] = [
+  {
+    title: {
+      en: "24/5 hour professional support",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Całodobowa obsługa 5 dni w tygodniu.`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "Hỗ trợ chuyên nghiệp 24/5",
+    },
+    svgIcon: homeSection2Bullet1Icon,
+  },
+  {
+    title: {
+      en: "Training tools",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Narzędzia szkoleniowe`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "Công cụ đào tạo",
+    },
+    svgIcon: homeSection2Bullet2Icon,
+  },
+  {
+    title: {
+      en: "No hidden fees",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Brak ukrytych opłat`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "Không có phí ẩn",
+    },
+    svgIcon: homeSection2Bullet3Icon,
+  },
+];
+---
+
+<section id="section2" class="bg-gray-200 py-7 md:py-8 lg:py-9 xl:py-11">
+  <div class="container flex flex-wrap justify-around gap-8">
+    {
+      bullets.map((bullet) => (
+        <div class="flex flex-col gap-2 text-center">
+          <Fragment set:html={bullet.svgIcon} class="dsa" />
+          <p class="max-w-[20ch]">{bullet.title[componentProps.lang]}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

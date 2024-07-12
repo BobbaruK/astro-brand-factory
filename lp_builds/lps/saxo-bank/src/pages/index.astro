@@ -1,0 +1,87 @@
+---
+import "../../../../globals/scss/main.scss";
+import "../scss-lp/main.scss";
+
+import { useBrands } from "../../../../globals/composables/useBrands";
+import { type BrandArrItem } from "../../../../globals/types/Brands";
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import Default from "../layouts/Default.astro";
+
+const brandId: number = 4;
+const brandObj = useBrands({ whatsapp: false, region: "cysec" }).find((brand) => brand.id === brandId);
+const componentProps: ComponentProps = {
+  lang: "sv",
+  dir: "ltr",
+  lpName: "Saxo Bank",
+  brandObj: brandObj ? brandObj : ({} as BrandArrItem),
+  lpType: "classic",
+  formValidation: "classic",
+  langType: "cysec",
+  fxoroFooter: true,
+};
+---
+
+<html
+  lang={componentProps.lang}
+  dir={componentProps.dir}
+  data-brandname={componentProps.brandObj.name}
+  data-lptype={componentProps.lpType}
+  data-formvalidation={componentProps.formValidation}
+  data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
+  data-typage={componentProps.brandObj.typage[componentProps.lang]}
+  data-openwa={componentProps.brandObj.whatsapp && "true"}
+  data-wanumber={componentProps.brandObj.whatsapp ? componentProps.brandObj.whatsappNumber[componentProps.lang] : false}
+>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={componentProps.brandObj.images.faviconLink} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap" rel="stylesheet" /> -->
+    <style>
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+  </head>
+  <body>
+    <Default componentProps={componentProps} />
+
+    <script type="module" src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?v10"></script>
+  </body>
+</html>

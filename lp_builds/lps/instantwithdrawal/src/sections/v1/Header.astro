@@ -1,0 +1,238 @@
+---
+import ButtonWrapper from "@/components/ButtonWrapper.astro";
+import HeaderImageSVG from "@/components/HeaderImageSVG.astro";
+import type { CustomOptions } from "@/types/CustomOptions";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps<CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Welcome to ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}: Your Gateway to Instant Withdrawal Process!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Bienvenidos a ${componentProps.customOptions?.fxoroInsteadOfBrand ? "<span class='font-black'>FX<span class='text-[#ffb401]'>ORO</span></span>" : componentProps.brandObj.name}: ¡Su puerta de entrada al proceso de retiro instantáneo!`,
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "Get Your Money Processed in 24 Hours!",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "¡Procese su dinero en 24 horas!",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<header
+  id="header"
+  class="siteHeader overflow-hidden border-b-2 border-b-primary"
+>
+  <div class="container relative flex flex-col gap-4 xl:flex-row xl:gap-0">
+    <div
+      class="text-col relative bg-primary text-primary-foreground xl:w-[880px] xl:min-w-[880px] xl:pe-32"
+    >
+      <div
+        class="relative z-30 flex flex-col items-center justify-center gap-6 py-8 text-center xl:items-start xl:gap-12 xl:text-start"
+      >
+        <MainLogo
+          size={componentProps.brandObj.nameToLower}
+          logo={componentProps.logo()}
+          square={componentProps.customOptions?.logoSquare}
+        />
+        <h1
+          class="text-h1 font-black uppercase leading-tight"
+          set:html={title[componentProps.lang]}
+        />
+        <p
+          class="text-para-lead font-black leading-tight text-secondary"
+          set:html={para[componentProps.lang]}
+        />
+        <ButtonWrapper componentProps={componentProps} />
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        class="absolute -right-[740px] top-36 z-10 hidden h-[300px] w-auto rotate-[100deg] text-primary xl:block"
+      >
+        <path
+          fill="currentColor"
+          fill-opacity="1"
+          d="M0,224L30,197.3C60,171,120,117,180,90.7C240,64,300,64,360,85.3C420,107,480,149,540,149.3C600,149,660,107,720,117.3C780,128,840,192,900,186.7C960,181,1020,107,1080,69.3C1140,32,1200,32,1260,74.7C1320,117,1380,203,1410,245.3L1440,288L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
+    <HeaderImageSVG
+      class="relative -bottom-2 m-auto h-auto w-full max-w-[500px] xl:absolute xl:-right-[300px] xl:z-20 xl:w-[850px] xl:max-w-none"
+    />
+  </div>
+</header>
+
+<style lang="scss">
+  #header.siteHeader {
+    .text-col {
+      @media (max-width: 1279px) {
+        box-shadow: 0 0 0 100vmax hsl(var(--primary));
+        clip-path: inset(0 -100vmax);
+      }
+
+      @media (min-width: 1280px) {
+        // clip-path: polygon(0 0, 100% 0, 83% 100%, 0% 100%);
+      }
+
+      &::before {
+        width: 10000px;
+        position: absolute;
+        height: 100%;
+        display: block;
+        background-color: hsl(var(--primary));
+        inset: 0 auto 0 -10000px;
+
+        @media (min-width: 1280px) {
+          content: "";
+        }
+      }
+
+      // &::after {
+      //   content: "";
+      //   transform: rotate(90deg);
+      //   clip-path: polygon(
+      //     100% 0%,
+      //     0% 0%,
+      //     0% 57.5%,
+      //     1% 57.49%,
+      //     2% 57.47%,
+      //     3% 57.42%,
+      //     4% 57.36%,
+      //     5% 57.29%,
+      //     6% 57.2%,
+      //     7% 57.09%,
+      //     8% 56.96%,
+      //     9% 56.82%,
+      //     10% 56.67%,
+      //     11% 56.49%,
+      //     12% 56.31%,
+      //     13% 56.11%,
+      //     14% 55.89%,
+      //     15% 55.67%,
+      //     16% 55.43%,
+      //     17% 55.17%,
+      //     18% 54.91%,
+      //     19% 54.63%,
+      //     20% 54.35%,
+      //     21% 54.05%,
+      //     22% 53.75%,
+      //     23% 53.43%,
+      //     24% 53.11%,
+      //     25% 52.78%,
+      //     26% 52.45%,
+      //     27% 52.11%,
+      //     28% 51.76%,
+      //     29% 51.42%,
+      //     30% 51.06%,
+      //     31% 50.71%,
+      //     32% 50.35%,
+      //     33% 50%,
+      //     34% 49.64%,
+      //     35% 49.28%,
+      //     36% 48.93%,
+      //     37% 48.58%,
+      //     38% 48.23%,
+      //     39% 47.88%,
+      //     40% 47.54%,
+      //     41% 47.21%,
+      //     42% 46.88%,
+      //     43% 46.56%,
+      //     44% 46.24%,
+      //     45% 45.94%,
+      //     46% 45.64%,
+      //     47% 45.36%,
+      //     48% 45.08%,
+      //     49% 44.82%,
+      //     50% 44.57%,
+      //     51% 44.33%,
+      //     52% 44.1%,
+      //     53% 43.89%,
+      //     54% 43.69%,
+      //     55% 43.5%,
+      //     56% 43.33%,
+      //     57% 43.17%,
+      //     58% 43.03%,
+      //     59% 42.91%,
+      //     60% 42.8%,
+      //     61% 42.71%,
+      //     62% 42.63%,
+      //     63% 42.58%,
+      //     64% 42.53%,
+      //     65% 42.51%,
+      //     66% 42.5%,
+      //     67% 42.51%,
+      //     68% 42.53%,
+      //     69% 42.58%,
+      //     70% 42.64%,
+      //     71% 42.71%,
+      //     72% 42.81%,
+      //     73% 42.92%,
+      //     74% 43.04%,
+      //     75% 43.18%,
+      //     76% 43.34%,
+      //     77% 43.51%,
+      //     78% 43.7%,
+      //     79% 43.9%,
+      //     80% 44.11%,
+      //     81% 44.34%,
+      //     82% 44.58%,
+      //     83% 44.83%,
+      //     84% 45.1%,
+      //     85% 45.37%,
+      //     86% 45.66%,
+      //     87% 45.96%,
+      //     88% 46.26%,
+      //     89% 46.57%,
+      //     90% 46.9%,
+      //     91% 47.22%,
+      //     92% 47.56%,
+      //     93% 47.9%,
+      //     94% 48.24%,
+      //     95% 48.59%,
+      //     96% 48.95%,
+      //     97% 49.3%,
+      //     98% 49.66%,
+      //     99% 50.01%,
+      //     100% 50.37%
+      //   );
+      //   position: absolute;
+      //   left: -325px;
+      //   top: 0;
+      //   z-index: -1;
+      //   width: 500px;
+      //   background-color: firebrick;
+      //   height: 500px;
+      // }
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import Footer from "../sections/Footer.astro";
+import Header from "../sections/V1/Header.astro";
+import HomeSection1 from "../sections/V1/home/Section1.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+<div id="siteWrapper">
+  <Header componentProps={componentProps} />
+  <main>dsads
+    <HomeSection1 componentProps={componentProps} />
+  </main>
+  <Footer componentProps={componentProps} />
+</div>

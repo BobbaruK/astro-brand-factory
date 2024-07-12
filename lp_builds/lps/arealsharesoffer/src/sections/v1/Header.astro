@@ -1,0 +1,217 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import bg from "../../assets/imgs/v1/topbg-desktop.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Investing should be <span class="text-secondary">accessible</span> to everyone`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `That's why we are now offering the opportunity to our clients to invest in the shares of the companies they love and trust.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formBtnLabel: TranslationsType = {
+  en: `Join`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<header id="header" class="relative">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-left lg:object-center"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
+  />
+  <div class="absolute inset-0 z-10 h-full w-full bg-primary/60 lg:hidden">
+  </div>
+  <div class="relative z-20">
+    <div
+      class="pb-4 pt-5 text-white sm:pt-7 md:pt-9 lg:pt-10 lg:text-foreground xl:pt-12 2xl:pt-16"
+    >
+      <div class="container [&>svg]:max-w-full">
+        <MainLogo
+          size={componentProps.brandObj.nameToLower}
+          logo={componentProps.logo()}
+          square={componentProps.customOptions?.logoSquare}
+        />
+      </div>
+    </div>
+    <div class="py-4 sm:pb-7 md:pb-9 lg:pb-10 xl:pb-12 2xl:pb-16">
+      <div class="container lg:flex lg:flex-row-reverse lg:gap-4">
+        <div
+          class="flex flex-col items-center justify-center gap-v1-header-spacing"
+        >
+          <h1
+            class="max-w-[20ch] text-center text-v1-heading-1 font-extrabold uppercase leading-tight text-white lg:text-foreground"
+            set:html={title[componentProps.lang]}
+          />
+          <p
+            class="max-w-[25ch] text-center text-v1-paraLead text-white lg:text-foreground"
+            set:html={para[componentProps.lang]}
+          />
+          <div
+            class="w-full max-w-[360px] bg-primary p-4 text-primary-foreground"
+          >
+            <Form
+              componentProps={componentProps}
+              button={formBtnLabel[componentProps.lang]}
+              id="form1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss" is:global define:vars={{}}>
+  form.registerForm {
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex gap-4 bg-secondary uppercase text-secondary-foreground hover:bg-muted hover:text-muted-foreground;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import topBG from "../../assets/imgs/v1/bg1-1.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Interessato a saperne di più sui CFD su Bitcoin, una delle criptovalute più popolari al mondo?",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Intresserad av att lära dig mer om CFD:er på Bitcoin, en av de mest populära kryptovalutorna i världen",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: "",
+    it: "Molti trader scelgono oggi di negoziare CFD su varie criptovalute e, in particolare, su Bitcoin.",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "Många handlare väljer idag att handla CFD:er på olika kryptovalutor och mest specifikt Bitcoin.",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: "",
+    it: "La performance storica del Bitcoin mostrata qui è inferiore a un periodo di 5 anni e quindi potrebbe non essere sufficiente come base per prendere decisioni di investimento. Il tuo capitale è a rischio.",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "Den historiska utvecklingen för Bitcoin som visas här är mindre än en 5-årsperiod och kan därför inte vara tillräcklig som grund för investeringsbeslut. Ditt kapital är i riskzonen.",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+
+const formTitle: TranslationsType = {
+  en: "",
+  it: "Iscriviti ora",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Registrera dig nu",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formSubTitle: TranslationsType = {
+  en: "",
+  it: "Compila il modulo sottostante",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Fyll i formuläret nedan",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: "",
+  it: "Scopri di piú",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Upptäck mer",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<header id="header" class="relative">
+  <Image
+    src={topBG}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
+    widths={[576, 640, 768, 1024, 1280, 1536, topBG.width]}
+    sizes={"100vw"}
+  />
+  <div class="absolute inset-0 block bg-slate-700 opacity-90 lg:hidden"></div>
+  <div
+    class="container relative z-20 flex max-w-[1280px] flex-col gap-8 md:flex-row"
+  >
+    <div class="arrow_tail relative grow text-white">
+      <div class="arrow"></div>
+      <div class="relative z-10 flex flex-col gap-8 py-4">
+        <MainLogo
+          size={componentProps.brandObj.nameToLower}
+          logo={componentProps.logo()}
+          square={componentProps.customOptions?.logoSquare}
+        />
+        <div class="flex max-w-[60ch] flex-col gap-6">
+          <h1
+            class="text-heading1 font-black leading-tight text-secondary"
+            set:html={title[componentProps.lang]}
+          />
+          <hr />
+          {
+            paras.map((para, index) => (
+              <p
+                class={`font-thin sm:text-[18px] ${index === paras.length - 1 && "hidden md:block"}`}
+                set:html={para[componentProps.lang]}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <div
+      class="longBG mx-auto -mb-96 flex w-full max-w-96 flex-col gap-8 bg-white p-4 shadow-lg shadow-gray-600/50 md:mb-0 md:w-auto md:min-w-[33.3333333333%] md:max-w-full"
+    >
+      <div class="flex flex-col gap-2">
+        <h2
+          class="text-[20px] font-light"
+          set:html={formTitle[componentProps.lang]}
+        />
+        <p
+          class="text-[14px] font-light"
+          set:html={formSubTitle[componentProps.lang]}
+        />
+      </div>
+      <Form
+        componentProps={componentProps}
+        button={formButton[componentProps.lang]}
+        id="form1"
+      />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  #header {
+    .arrow {
+      @apply absolute inset-0 z-0 hidden bg-slate-700 opacity-90 lg:block;
+      clip-path: polygon(80% 0, 100% 50%, 80% 100%, 0 100%, 0 0);
+    }
+    .arrow_tail {
+      &::before {
+        content: "";
+        @apply absolute -left-[10000px] top-0 z-10 block h-full w-[10000px] bg-slate-700 opacity-90;
+      }
+    }
+
+    .longBG {
+      @apply relative z-10;
+      &::after {
+        content: "";
+        @apply absolute -right-[10000px] top-0 z-0 hidden h-full w-[10000px] bg-white md:block;
+      }
+    }
+  }
+</style>

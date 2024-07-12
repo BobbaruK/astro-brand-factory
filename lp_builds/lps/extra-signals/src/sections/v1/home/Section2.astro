@@ -1,0 +1,225 @@
+---
+import Form from "../../../../../../globals/components/Form";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Obtenga señales de trading gratis`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formBtn: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Abrir una cuenta ahora`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const list: {
+  percent: number;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    percent: 100,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Fiabilidad`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Obtenga señales de trading preparadas para usted por analistas profesionales`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    percent: 78,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Precisión`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: ``,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Podrá contar con señales de trading con un 78% de precisión`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    percent: 100,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Gratis`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: ``,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `¡Acceda al mundo de ${componentProps.brandObj.name} y obtenga las mejores señales de trading gratis!`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section class="py-5 sm:py-7 md:py-9 lg:py-10 xl:py-12">
+  <div class="container flex flex-col gap-20 md:flex-row md:gap-[10%]">
+    <div class="md:w-[40%] md:min-w-[40%] xl:w-[35%] xl:min-w-[35%]">
+      <h2
+        class="relative rounded-t-3xl bg-stone-900 px-4 py-6 text-center text-[24px] font-bold uppercase leading-tight text-white shadow-lg shadow-black/30"
+        set:html={title[componentProps.lang]}
+      />
+      <div class="rounded-b-3xl bg-gray-100 p-6 shadow-lg shadow-black/40">
+        <Form
+          componentProps={componentProps}
+          button={formBtn[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+    <div
+      class="grid place-items-end md:w-[50%] md:min-w-[50%] lg:w-[50%] lg:min-w-[50%]"
+    >
+      <ul class="flex flex-col gap-4">
+        {
+          list.map((li) => (
+            <li class="flex gap-8">
+              <div class="customArrow text-v1-bullets-percent relative z-10 grid min-h-[100px] min-w-[100px] place-items-center rounded-md font-bold text-primary-foreground shadow-lg shadow-black/40 lg:min-w-[140px]">
+                <div class="absolute inset-0 z-0 h-full w-full rounded-md border-[5px] border-white bg-primary" />
+                <span class="z-10">{li.percent}%</span>
+              </div>
+              <div class="flex grow flex-col items-start justify-center rounded-md border-r-[30px] border-primary bg-white p-2 shadow-lg shadow-black/40 md:py-4 lg:py-6 xl:py-10">
+                <h3
+                  class="text-[16px] font-bold uppercase leading-tight"
+                  set:html={li.title[componentProps.lang]}
+                />
+                <p
+                  class="text-[12px] font-semibold leading-tight"
+                  set:html={li.para[componentProps.lang]}
+                />
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .customArrow {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: white;
+      transform: rotate(45deg) translateY(-50%);
+      top: 50%;
+      right: 10px;
+      box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+      z-index: -1000;
+    }
+  }
+</style>

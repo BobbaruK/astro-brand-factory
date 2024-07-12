@@ -1,0 +1,55 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { InfoSection } from "../../../types/InfoSection";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection7: InfoSection = {
+  title: {
+    en: "Use of this Website",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "This website can be used by MCA Intelifunds Ltd, for informative purposes only. Operation of this website shall not be made by MCA, for any other purpose other than the referred above and in no circumstances, it is not intended to be used for marketing – advertising purposes.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section7" class="py-4">
+  <div class="container">
+    <h2 class="font-bold mb-4" set:html={infoSection7.title[componentProps.lang]} />
+    {infoSection7.paras?.map((para) => <p set:html={para[componentProps.lang]} class="mb-2" />)}
+  </div>
+</section>

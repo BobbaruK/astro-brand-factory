@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import Footer from "@/sections/Footer.astro";
+import Header from "@/sections/default/Header.astro";
+import "../globals.scss";
+
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import Section1 from "@/sections/default/home/Section1.astro";
+import topBG from "../assets/imgs/topBG.jpg";
+import mobileBrands from "../assets/imgs/mobile_brands-mobile.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<html
+  lang={componentProps.lang}
+  dir={componentProps.dir}
+  data-brandname={componentProps.brandObj.name}
+  data-lptype={componentProps.lpType}
+  data-formvalidation={componentProps.formValidation}
+  data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
+  data-typage={componentProps.brandObj.typage[componentProps.lang]}
+  data-openwa={componentProps.brandObj.whatsapp && "true"}
+  data-wanumber={componentProps.brandObj.whatsapp
+    ? componentProps.brandObj.whatsappNumber[componentProps.lang]
+    : false}
+>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={componentProps.brandObj.images.faviconLink}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <link rel="preload" as="image" href={mobileBrands.src} />
+    <link rel="preload" as="image" href={topBG.src} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" /> -->
+    <style>
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="siteWrapper">
+      <div class="topBg relative">
+        <Image
+          src={topBG}
+          alt="Background"
+          class="absolute left-0 top-0 z-0 h-full w-full"
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, topBG.width]}
+          sizes={"100vw"}
+        />
+        <div class="relative z-10">
+          <Header componentProps={componentProps} />
+          <Section1 componentProps={componentProps} />
+        </div>
+      </div>
+      <main>
+        <slot />
+      </main>
+      <Footer componentProps={componentProps} />
+    </div>
+    <script
+      type="module"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?v1"
+    ></script>
+  </body>
+</html>

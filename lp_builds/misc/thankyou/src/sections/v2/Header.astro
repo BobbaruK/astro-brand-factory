@@ -1,0 +1,20 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+---
+
+<header class="">
+  <div class="container">
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
+  </div>
+</header>

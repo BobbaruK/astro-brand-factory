@@ -1,0 +1,64 @@
+---
+import { formButtonTranslation } from "@/composables/formButtonTranslation";
+import { FaChevronRight } from "react-icons/fa6";
+import type { ComponentProps } from "../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+  color?: "primary" | "secondary";
+}
+const { color = "secondary", componentProps } = Astro.props;
+
+const cssClassesFn = () => {
+  let output = "";
+
+  switch (color) {
+    case "primary":
+      output = `hover:bg-primary hover:text-primary-foreground`;
+      break;
+
+    case "secondary":
+      output = `hover:bg-secondary hover:text-secondary-foreground`;
+      break;
+  }
+
+  return output;
+};
+
+const cssClasses = cssClassesFn();
+
+const disclaimer: TranslationsType = {
+  en: "Trading is risky.",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "Operar es arriesgado.",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<div class="inline-flex flex-col items-center justify-center gap-2">
+  <button
+    class={`js-modal-trigger bg-background text-foreground border border-slate-400 w-full text-lg font-black rounded-md leading-tight flex items-stretch overflow-hidden ${cssClasses}`}
+  >
+    <span class={`w-2 bg-${color} block`}></span>
+    <span class="mx-auto flex items-center justify-center gap-2 px-12 py-3">
+      {formButtonTranslation[componentProps.lang]}
+      <FaChevronRight size={10} />
+    </span>
+  </button>
+  <p
+    class="max-w-[45ch] text-center text-[10px] text-xs"
+    set:html={disclaimer[componentProps.lang]}
+  />
+</div>

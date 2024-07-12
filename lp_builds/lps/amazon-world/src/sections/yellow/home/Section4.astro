@@ -1,0 +1,115 @@
+---
+import { Button } from "@/components/ui/button";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+import tableDesk from "../../../assets/imgs/yellow/tabledesk.png";
+import tableMob from "../../../assets/imgs/yellow/tablemobile.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Hur snabbt kan Amazon växa?`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Amazons totala försäljningstillväxt föregående år.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formBtn: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Börja nu`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section4" class="relative py-10">
+  <div
+    class="container relative z-10 flex flex-col items-center justify-center gap-4 text-center"
+  >
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p
+      class="text-center text-sm sm:text-lg"
+      set:html={para[componentProps.lang]}
+    />
+    <Image
+      src={tableMob}
+      alt="Background"
+      class="block w-full max-w-96 md:hidden"
+      widths={[320, tableMob.width]}
+      sizes={`384px`}
+    />
+    <Image
+      src={tableDesk}
+      alt="Background"
+      class="hidden w-full max-w-[930px] md:block"
+      widths={[768, tableDesk.width]}
+      sizes={`
+        (max-width: 767px) 100px,
+        930px
+      `}
+    />
+    <Button
+      variant="secondary"
+      set:html={formBtn[componentProps.lang]}
+      className="h-auto w-auto px-8 py-3 font-bold hover:bg-primary hover:text-primary-foreground"
+      id="s4-btn"
+    />
+  </div>
+</section>
+
+<style lang="scss"></style>
+
+<script lang="ts" is:inline>
+  const form = document.querySelector("form");
+  const button = document.getElementById("s4-btn");
+
+  button.addEventListener("click", () => {
+    form.scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+</script>

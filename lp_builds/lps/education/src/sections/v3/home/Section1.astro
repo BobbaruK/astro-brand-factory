@@ -1,0 +1,81 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import FormWrapper from "../../../components/v3/FormWrapper.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `We show you how to use the best tools the market has to offer with FXORO`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formTitle: TranslationsType = {
+  en: `Talk to us for more details`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: `Register Now`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section class="">
+  <div class="container grid place-items-center pb-8 pt-4 md:py-8">
+    <h1
+      class="max-w-[50ch] text-center text-v2-heading1 font-bold uppercase text-primary"
+      set:html={title[componentProps.lang]}
+    />
+  </div>
+  <div class="block md:hidden">
+    <FormWrapper
+      componentProps={componentProps}
+      title={formTitle[componentProps.lang]}
+      buttonLabel={formButton[componentProps.lang]}
+      id="titleForm"
+    />
+  </div>
+</section>

@@ -1,0 +1,244 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { Bullets } from "../../types/bullets";
+import icon1 from "../../assets/icon1.svg";
+import icon2 from "../../assets/icon2.svg";
+import icon3 from "../../assets/icon3.svg";
+import icon4 from "../../assets/icon4.svg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bullets: Bullets[] = [
+  {
+    icon: icon1,
+    title: {
+      en: `Renewable energy focus`,
+      it: `Focus sulle energie rinnovabili`,
+      tr: ``,
+      ro: `Concentrare pe Energie Regenerabilă`,
+      ar: ``,
+      de: ``,
+      es: `Enfoque en las energías renovables`,
+      sv: `Fokus på förnybar energi`,
+      pt: ``,
+      fi: ``,
+      pl: `Temat energii odnawialnej`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Noting a trend towards renewable energy in response to fluctuating oil prices.`,
+      it: `Notare la tendenza verso le energie rinnovabili in risposta alla fluttuazione dei prezzi del petrolio.`,
+      tr: ``,
+      ro: `Se constată o tendință către energie regenerabilă ca răspuns la fluctuațiile prețurilor petrolului.`,
+      ar: ``,
+      de: ``,
+      es: `Se observa una tendencia hacia las energías renovables en respuesta a la fluctuación de los precios del petróleo.`,
+      sv: `Noterar en trend mot förnybar energi som svar på fluktuerande oljepriser.`,
+      pt: ``,
+      fi: ``,
+      pl: `Odnotowanie trendu w kierunku energii odnawialnej w odpowiedzi na wahania cen ropy.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon2,
+    title: {
+      en: `Healthcare sector development`,
+      it: `Sviluppi del settore sanitario`,
+      tr: ``,
+      ro: `Dezvoltări în Sectorul de Sănătate`,
+      ar: ``,
+      de: ``,
+      es: `Evolución del sector sanitario`,
+      sv: `Utvecklingen inom hälsovårdssektorn`,
+      pt: ``,
+      fi: ``,
+      pl: `Rozwój sektora opieki zdrowotnej`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Observing changes in healthcare investment due to new medical treatments.`,
+      it: `Osservazione dei cambiamenti negli investimenti sanitari dovuti a nuovi trattamenti medici.`,
+      tr: ``,
+      ro: `Observând schimbări în investițiile în domeniul sănătății datorită noilor tratamente medicale.`,
+      ar: ``,
+      de: ``,
+      es: `Observación de los cambios en la inversión sanitaria debidos a los nuevos tratamientos médicos. `,
+      sv: `Bevakning av förändringar i investeringar i hälso- och sjukvård på grund av nya medicinska behandlingar.`,
+      pt: ``,
+      fi: ``,
+      pl: `Obserwacja zmian w inwestycjach w opiekę zdrowotną ze względu na nowe metody leczenia.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon3,
+    title: {
+      en: `Evolving bond market landscape`,
+      it: `L’evoluzione del panorama del mercato obbligazionario`,
+      tr: ``,
+      ro: `Evoluția Peisajului Pieței Obligațiunilor`,
+      ar: ``,
+      de: ``,
+      es: `Evolución del panorama del mercado de bonos`,
+      sv: `Utvecklingen på obligationsmarknaden`,
+      pt: ``,
+      fi: ``,
+      pl: `Ewoluujący krajobraz rynku obligacji`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Highlighting potential shifts in government bond strategies.`,
+      it: `evidenziazione dei potenziali cambiamenti nelle strategie dei titoli di Stato.`,
+      tr: ``,
+      ro: `Evidențiind posibile schimbări în strategiile guvernamentale privind obligațiunile.`,
+      ar: ``,
+      de: ``,
+      es: `Destacando los posibles cambios en las estrategias de bonos del Estado. `,
+      sv: `Potentiella förändringar i strategierna för statsobligationer.`,
+      pt: ``,
+      fi: ``,
+      pl: `Podkreślenie potencjalnych zmian w strategiach dotyczących obligacji rządowych.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon4,
+    title: {
+      en: `Increased interest in cybersecurity`,
+      it: `Maggiore interesse per la sicurezza informatica`,
+      tr: ``,
+      ro: `Interes Crescut pentru Securitatea Cibernetică`,
+      ar: ``,
+      de: ``,
+      es: `Mayor interés por la ciberseguridad`,
+      sv: `Ökat intresse för cybersäkerhet`,
+      pt: ``,
+      fi: ``,
+      pl: `Zwiększone zainteresowanie cyberbezpieczeństwem`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Recognizing the growing importance of digital security investments.`,
+      it: `riconoscere la crescente importanza degli investimenti nella sicurezza digitale.`,
+      tr: ``,
+      ro: `Recunoașterea importanței tot mai mari a investițiilor în securitate digitală.`,
+      ar: ``,
+      de: ``,
+      es: `Reconocimiento de la creciente importancia de las inversiones en seguridad digital. `,
+      sv: `Erkänner den växande betydelsen av investeringar i digital säkerhet.`,
+      pt: ``,
+      fi: ``,
+      pl: `uznanie rosnącego znaczenia inwestycji w bezpieczeństwo cyfrowe.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section id="section2" class="section2">
+  <div class="container-fluid">
+    <div class="row">
+      {
+        bullets.map((bullet) => (
+          <div class="col-12 col-sm-6 col-lg-3 iconBullet">
+            <img src={bullet.icon?.src} alt={bullet.title[componentProps.lang]} width="230" height="230" />
+            <h3 set:html={bullet.title[componentProps.lang]} class="white" />
+            <p set:html={bullet.para[componentProps.lang]} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @use "../../scss-lp/abstracts/mixins" as mxns;
+
+  .counter {
+    counter-reset: bulletsIcon;
+  }
+
+  section#section2.section2 {
+    background-color: var(--clr-main_blue);
+    color: var(--clr-white);
+    padding-bottom: 0;
+  }
+
+  .iconBullet {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    justify-content: flex-start;
+    padding-bottom: var(--spacing-7);
+
+    > * {
+      margin: 0;
+    }
+
+    img {
+      max-width: clamp(7.8125rem, 5.8681rem + 9.7222vw, 14.375rem);
+      width: 100%;
+      height: auto;
+
+      @include mxns.mediamin(sm) {
+        height: clamp(7.8125rem, 5.8681rem + 9.7222vw, 14.375rem);
+        // height: 100%;
+        width: auto;
+      }
+    }
+    h3 {
+      color: var(--clr-main_yellow);
+      text-transform: uppercase;
+      text-align: center;
+      max-width: 20ch;
+      &::before {
+        counter-increment: bulletsIcon;
+        content: counter(bulletsIcon) ".";
+        display: block;
+        color: inherit;
+        font-size: 140%;
+      }
+
+      &.white::before {
+        color: var(--clr-white);
+      }
+      &.black::before {
+        color: var(--clr-main_blue);
+      }
+    }
+
+    p {
+      text-align: center;
+      max-width: 20ch;
+    }
+  }
+</style>

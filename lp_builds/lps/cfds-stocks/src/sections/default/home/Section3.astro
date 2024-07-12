@@ -1,0 +1,145 @@
+---
+import { Image } from "astro:assets";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput.ts";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+import {
+  buttonWrapperDisclaimer,
+  buttonWrapperLabel,
+} from "../../../translations/buttonWrapper";
+import brands from "../../../assets/imgs/brands.png";
+import ButtonWrapper from "@/components/ButtonWrapper";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const titleCYSEC: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Co motywuje traderów do działania na CFD?`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const titleFSA: TranslationsType = {
+  en: "What motivates traders to buy and sell CFDs on stocks?",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Điều gì thúc đẩy bạn mua bán CFD trên cổ phiếu?",
+};
+
+const parasCYSEC: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `
+    <p>Nasi klienci wybierają z szerokiej gamy spółek CFD.</p>
+    <p>Handel CFD, oparty na fundamentalnej analizie rynków, jest najpopularniejszą formą inwestycji, która pozwala na zarabianie niezależnie od obranego kierunku ceny.</p>
+    <p>${useFxoroBrandOutput(componentProps.brandObj.name)} oferuje szeroką gamę bezpłatnych narzędzi edukacyjnych i codziennych wiadomości rynkowych, aby na bieżąco informować Cię na temat rynku.</p>`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const parasFSA: TranslationsType = {
+  en: "<p>From today, you can begin trading CFDs on stocks with FXORO. You can open an account and choose from a range of products to trade. CFDs on shares trading, based on fundamental analysis of the markets, is a very popular investment product for traders who follow markets and can identify companies offering trading opportunities. FXORO offers a wide range of free educational tools, including live webinars and daily market news to keep you informed on financial markets.</p>",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "<p>Kể từ hôm nay, bạn có thể bắt đầu giao dịch CFD trên cổ phiếu với FXORO. Bạn có thể mở tài khoản và chọn trong nhiều loại sản phẩm để giao dịch. CFD trên giao dịch cổ phiếu, dựa trên phân tích cơ bản về thị trường, là một sản phẩm đầu tư rất phổ biến dành cho các nhà giao dịch theo sát thị trường và có thể xác định các công ty cung cấp cơ hội giao dịch. FXORO cung cấp nhiều công cụ giáo dục miễn phí, bao gồm hội thảo trực tuyến và tin tức thị trường hằng ngày để giúp bạn cập nhật thông tin về thị trường tài chính.</p>",
+};
+---
+
+<section id="section3" class="py-7 pb-7 md:py-8 lg:py-9 xl:py-11">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div
+      class="flex flex-col justify-center gap-6 text-center lg:basis-7/12 lg:text-start"
+    >
+      <h2
+        class="text-heading2 font-bold text-primary"
+        set:html={componentProps.langType === "cysec"
+          ? titleCYSEC[componentProps.lang]
+          : titleFSA[componentProps.lang]}
+      />
+      <Fragment
+        set:html={componentProps.langType === "cysec"
+          ? parasCYSEC[componentProps.lang]
+          : parasFSA[componentProps.lang]}
+      />
+      <div class="grid place-items-center lg:block">
+        <ButtonWrapper
+          buttonLabel={buttonWrapperLabel[componentProps.lang]}
+          buttonDisclaimer={buttonWrapperDisclaimer[componentProps.lang]}
+          hrefTo="formWrapper"
+          whatsapp={componentProps.brandObj.whatsapp}
+          client:only
+        />
+      </div>
+    </div>
+    <div class="lg:basis-5/12">
+      <Image
+        src={brands}
+        alt="Background"
+        class="mx-auto mt-4 max-w-[300px] lg:max-w-full"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, brands.width]}
+        sizes={`
+          (max-width: 1023px) 270px,
+          392px
+        `}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  form.registerForm {
+    .form-control {
+      input,
+      select {
+        @apply rounded-none border border-gray-400;
+      }
+      button[type="submit"] {
+        @apply gap-4 rounded-none py-7;
+      }
+    }
+  }
+</style>

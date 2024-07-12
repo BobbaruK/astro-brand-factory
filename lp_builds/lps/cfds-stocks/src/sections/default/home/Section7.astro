@@ -1,0 +1,154 @@
+---
+import ButtonWrapper from "@/components/ButtonWrapper";
+import {
+  buttonWrapperDisclaimer,
+  buttonWrapperLabel,
+} from "@/translations/buttonWrapper";
+import type { Bullet } from "@/types/Bullet";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Czy jesteś gotowy by zacząć?`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: Bullet[] = [
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Otwórz rachunek`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Otwórz konto aby ukończyć rejestrację.`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Zacznij handlować`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Użyj dowolnej metody do zasilenia swojego rachunkui i zacznij inwestować.`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section
+  id="section7"
+  class="flex flex-col gap-8 py-7 sm:gap-12 md:gap-16 md:py-8 lg:py-9 xl:py-11"
+>
+  <div class="container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-center text-heading2 font-bold"
+    />
+  </div>
+  <div class="container flex flex-col gap-8 md:flex-row">
+    {
+      bullets.map((bullet) => (
+        <div class="flex flex-col gap-2 text-center md:basis-1/2">
+          <h3
+            set:html={bullet.title[componentProps.lang]}
+            class="text-[1rem] font-bold text-primary"
+          />
+          {bullet.para && <p set:html={bullet.para[componentProps.lang]} />}
+        </div>
+      ))
+    }
+  </div>
+  <div class="grid place-items-center">
+    <ButtonWrapper
+      buttonLabel={buttonWrapperLabel[componentProps.lang]}
+      buttonDisclaimer={buttonWrapperDisclaimer[componentProps.lang]}
+      hrefTo="formWrapper"
+      whatsapp={componentProps.brandObj.whatsapp}
+      client:only
+    />
+  </div>
+</section>
+
+<style lang="scss">
+  #section7 {
+    counter-reset: bullet;
+  }
+  h3 {
+    &::before {
+      counter-increment: bullet;
+      content: counter(bullet) ". ";
+    }
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+import Footer from "@/sections/Footer.astro";
+import Header from "@/sections/v4/Header.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import "../../globals-v4.scss";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<html
+  lang={componentProps.lang}
+  dir={componentProps.dir}
+  data-brandname={componentProps.brandObj.name}
+  data-lptype={componentProps.lpType}
+  data-formvalidation={componentProps.formValidation}
+  data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
+  data-typage={componentProps.brandObj.typage[componentProps.lang]}
+  data-openwa={componentProps.brandObj.whatsapp && "true"}
+  data-wanumber={componentProps.brandObj.whatsapp
+    ? componentProps.brandObj.whatsappNumber[componentProps.lang]
+    : false}
+>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={componentProps.brandObj.images.faviconLink}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="siteWrapper">
+      <Header componentProps={componentProps} />
+      <main>
+        <slot />
+      </main>
+      <Footer componentProps={componentProps} />
+    </div>
+    <script
+      type="module"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js"
+      is:inline></script>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .container {
+    max-width: 1320px;
+  }
+</style>

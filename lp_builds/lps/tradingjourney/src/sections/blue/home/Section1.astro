@@ -1,0 +1,234 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../../globals/components/Form/";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import book_original from "../../../assets/imgs/blue/book_original.png";
+
+interface List {
+  title: TranslationsType;
+  listItems: TranslationsType[];
+}
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: `Få skräddarsydd och gratis handelsutbildning`,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: `${useFxoroBrandOutput(componentProps.brandObj.name)} erbjuder dig det material du behöver för att komma in i handeln efter bästa förmåga: videohandledning, skräddarsydda kurser och framför allt manualen <strong>“Trading a 360°”</strong>.`,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: `Med vår professionella och gratis signaltjänst kommer du att kunna tillämpa det du lär dig om: CFD:er, råvaror, index (Nederländerna 25, Tyskland 30, US 30, US 100, Japan 225, US 500, Frankrike 40) och på de mest populära aktierna på aktiemarknaden.`,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const list: List = {
+  title: {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: `Guiden "Trading 360" innehåller:`,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  listItems: [
+    {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: `&bull; Lär dig mer om CFD-handel på råvaror, index och de mest populära aktierna.`,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: `&bull; Hur man förstår vad som påverkar valutamarknaderna`,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: `&bull; Övningar - Information om indikatorer: hur man läser dem, hur man använder dem`,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  ],
+};
+
+const formButton: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: `Ange`,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section1" class="section1 py-8">
+  <div class="container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="mb-8 text-title-font-size font-bold text-primary"
+    />
+  </div>
+  <div class="container">
+    <div class="flex flex-col gap-4 lg:flex-row">
+      <div class="relative flex flex-col gap-6 lg:basis-4/6">
+        <!-- <div class="flex flex-col gap-6 lg:grow lg:w-full relative"> -->
+        {
+          paras.map((para) => (
+            <p class="sm:pr-56 md:pr-64" set:html={para[componentProps.lang]} />
+          ))
+        }
+        <div class="flex flex-col gap-2">
+          <h2
+            class="text-[16px] font-bold"
+            set:html={list.title[componentProps.lang]}
+          />
+          <ul class="flex flex-col gap-4 lg:max-w-[40ch]">
+            {
+              list.listItems.map((listItem) => (
+                <li set:html={listItem[componentProps.lang]} />
+              ))
+            }
+          </ul>
+        </div>
+        <Image
+          src={book_original}
+          alt="360 Trading"
+          class="mx-auto block max-w-[205px] sm:absolute sm:right-0 sm:top-0 sm:max-w-[168px] md:right-8 md:max-w-[210px]"
+          widths={[168, 205, book_original.width]}
+          sizes={`(max-width: 639px) 205px, (max-width: 767px) 168px, 210px`}
+        />
+      </div>
+      <div class="lg:basis-2/6">
+        <!-- <div class="lg:basis-[500px] lg:grow lg:w-full"> -->
+        <div class="border border-secondary-foreground">
+          <h3
+            class="border-b border-secondary-foreground p-4 text-center text-[19px] font-bold"
+          >
+            Registrera dig nu
+          </h3>
+          <p class="border-b border-secondary-foreground p-4 text-center">
+            För att erhålla en kopia omedelbart!
+          </p>
+          <div class="p-4">
+            <Form
+              componentProps={componentProps}
+              button={formButton[componentProps.lang]}
+              id="form1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  .submitButtonWrapper {
+    button {
+      text-transform: uppercase;
+      @apply gap-2 bg-secondary text-xl text-secondary-foreground hover:text-primary-foreground;
+    }
+  }
+</style>

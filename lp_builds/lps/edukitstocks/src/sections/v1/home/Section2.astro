@@ -1,0 +1,177 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.js";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.js";
+import icon1 from "../../../assets/imgs/icon1.png";
+import icon2 from "../../../assets/imgs/icon2.png";
+import icon3 from "../../../assets/imgs/icon3.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Trova il tipo di corso più adatto a te",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Hitta rätt typ av kurs som passar dig!`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  title: TranslationsType;
+  para: TranslationsType;
+  image: ImageMetadata;
+}[] = [
+  {
+    title: {
+      en: "",
+      it: "E-BOOK dettagliati",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Detaljerade e-böcker`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "Esplora il nostro materiale educativo e scegli quello che si adatta meglio alle tue esigenze.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Utforska vårt utbildningsmaterial och välj det som passar dig bäst.`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    image: icon1,
+  },
+  {
+    title: {
+      en: "",
+      it: "Materiale formativo completo",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Omfattande utbildningsmaterial`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "per tutti gli investitori attuali o potenziali.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Omfattande utbildningsmaterial som riktar sig till alla nuvarande eller potentiella investerare`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    image: icon2,
+  },
+  {
+    title: {
+      en: "",
+      it: "Webinar interattivi",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Interaktiva webbseminarier`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "Partecipa ai nostri webinar per scoprire e imparare sempre di più.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Delta i våra webbseminarier för att upptäcka och lära dig mer`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    image: icon3,
+  },
+];
+---
+
+<section id="section2" class="py-6 2xl:py-20">
+  <div class="container mb-8">
+    <h2 class="text-heading2 uppercase" set:html={title[componentProps.lang]} />
+  </div>
+  <div class="container flex flex-col gap-8 md:flex-row">
+    {
+      bullets.map((bullet) => (
+        <div class="flex flex-col gap-2 md:basis-1/3">
+          <Image
+            src={bullet.image}
+            alt="Background"
+            class=""
+            widths={[320, 576, 640, 768, 1024, 1280, 1536, bullet.image.width]}
+            sizes={bullet.image.width + "px"}
+          />
+          <h3
+            class="uppercase text-primary"
+            set:html={bullet.title[componentProps.lang]}
+          />
+          <p set:html={bullet.para[componentProps.lang]} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss" is:global></style>

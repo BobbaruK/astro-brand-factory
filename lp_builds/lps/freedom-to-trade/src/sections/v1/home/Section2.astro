@@ -1,0 +1,182 @@
+---
+import { Image } from "astro:assets";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import devices from "../../../assets/imgs/v1/devices.png";
+import bg from "../../../assets/imgs/v1/s2BG.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `You can trade through:`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  mt4: {
+    title: TranslationsType;
+    para: TranslationsType;
+  };
+  mobileApp: {
+    title: TranslationsType;
+    para: TranslationsType;
+  };
+  para: TranslationsType;
+} = {
+  mt4: {
+    title: {
+      en: `MT4`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `is one of the world's most popular trading platforms, with over 6 million users and 2,000 partner brokers. “Metatrader 4”, with its advanced web technology features and extra functionality`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  mobileApp: {
+    title: {
+      en: `MOBILE APP - ${useFxoroBrandOutput(componentProps.brandObj.name)}`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `app is available on iOS (iPad and iPhone) and Android devices. It offers all the same features as its desktop counterpart, but with a user-friendly interface that’s easy to navigate.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  para: {
+    en: `We strive to offer customers a seamless experience across all platforms. ${useFxoroBrandOutput(componentProps.brandObj.name)} trading platform is designed to provide the simplicity that a trader seeks.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+};
+---
+
+<section class="relative py-4 md:py-9 lg:py-10 xl:py-12">
+  <Image
+    src={bg}
+    alt="Header Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+    (max-width: 320px) 320px,
+    (max-width: 576px) 576px,
+    (max-width: 640px) 640px,
+    (max-width: 768px) 768px,
+    (max-width: 1024px) 1024px,
+    (max-width: 1280px) 1280px,
+    (max-width: 1536px) 1536px,
+    100vw
+  `}
+  />
+  <div class="container relative z-10 flex flex-col gap-4 text-white md:gap-10">
+    <h2
+      class="text-center text-v1-heading2 font-bold"
+      set:html={title[componentProps.lang]}
+    />
+    <div class="flex flex-col gap-4 text-center md:flex-row md:text-start">
+      <div class="flex flex-col gap-4">
+        <h3
+          class="font-bold"
+          set:html={bullets.mt4.title[componentProps.lang]}
+        />
+        <p set:html={bullets.mt4.para[componentProps.lang]} />
+        <h3
+          class="font-bold"
+          set:html={bullets.mobileApp.title[componentProps.lang]}
+        />
+        <p set:html={bullets.mobileApp.para[componentProps.lang]} />
+        <p class="font-bold" set:html={bullets.para[componentProps.lang]} />
+      </div>
+      <div class="grid place-items-center md:w-[40%] md:min-w-[40%]">
+        <Image
+          src={devices}
+          alt="Header Background"
+          class="w-full max-w-[445px]"
+          widths={[320, 576, devices.width]}
+          sizes={`576px`}
+        />
+      </div>
+    </div>
+  </div>
+</section>

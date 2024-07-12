@@ -1,0 +1,15 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import ClassicRemake from "@/layouts/ClassicRemake/pageLayout.astro";
+import Section1 from "@/sections/ClassicRemake/home/Section1.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<ClassicRemake componentProps={componentProps}>
+  <Section1 componentProps={componentProps} />
+</ClassicRemake>

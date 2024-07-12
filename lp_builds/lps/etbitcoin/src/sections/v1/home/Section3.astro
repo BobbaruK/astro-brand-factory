@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import tablet from "../../../assets/imgs/v1/Tablet.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Interessato a imparare?",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "Är du intresserad av att lära dig?",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section3" class="pt-5 md:pt-6 lg:pt-8 xl:pt-9 2xl:pt-20">
+  <div class="container flex flex-col gap-6 lg:text-center">
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <Image
+      src={tablet}
+      alt="Background"
+      class="mx-auto block w-full max-w-[690px]"
+      widths={[320, 576, 640, 768, tablet.width]}
+      sizes={`
+        (max-width: 320px) 271px,
+        (max-width: 640px) 591px,
+        690px
+      `}
+    />
+  </div>
+</section>

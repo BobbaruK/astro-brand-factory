@@ -1,0 +1,72 @@
+---
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Market observations for 2024`,
+  it: `Osservazioni di Mercato per il 2024`,
+  tr: ``,
+  ro: `Observații ale pieței pentru 2024`,
+  ar: ``,
+  de: ``,
+  es: `Observaciones del mercado para 2024`,
+  sv: `Marknadsöversikter för 2024`,
+  pt: ``,
+  fi: ``,
+  pl: `Obserwacje rynkowe na rok 2024`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `Saxo Bank has just release an article called "Outrageous Predictions*,"  which can serve as a compass for the trends and shifts that could influence the financial world in 2024. Our Team provides a breakdown of this information:`,
+  it: `Saxo Bank ha appena pubblicato un articolo intitolato "Outrageous Predictions*", che può fungere da bussola per le tendenze e i cambiamenti che potrebbero influenzare il mondo finanziario nel 2024. Il nostro team fornisce una ripartizione di queste informazioni:`,
+  tr: ``,
+  ro: `Saxo Bank tocmai a lansat un articol numit "Previziuni scandaloase*," care poate servi ca o busolă pentru tendințele și schimbările care ar putea influența lumea financiară în 2024. Echipa noastră oferă o analiză detaliată a acestei informații:`,
+  ar: ``,
+  de: ``,
+  es: `Saxo Bank acaba de publicar un artículo titulado "Predicciones escandalosas*", que puede servir de brújula para las tendencias y los cambios que podrían influir en el mundo financiero en 2024. Nuestro equipo ofrece un desglose de esta información:`,
+  sv: `Saxo Bank har precis släppt en artikel som heter "Outrageous Predictions*", som kan fungera som en kompass för de trender och skiftningar som kan påverka finansvärlden 2024. Vårt team ger en sammanfattning av denna information:`,
+  pt: ``,
+  fi: ``,
+  pl: `Saxo Bank opublikował właśnie artykuł zatytułowany „Skandaliczne prognozy*”, który może służyć jako kompas dla trendów i zmian, które mogą mieć wpływ na świat finansów w 2024 r. Nasz zespół przedstawia zestawienie tych informacji:`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section1" class="section1">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h2 set:html={title[componentProps.lang]} />
+        <p>{para[componentProps.lang]}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../scss-lp/abstracts/mixins" as mxns;
+
+  section#section1.section1 {
+    @include mxns.mediamax(lg) {
+      text-align: center;
+    }
+    h2 {
+      text-transform: uppercase;
+    }
+    p {
+      // max-width: 90ch;
+    }
+  }
+</style>

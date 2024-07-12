@@ -1,0 +1,26 @@
+---
+import { useBrands } from "../../../../globals/composables/useBrands";
+import { type BrandArrItem } from "../../../../globals/types/Brands";
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
+import "../assets/styles/index.scss";
+import HomePage from "@/layouts/v1/home.astro";
+
+const brandId: number = 8;
+const langTypeRegion: LandingPageLangType = "cysec";
+
+const brandObj = useBrands({ whatsapp: true, region: langTypeRegion }).find((brand) => brand.id === brandId);
+
+const componentProps: ComponentProps = {
+  lang: "en",
+  langType: langTypeRegion,
+  dir: "ltr",
+  lpName: "LP NAME",
+  brandObj: brandObj || ({} as BrandArrItem),
+  lpType: "esma",
+  formValidation: "classic",
+  // fxoroFooter: true,
+};
+---
+
+<HomePage componentProps={componentProps} />

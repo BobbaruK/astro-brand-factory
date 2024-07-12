@@ -1,0 +1,55 @@
+---
+import type { TranslationsType } from "../../../../globals/types/Translations";
+interface Props {
+  buttonLabel: string;
+  lang: string;
+  // buttonDisclaimer: string;
+}
+const { buttonLabel, lang } = Astro.props;
+
+const para: TranslationsType = {
+  en: `Trading CFDs is risky. You may lose all your invested capital.`,
+  it: `Il trading di CFD è rischioso. Potresti perdere tutto il capitale investito.`,
+  tr: ``,
+  ro: `Tranzacționarea CFD-urilor este riscantă. Este posibil să pierdeți tot capitalul investit.`,
+  ar: ``,
+  de: ``,
+  es: `Operar con CFDs es arriesgado. Puede perder todo el capital invertido.`,
+  sv: `Trading med CFD:er är mycket riskfyllt. Du kan förlora allt investerat kapital.`,
+  pt: ``,
+  fi: ``,
+  pl: `Handel kontraktami CFD jest ryzykowny. Możesz stracić cały zainwestowany kapitał.`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<div class="btnWrapper">
+  <button class="scssecoBtn scssecoBtn--primary js-modal" set:html={buttonLabel} />
+  <p set:html={para[lang]} />
+</div>
+
+<style>
+  .btnWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+  .scssecoBtn {
+    background-color: var(--clr-accent_orange);
+    border-color: var(--clr-accent_orange);
+    border-radius: 0;
+  }
+
+  p {
+    font-size: var(--spacing-3);
+    line-height: var(--spacing-4);
+    max-width: 19ch;
+    margin: 0;
+
+    text-align: center;
+  }
+</style>

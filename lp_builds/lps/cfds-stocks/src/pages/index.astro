@@ -1,0 +1,51 @@
+---
+import Default from "@/layouts/Default.astro";
+import Section2 from "@/sections/default/home/Section2.astro";
+import Section3 from "@/sections/default/home/Section3.astro";
+import Section4 from "@/sections/default/home/Section4.astro";
+import Section5 from "@/sections/default/home/Section5.astro";
+import Section6 from "@/sections/default/home/Section6.astro";
+import Section7 from "@/sections/default/home/Section7.astro";
+import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
+import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
+import "../globals.scss";
+
+const langTypeRegion: LandingPageLangType = "fsa";
+
+export interface CustomOptions {
+  logoSquare: boolean;
+}
+const componentProps: ComponentProps<
+  TradingProfilerSVGVariation,
+  CustomOptions
+> = {
+  lang: "en",
+  langType: langTypeRegion,
+  dir: "ltr",
+  lpName: "CFDs Stocks",
+  brandObj: useBrandFactory({
+    brand: "tradingprofiler",
+    region: langTypeRegion,
+    whatsapp: true,
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType: "esma",
+  formValidation: "classic",
+  customOptions: {
+    logoSquare: false,
+  },
+};
+---
+
+<Default componentProps={componentProps}>
+  <Section2 componentProps={componentProps} />
+  <Section3 componentProps={componentProps} />
+  <Section4 componentProps={componentProps} />
+  <Section5 componentProps={componentProps} />
+  <Section6 componentProps={componentProps} />
+  {componentProps.langType === "cysec" && <Section7 componentProps={componentProps} />}
+</Default>

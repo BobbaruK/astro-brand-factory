@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+import section1BG from "../../../assets/imgs/Classic/section1-background.png";
+import icon1 from "../../../assets/imgs/Classic/icon1.png";
+import icon2 from "../../../assets/imgs/Classic/icon2.png";
+import icon3 from "../../../assets/imgs/Classic/icon3.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Zainteresowany zarabianiem poprzez inwestycje? sprawdź co oferuje ${useFxoroBrandOutput(componentProps.brandObj.name)}:`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+interface Bullet {
+  title: TranslationsType;
+  image: ImageMetadata;
+}
+
+const bullets: Bullet[] = [
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Materiały szkoleniowe`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    image: icon1,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Sesje szkoleniowe`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    image: icon2,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Przetestuj swoje umiejętności z nami podczas okresu próbnego`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    image: icon3,
+  },
+];
+---
+
+<section id="section1" class="section1 py-4 sm:pt-8 sm:pb-16 md:pb-28 lg:pt-12 lg:pb-26 xl:pt-20 relative mb-8">
+  <Image src={section1BG} alt="Background" class="absolute w-full h-full top-0 left-0 z-0 hidden sm:block" widths={[320, 576, 640, 768, 1024, 1280, 1536, section1BG.width]} sizes={"100vw"} />
+  <div class="relative z-10">
+    <div class="container grid place-items-center pb-4 sm:pb-8 lg:pb-12">
+      <h2 set:html={title[componentProps.lang]} class="text-3xl uppercase text-primary font-bold text-center max-w-[50ch]" />
+    </div>
+    <div class="container flex flex-col gap-8 md:flex-row">
+      {
+        bullets.map((bullet) => (
+          <div class="flex flex-col gap-4 justify-start items-center md:basis-1/3">
+            <Image src={bullet.image} alt="Background" class="" widths={[102, bullet.image.width]} sizes={"102px"} />
+            <h3 set:html={bullet.title[componentProps.lang]} class="text-center max-w-[26ch]" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

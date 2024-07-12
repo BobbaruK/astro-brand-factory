@@ -1,0 +1,304 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../../globals/components/Form/";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import book_original from "../../../assets/imgs/green/book_original.png";
+
+interface List {
+  title: TranslationsType;
+  listItems: TranslationsType[];
+}
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Get free training tailored to your trading needs`,
+  it: `Ricevi una formazione di trading gratuita e personalizzata`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Obtenga capacitación gratuita adaptada a sus necesidades comerciales`,
+  sv: `Få kostnadsfri, skräddarsydd utbildning i trading`,
+  pt: ``,
+  fi: ``,
+  pl: `Otrzymaj bezpłatną, dostosowaną do potrzeb edukację handlową`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `${useFxoroBrandOutput(componentProps.brandObj.name)} offers you all the material you need in order to enter the world of trading, using your best abilities. These materials include: clear and concise video tutorials, a tailor-made course and a 360 Trading manual, especially compiled and prepared for those who are about to make the first step into the world of trading.`,
+    it: `${useFxoroBrandOutput(componentProps.brandObj.name)} ti offre tutto il materiale necessario per entrare nel mondo del trading al meglio delle tue possibilità: video tutorial chiari e concisi, un corso su misura e il manuale "trading a 360°" appositamente pensato per tutti coloro che si accingono a il loro primo passo in questo mondo.`,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `${useFxoroBrandOutput(componentProps.brandObj.name)} le ofrece todo el material que necesita para ingresar al mundo del comercio, utilizando sus mejores habilidades. Estos materiales incluyen: tutoriales en video claros y concisos, un curso a medida y un manual de 360 Trading, especialmente compilado y preparado para aquellos que están a punto de dar el primer paso en el mundo del trading.`,
+    sv: `${useFxoroBrandOutput(componentProps.brandObj.name)} erbjuder dig allt material du behöver för att komma in i tradingvärlden på bästa sätt: tydliga och koncisa videohandledningar, en skräddarsydd kurs och manualen "360° trading" som är särskilt utformad för alla dem som står i begrepp att ta sitt första steg in i denna värld.`,
+    pt: ``,
+    fi: ``,
+    pl: `${useFxoroBrandOutput(componentProps.brandObj.name)} oferuje materiały, których potrzebujesz, aby wejść w świat handlu najlepiej jak potrafisz: jasne i zwięzłe samouczki wideo, kurs dostosowany do potrzeb oraz podręcznik „Trading 360°” zaprojektowany specjalnie dla wszystkich, którzy zamierzają rozpocząć pierwszy krok w ten świat.`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `With the support of these free tools you can start your online trading on: CFDs on commodities (Oil, Gold, Gas, Silver),CFDs on indices (Netherlands 25, Germany 30, US 30, US Tech 100, Japan 225, US 500, France 40) and shares (Apple, Coca Cola, Facebook, Google).`,
+    it: `Grazie a questi strumenti puoi finalmente iniziare a fare trading online su: CFD, materie prime (petrolio, oro, gas, argento), CFD su indici (Olanda 25, Germania 30, Stati Uniti 30, Stati Uniti 100, Giappone 225, USA 500, Francia 40) e sugli azionisti (Apple, Coca Cola, Facebook, Google).`,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `Con el apoyo de estas herramientas gratuitas, puede comenzar a operar en línea en: CFD sobre materias primas (petróleo, oro, gas, plata), CFD sobre índices (Países Bajos 25, Alemania 30, EE. UU. 30, US Tech 100, Japón 225, EE. UU. 500 , Francia 40) y acciones (Apple, Coca Cola, Facebook, Google).`,
+    sv: `Tack vare dessa verktyg kan du äntligen börja handla online på: CFD:er, råvaror (olja, guld, gas, silver), CFD:er på index (Nederländerna 25, Tyskland 30, USA 30, USA 100, Japan 225, USA 500 ,Frankrike 40) och på aktieägare (Apple, Coca Cola, Facebook, Google).`,
+    pt: ``,
+    fi: ``,
+    pl: `Dzięki tym narzędziom możesz w końcu zacząć handlować online na: kontraktach CFD, towarach (ropa, złoto, gaz, srebro), kontraktach CFD na indeksy (Holandia 25, Niemcy 30, Stany Zjednoczone 30, Stany Zjednoczone 100, Japonia 225, USA 500, Francja 40) oraz akcjonariuszy (Apple, Coca Cola, Facebook, Google).`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Moreover, our trading signals and the lessons aim to analyze the news and the market updates. They are the ultimate assets you need in order to start trading.`,
+    it: `Inoltre, ti ricordiamo che i nostri segnali e le nostre lezioni mirano entrambi ad analizzare tutti gli eventi e gli aggiornamenti di mercato attuali, asset essenziali per iniziare a fare trading.`,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `Además, nuestras señales comerciales y las lecciones tienen como objetivo analizar las noticias y las actualizaciones del mercado. Son los mejores activos que necesita para comenzar a operar.`,
+    sv: `Dessutom påminner vi dig om att våra signaler och våra lektioner båda syftar till att analysera alla aktuella marknadshändelser och uppdateringar, viktiga tillgångar för att börja handla.`,
+    pt: ``,
+    fi: ``,
+    pl: `Ponadto przypominamy, że nasze lekcje mają na celu analizę wszystkich bieżących wydarzeń rynkowych i aktualizacji, niezbędnych aktywów do rozpoczęcia handlu.`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const list: List = {
+  title: {
+    en: `The "360 Trading" guide contains:`,
+    it: `La guida "Trading 360" contiene:`,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `La guía "360 Trading" contiene:`,
+    sv: `Guiden "Trading 360" innehåller:`,
+    pt: ``,
+    fi: ``,
+    pl: `Poradnik „Trading 360” zawiera:`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  listItems: [
+    {
+      en: `&bull; Info about trading on CFDS on commodities, indices and the most popular stocks.`,
+      it: `&bull; Informazioni sul trading di CFD su materie prime, indici e azioni più popolari.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `&bull; Información sobre el comercio de CFDS en materias primas, índices y las acciones más populares.`,
+      sv: `&bull; Lär dig mer om CFD-handel på råvaror, index och de mest populära aktierna.`,
+      pt: ``,
+      fi: ``,
+      pl: `&bull; Informacje o handlu kontraktami CFD na towary, indeksy i najpopularniejsze akcje.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `&bull; How to understand what affects forex markets`,
+      it: `&bull; Come capire cosa influenza i mercati forex`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `&bull; Cómo entender qué afecta a los mercados de divisas`,
+      sv: `&bull; Hur man förstår vad som påverkar valutamarknaderna`,
+      pt: ``,
+      fi: ``,
+      pl: `&bull; Jak zrozumieć, co wpływa na rynki forex.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `&bull; Exercises`,
+      it: `&bull; Esercizi - Informazioni sugli indicatori: come leggerli, come usarli`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `&bull; Ejercicios`,
+      sv: `&bull; Övningar - Information om indikatorer: hur man läser dem, hur man använder dem`,
+      pt: ``,
+      fi: ``,
+      pl: `&bull; Ćwiczenia i Informacje o wskaźnikach: jak je czytać, jak można z nich korzystać.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `&bull; Info about indicators: how to read them, how to use them`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `&bull; Información sobre indicadores: cómo leerlos, cómo usarlos`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  ],
+};
+
+const formTitle: TranslationsType = {
+  en: `Register now`,
+  it: `Iscriviti ora`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Regístrese ahora`,
+  sv: `Registrera dig nu`,
+  pt: ``,
+  fi: ``,
+  pl: `Zarejestruj się teraz`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formSubTitle: TranslationsType = {
+  en: `to get a copy`,
+  it: `Per riceverne subito una copia!`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `para obtener una copia`,
+  sv: `För att erhålla en kopia omedelbart!`,
+  pt: ``,
+  fi: ``,
+  pl: `Aby natychmiast otrzymać kopię!`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formButton: TranslationsType = {
+  en: `Join`,
+  it: `Per riceverne subito una copia!`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Enviar`,
+  sv: `För att erhålla en kopia omedelbart!`,
+  pt: ``,
+  fi: ``,
+  pl: `Wejdź tutaj`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section1" class="section1 py-8">
+  <div class="container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="mb-8 text-title-font-size font-bold text-primary"
+    />
+  </div>
+  <div class="container">
+    <div class="flex flex-col gap-4 lg:flex-row">
+      <div class="relative flex flex-col gap-6 lg:basis-4/6">
+        <!-- <div class="flex flex-col gap-6 lg:grow lg:w-full relative"> -->
+        {
+          paras.map((para) => (
+            <p class="sm:pr-56 md:pr-64" set:html={para[componentProps.lang]} />
+          ))
+        }
+        <div class="flex flex-col gap-2">
+          <h2
+            class="text-[16px] font-bold"
+            set:html={list.title[componentProps.lang]}
+          />
+          <ul class="flex flex-col gap-4 lg:max-w-[40ch]">
+            {
+              list.listItems.map((listItem) => (
+                <li set:html={listItem[componentProps.lang]} />
+              ))
+            }
+          </ul>
+        </div>
+        <Image
+          src={book_original}
+          alt="360 Trading"
+          class="mx-auto block max-w-[205px] sm:absolute sm:right-0 sm:top-0 sm:max-w-[168px] md:right-8 md:max-w-[210px]"
+          widths={[168, 205, book_original.width]}
+          sizes={`(max-width: 639px) 205px, (max-width: 767px) 168px, 210px`}
+        />
+      </div>
+      <div class="lg:basis-2/6">
+        <!-- <div class="lg:basis-[500px] lg:grow lg:w-full"> -->
+        <div class="border border-secondary-foreground">
+          <h3
+            class="border-b border-secondary-foreground p-4 text-center text-[19px] font-bold"
+            set:html={formTitle[componentProps.lang]}
+          />
+          <p
+            class="border-b border-secondary-foreground p-4 text-center"
+            set:html={formSubTitle[componentProps.lang]}
+          />
+          <div class="p-4">
+            <Form
+              componentProps={componentProps}
+              button={formButton[componentProps.lang]}
+              id="form1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  .submitButtonWrapper {
+    button {
+      text-transform: uppercase;
+      @apply h-auto gap-2 whitespace-normal text-xl;
+    }
+  }
+</style>

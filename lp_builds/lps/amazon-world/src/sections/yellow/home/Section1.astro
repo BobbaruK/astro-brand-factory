@@ -1,0 +1,286 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../../globals/components/Form/";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import topBG from "../../../assets/imgs/yellow/bg.jpg";
+import icon1 from "../../../assets/imgs/yellow/icon_1.png";
+import icon2 from "../../../assets/imgs/yellow/icon_2.png";
+import icon3 from "../../../assets/imgs/yellow/icon_3.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Varför investeringar i Amazon är värt det?`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Fler och fler investerare satsar på de högteknologiska jättarna när de handlar aktier. Bland de Amerikanska bolagen som är noterade på Nasdaq är Amazon utan tvekan en utav de mest lönsamma.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const list: {
+  text: TranslationsType;
+  icon: ImageMetadata;
+}[] = [
+  {
+    text: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `Amazon aktierna steg med 57% endast under 2017.`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    icon: icon1,
+  },
+  {
+    text: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `2018 steg amazon under första halvåret med 41%.`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    icon: icon2,
+  },
+  {
+    text: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: `På en treårsperiod, trots några stopp, har den postiva utvecklingen gått upp med över 300%.`,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    icon: icon3,
+  },
+];
+
+const formTitle: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Investera i Amazon är det bästa valet.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formBtn: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Börja nu`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section1" class="relative pt-4 md:pt-6 lg:pb-6 lg:pt-0">
+  <Image
+    src={topBG}
+    alt="Background"
+    class="absolute left-0 top-0 z-0 h-[550px] w-full object-cover lg:h-full"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, topBG.width]}
+    sizes={`
+      (max-width: 640px) 640px,
+      100vw
+    `}
+  />
+  <div
+    class="container relative z-10 flex flex-col gap-6 text-white lg:flex-row lg:gap-0"
+  >
+    <div class="flex flex-col justify-center gap-6 lg:grow">
+      <h1
+        set:html={title[componentProps.lang]}
+        class="sectionTitle bg-primary pe-2 text-heading1 font-bold text-primary-foreground"
+      />
+      <p
+        class="text-sm font-light sm:text-lg lg:max-w-[45ch]"
+        set:html={para[componentProps.lang]}
+      />
+      <ul
+        class="flex flex-col gap-4 text-sm font-light sm:text-lg lg:max-w-[50ch]"
+      >
+        {
+          list.map((listItem) => (
+            <li class="flex items-center gap-2">
+              <Image
+                src={listItem.icon}
+                alt={listItem.text[componentProps.lang]}
+                class="h-8 w-8"
+                widths={[listItem.icon.width]}
+                sizes={"32px"}
+              />
+              {listItem.text[componentProps.lang]}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div
+      class="formWrapper relative flex flex-col gap-8 bg-white lg:w-[33.333333%] lg:min-w-[33.333333%] lg:py-4 xl:pt-8 2xl:pt-12"
+    >
+      <h2
+        set:html={formTitle[componentProps.lang]}
+        class="formTitle relative bg-primary px-4 py-2 text-center text-formTitle font-bold text-primary-foreground"
+      />
+      <div class="text-foreground lg:p-4">
+        <Form
+          componentProps={componentProps}
+          button={formBtn[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .sectionTitle {
+    @apply relative;
+    @media (max-width: 1023px) {
+      box-shadow: 0 0 0 100vmax hsl(var(--primary));
+      clip-path: inset(0 -100vmax);
+    }
+
+    &::before {
+      content: "";
+      height: 100%;
+      width: 10000px;
+      top: 0;
+      left: -10000px;
+      @apply absolute bg-primary;
+    }
+  }
+
+  .formTitle {
+    @media (max-width: 1023px) {
+      &::before,
+      &::after {
+        content: "";
+        height: 100%;
+        width: 1000px;
+        top: 0;
+        @apply absolute z-10 bg-primary;
+      }
+      &::before {
+        left: -1000px;
+      }
+      &::after {
+        right: -1000px;
+      }
+    }
+  }
+
+  .formWrapper {
+    @media (max-width: 1023px) {
+      &::before,
+      &::after {
+        content: "";
+        height: 100%;
+        width: 1000px;
+        top: 0;
+        @apply absolute bg-white;
+      }
+      &::before {
+        left: -1000px;
+      }
+      &::after {
+        right: -1000px;
+      }
+    }
+  }
+</style>
+
+<style lang="scss" is:global>
+  form.registerForm {
+    .form-control {
+      input,
+      select {
+      }
+      button[type="submit"] {
+        @apply gap-4 bg-secondary text-secondary-foreground;
+        &:hover {
+          @apply bg-primary text-primary-foreground;
+        }
+      }
+    }
+  }
+</style>

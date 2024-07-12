@@ -1,0 +1,67 @@
+---
+import Form from "../../../../../../globals/components/Form/";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `<span class="text-primary">${componentProps.brandObj.name}</span>. Your doorway to global financial markets.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: `Get Information`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section class="py-4 sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14">
+  <div class="container flex flex-col gap-4 md:flex-row">
+    <div class="flex grow items-center justify-start text-white">
+      <h1
+        class="text-center text-heading1 font-bold md:text-start lg:max-w-[20ch]"
+        set:html={title[componentProps.lang]}
+      />
+    </div>
+    <div
+      id="formWrapper"
+      class="bg-background p-4 md:w-[50%] md:min-w-[50%] lg:w-[40%] lg:min-w-[40%]"
+    >
+      <Form
+        componentProps={componentProps}
+        button={formButton[componentProps.lang]}
+        id="form1"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,209 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../globals/components/Form/";
+import useFxoroBrandOutput from "../../../../../globals/composables/useFxoroBrandOutput";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import phoneImage from "../../assets/imgs/v1/phone.png";
+import bgPattern from "../../assets/imgs/v1/topBgPattern.png";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `${useFxoroBrandOutput(componentProps.brandObj.name)} gives you the ability to enter the financial markets`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formButton: TranslationsType = {
+  en: `Start trading`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<header
+  id="header"
+  class="relative overflow-hidden bg-primary text-primary-foreground"
+>
+  <Image
+    src={bgPattern}
+    alt="Header Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgPattern.width]}
+    sizes={`
+      (max-width: 320px) 320px,
+      (max-width: 576px) 576px,
+      (max-width: 640px) 640px,
+      (max-width: 768px) 768px,
+      (max-width: 1024px) 1024px,
+      (max-width: 1280px) 1280px,
+      (max-width: 1536px) 1536px,
+      100vw
+    `}
+  />
+  <div class="container relative z-10 py-4 [&>svg]:max-w-full">
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
+  </div>
+  <div
+    class="container relative z-10 grid grid-cols-1 gap-9 py-4 md:grid-cols-v1-header-layout-md md:grid-rows-v1-header-layout-md md:py-9 lg:grid-cols-v1-header-layout-lg lg:gap-y-4 lg:py-10 xl:max-w-[1140px] xl:gap-x-16 xl:py-12"
+  >
+    <div>
+      <h1
+        class="text-center text-v1-heading1 font-bold leading-tight md:max-w-[25ch] md:text-start"
+        set:html={title[componentProps.lang]}
+      />
+    </div>
+    <div class="md:row-span-2">
+      <div class="rounded-md bg-background p-4 text-foreground">
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+    <div class="grid place-items-center md:place-items-end">
+      <Image
+        src={phoneImage}
+        alt="Header Background"
+        class="-mb-80 w-full max-w-[300px] md:-mb-20 md:max-w-[260px] lg:-mb-56 lg:max-w-[320px] xl:-mb-64"
+        widths={[320, phoneImage.width]}
+        sizes={`320px`}
+      />
+    </div>
+  </div>
+</header>
+
+<style lang="scss" is:global define:vars={{}}>
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply h-10 border border-black text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex h-10 gap-4 p-2 py-4 text-xl uppercase hover:bg-secondary hover:text-secondary-foreground;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,15 @@
+---
+import Section1 from "@/sections/ProfessionalBlack/home/Section1.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import ProfessionalBlack from "./pageLayout.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<ProfessionalBlack componentProps={componentProps}>
+  <Section1 componentProps={componentProps} />
+</ProfessionalBlack>

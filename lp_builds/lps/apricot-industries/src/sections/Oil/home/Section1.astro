@@ -1,0 +1,36 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const para: TranslationsType = {
+  en: `<span class="text-secondary">${componentProps.brandObj.name}</span> offers you all the knowledge you need and the last generation tools in order to help you <span class="text-secondary">trade gold</span> comfortably and reach your full potential.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="py-7">
+  <div class="container grid place-items-center">
+    <p
+      class="max-w-[53ch] text-center text-gold-para-lead2 font-bold leading-tight"
+      set:html={para[componentProps.lang]}
+    />
+  </div>
+</section>

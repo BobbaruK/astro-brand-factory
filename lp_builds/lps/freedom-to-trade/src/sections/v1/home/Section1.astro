@@ -1,0 +1,277 @@
+---
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import SVGMask from "../../../../../../globals/components/SVGMask";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import { icon1, icon2, icon3, icon4, icon5 } from "../../../assets/icons";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `We offer trading tools designed to enhance your trading goals.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  title: TranslationsType;
+  icon: string;
+  para: TranslationsType;
+}[] = [
+  {
+    title: {
+      en: `${useFxoroBrandOutput(componentProps.brandObj.name)} Tools for your trading`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon1,
+    para: {
+      en: `${useFxoroBrandOutput(componentProps.brandObj.name)} offers a variety of tools. You can trade CFDs on Forex, stocks, commodities and indices through TradingProfiler as well as trade CFDs on Cryptocurrencies and ETFs.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Islamic Account`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon2,
+    para: {
+      en: `Islamic Accounts are offered for those that they cannot receive or pay interest, for religious reasons, This is why they are also referred swap-free accounts.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Main types of trading accounts`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon3,
+    para: {
+      en: `Among the most popular on the market: fixed spread account, variable spread account, with Islamic account optional.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Trading Central “Analyst Views”`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon4,
+    para: {
+      en: `Analytical views created by a team of high-level market technicians who daily cross-reference information and develop reports capable ofproviding traders with an increasingly refined technical analysis.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Trading Central “Strategy Newsletter”`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon5,
+    para: {
+      en: `Trading Central's newsletter lets investors keep up with the market, stay informed about news and read important economic reports.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section class="py-4 md:py-9 lg:py-10 xl:py-12">
+  <div
+    class="container flex max-w-[850px] flex-col items-center justify-center gap-4 md:gap-10"
+  >
+    <h2
+      class="max-w-[30ch] text-center text-v1-heading2 font-bold leading-tight"
+      set:html={title[componentProps.lang]}
+    />
+    <div
+      class="counter flex w-full grow flex-col gap-4 md:grid md:grid-cols-2 md:gap-6"
+    >
+      {
+        bullets.map((bullet, index) => (
+          <Card
+            className={cn(
+              `flex flex-col gap-4 overflow-hidden rounded-md border-2 border-black p-4`,
+              bullets.length - 1 === index ? "col-span-2" : "",
+            )}
+          >
+            <div
+              class={cn(
+                `flex flex-row items-center justify-between gap-4 md:gap-8`,
+                bullets.length - 1 === index && "md:flex-col-reverse",
+              )}
+            >
+              <h3
+                class="text-[16px] font-bold"
+                set:html={bullet.title[componentProps.lang]}
+              />
+              <div class="text-8xl text-primary">
+                <SVGMask url={bullet.icon} />
+              </div>
+            </div>
+            <p>{bullet.para[componentProps.lang]}</p>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .counter {
+    counter-reset: bullet;
+    h3 {
+      &::before {
+        counter-increment: bullet;
+        content: counter(bullet) ". ";
+      }
+    }
+  }
+</style>

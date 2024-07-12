@@ -1,0 +1,118 @@
+---
+import ButtonDisclaimer from "@/components/ButtonDisclaimer.astro";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import { Image } from "astro:assets";
+import bg from "../../assets/imgs/v1/topBg-mobile.jpg";
+import desktopHeroImage from "../../assets/imgs/v1/topBg-desktop.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Every hour, the <span class="text-white">Crypto Universe</span> becomes bigger and bigger`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Register Now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<header class="relative bg-black text-white">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-bottom lg:hidden"
+    widths={[75, 320, 576, 640, 768, 1024, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      75px
+    `}
+  />
+  <div class="container relative z-10">
+    <Image
+      src={desktopHeroImage}
+      alt="Background"
+      class="absolute -right-[400px] z-0 hidden h-full w-auto object-cover object-left lg:block"
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, desktopHeroImage.width]}
+      sizes={`
+        (max-width: 320px) 576px,
+        (max-width: 576px) 640px,
+        (max-width: 640px) 768px,
+        (max-width: 768px) 1024px,
+        (max-width: 1024px) 1280px,
+        (max-width: 1280px) 1536px,
+        100vw
+      `}
+    />
+    <div class="relative z-10">
+      <div class="py-5">
+        <div class="[&>svg]:max-w-full">
+          <MainLogo
+            size={componentProps.brandObj.nameToLower}
+            logo={componentProps.logo()}
+            square={componentProps.customOptions?.logoSquare}
+          />
+        </div>
+      </div>
+      <div class="pb-20 pt-5 lg:py-24">
+        <div
+          class="flex flex-col items-center justify-center gap-8 lg:items-start"
+        >
+          <h1
+            class="max-w-[18ch] text-center text-v1-heading1 font-extrabold leading-tight text-primary lg:text-start"
+            set:html={title[componentProps.lang]}
+          />
+          <p
+            class="max-w-[30ch] text-center text-v1-para-lead leading-loose lg:text-start"
+          >
+            We can direct you to the most suitable and the most profitable
+            cryptocurrency according to your trading profile
+          </p>
+          <ButtonDisclaimer
+            buttonLabel={buttonLabel[componentProps.lang]}
+            lang={componentProps.lang}
+            whatsapp={componentProps.brandObj.whatsapp}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style define:vars={{}}></style>

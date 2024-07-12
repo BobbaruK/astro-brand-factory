@@ -1,0 +1,43 @@
+---
+import Dialog from "@/components/Dialog.astro";
+import { formButtonTranslation } from "@/composables/formButtonTranslation";
+import V1 from "@/layouts/v1/pageLayout.astro";
+import Section1 from "@/sections/v1/home/Section1.astro";
+import Section2 from "@/sections/v1/home/Section2.astro";
+import Section3 from "@/sections/v1/home/Section3.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+---
+
+<V1 componentProps={componentProps}>
+  <Section1 componentProps={componentProps} />
+  <Section2 componentProps={componentProps} />
+  <Section3 componentProps={componentProps} />
+  <Dialog
+    componentProps={componentProps}
+    formButton={formButtonTranslation[componentProps.lang]}
+  />
+</V1>
+
+<script>
+  import { showModal } from "@/composables/modal";
+
+  const modalTrigger = Array.from(
+    document.querySelectorAll(".js-modal-trigger"),
+  ) as HTMLButtonElement[];
+
+  for (let i = 0; i < modalTrigger.length; i++) {
+    modalTrigger[i].addEventListener("click", showModal);
+  }
+</script>
+
+<style lang="scss" is:global>
+  footer {
+    @apply text-center;
+  }
+</style>

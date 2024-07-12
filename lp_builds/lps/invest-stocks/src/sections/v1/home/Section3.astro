@@ -1,0 +1,255 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import metaImage from "../../../assets/imgs/v1/facebook.png";
+import googleImage from "../../../assets/imgs/v1/google.png";
+import microsoftImage from "../../../assets/imgs/v1/windows.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const sections: {
+  title: TranslationsType;
+  image: ImageMetadata;
+  paras: TranslationsType[];
+}[] = [
+  {
+    title: {
+      en: `Meta Platforms Inc`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    image: metaImage,
+    paras: [
+      {
+        en: `Meta Platforms Inc., doing business as Meta, is an American multinational technology conglomerate based in Menlo Park, California. The company owns a number of popular products and services, including Facebook, Instagram, and WhatsApp.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+      {
+        en: `Meta is a digital technology company whose products include Facebook, Messenger and Oculus. It has also acquired Giphy, Mapillary and Kustomer; And it owns 9.99% of Jio's Platforms business unit—an investment that should see Meta’s revenues grow over the next few years as users adopt their virtual reality product line across Asia`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    ],
+  },
+  {
+    title: {
+      en: `Google`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    image: googleImage,
+    paras: [
+      {
+        en: `Google LLC is a multinational technology company that specializes in search engine technology, online advertising, cloud computing, computer software and artificial intelligence.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+      {
+        en: `It has been referred to as "the most powerful company in the world," and one of the world's most valuable brands, due to its market dominance and technological advantages in artificial intelligence.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+      {
+        en: `Alphabet, the parent company of Google, is considered one of America's Big Five information technology companies—alongside Amazon, Apple, Microsoft and Facebook.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    ],
+  },
+  {
+    title: {
+      en: `Microsoft`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    image: microsoftImage,
+    paras: [
+      {
+        en: `Microsoft Corporation, or simply Microsoft, is an international computer software company based in Redmond, Washington.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+      {
+        en: `The company was founded by Bill Gates and Paul Allen in April 1975, who then changed its name to Microsoft on June 25th 1981. Three years later they reverted back to using their current moniker.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+      {
+        en: `In 2022, Microsoft was also the largest company by stock market capitalization with a value of about $2288 billion. That same year it produced some of the world's most important software and sold more products than any other firm in its industry.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    ],
+  },
+];
+---
+
+<div>
+  {
+    sections.map((section, index) => (
+      <section class="mt-8 pb-8">
+        <div
+          class={`${index % 2 !== 0 ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"} py-2`}
+        >
+          <div class="container">
+            <h2
+              class="text-center text-v1-heading2 font-bold leading-tight"
+              set:html={section.title[componentProps.lang]}
+            />
+          </div>
+        </div>
+        <div class="container flex flex-col gap-4 pt-4 md:pt-8">
+          <div class="flex flex-col gap-4">
+            <Image
+              src={section.image}
+              alt="Background"
+              class="self-center"
+              widths={[320, section.image.width]}
+              sizes={`320px`}
+            />
+            {section.paras.map((para) => (
+              <p class="leading-tight lg:text-[20px]" set:html={para[componentProps.lang]} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</div>

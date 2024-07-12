@@ -1,0 +1,328 @@
+---
+import Form from "../../../../../../globals/components/Form/";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const formTitle: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `¡Comience hoy mismo!`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Aprenda Más`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const list: {
+  icon: string;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M11 8h2v1h-2zm0-4h2v1h-2zm0 6h2v1h-2z"></path><path fill="currentColor" d="M21 12V9a13.124 13.124 0 0 0-8.354 3h-1.292A13.124 13.124 0 0 0 3 9v3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v4a13.153 13.153 0 0 1 9 3.55A13.2 13.2 0 0 1 21 20v-4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1Z"></path><circle cx="9" cy="4" r="1" fill="currentColor"></circle><circle cx="15" cy="4" r="1" fill="currentColor"></circle><path fill="currentColor" d="M16 8H8a3.003 3.003 0 0 1-3-3V3a3.003 3.003 0 0 1 3-3h8a3.003 3.003 0 0 1 3 3v2a3.003 3.003 0 0 1-3 3ZM8 2a1.001 1.001 0 0 0-1 1v2a1.001 1.001 0 0 0 1 1h8a1.001 1.001 0 0 0 1-1V3a1.001 1.001 0 0 0-1-1Z"></path></svg>`,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Cursos`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Cursos Básicos y Avanzados que pueden acomodarse a su nivel de educación`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5.5 2H17a2.5 2.5 0 0 1 2.5 2.5v6.813a6.5 6.5 0 0 0-8.187 8.187H4.5a1 1 0 0 0 1 1h6.232A6.518 6.518 0 0 0 12.81 22H5.5A2.5 2.5 0 0 1 3 19.5v-15A2.5 2.5 0 0 1 5.5 2ZM7 5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H7Zm16 12.5a5.5 5.5 0 1 0-11 0a5.5 5.5 0 0 0 11 0Zm-6.086-2.403l2.806 1.84a.609.609 0 0 1 .28.52a.654.654 0 0 1-.072.299a.574.574 0 0 1-.198.226l-2.807 1.915a.635.635 0 0 1-.158.077a.551.551 0 0 1-.395-.023a.686.686 0 0 1-.193-.135a.72.72 0 0 1-.13-.2a.613.613 0 0 1-.047-.237v-3.758a.622.622 0 0 1 .367-.57a.552.552 0 0 1 .547.045Z"></path></svg>`,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Libro electrónico`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: ``,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Guía introductoria al mundo del trading online`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98zM5 16l2.38-3.17L9 15l2.62-3.5L15 16H5z"></path></svg>`,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Vídeo`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: ``,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Con información sobre diversos términos y conceptos.`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section class="my-6 border-stone-500 lg:mt-24 lg:border-t-8">
+  <div class="container flex flex-col gap-4 lg:flex-row">
+    <div class="order-1 lg:order-2 lg:w-[50%] lg:min-w-[50%]">
+      <div
+        class="rounded-md border bg-background p-6 pt-0 shadow-xl lg:relative lg:z-20 lg:-mt-20"
+      >
+        <h2
+          class="mb-4 rounded-b-md bg-gradient-to-t from-stone-300 p-1 py-2 text-center text-heading2 md:py-4"
+          set:html={formTitle[componentProps.lang]}
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+      </div>
+    </div>
+    <div
+      class="order-2 flex grow items-center justify-center lg:order-1 lg:justify-start"
+    >
+      <ul class="flex flex-col gap-4 text-center lg:items-start lg:text-start">
+        {
+          list.map((li) => (
+            <li class="flex flex-col items-center justify-center gap-4 lg:flex-row">
+              <div class="bulletSquare relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border border-[hsl(var(--secondary-dark))] bg-[hsl(var(--secondary-dark))]/50 p-4 shadow-md lg:w-28 lg:min-w-28">
+                <div
+                  class="grid h-full w-full place-items-center rounded-full bg-[hsl(var(--secondary-dark))] text-3xl font-bold text-background"
+                  set:html={li.icon}
+                />
+              </div>
+              <div class="leading-tight">
+                <h3
+                  class="text-heading3 font-bold uppercase text-[hsl(var(--secondary-dark))]"
+                  set:html={li.title[componentProps.lang]}
+                />
+                <p set:html={li.para[componentProps.lang]} />
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  body form.registerForm {
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+          }
+          @container (min-width: 600px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+          }
+          @container (min-width: 600px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      .field {
+        @apply lg:flex lg:items-center lg:justify-start lg:gap-2;
+      }
+      label {
+        &:not(.agreement) {
+          @apply font-bold lg:block lg:w-[160px] lg:min-w-[160px];
+        }
+      }
+      .input {
+        @apply grow;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply h-12 w-full max-w-full bg-stone-100 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button[type=submit] {
+        @apply flex h-12 gap-4 bg-secondary uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground border-b-2 border-e-2 border-[hsl(var(--secondary-dark))] flex-row-reverse;
+      }
+    }
+  }
+</style>
+
+<style lang="scss">
+  .bulletSquare {
+    &::before {
+      content: "";
+
+      @apply absolute -left-[90px] top-0 -z-10 block h-full w-full rotate-45 bg-[hsl(var(--secondary-dark))]/50;
+    }
+  }
+</style>

@@ -1,0 +1,198 @@
+---
+import { bullet1, bullet2, bullet3, bullet4 } from "@/assets/imgs/v1/bullets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bullets: {
+  icon: string;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: bullet1,
+    title: {
+      en: `Personal Tutor`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Mentoring from our top analysts for the cryptocurrencies you choose.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: bullet2,
+    title: {
+      en: `Personalized Training`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `A massive choice of free masterclasses, webinars and tutorials with the best market gurus around the world`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: bullet3,
+    title: {
+      en: `Top Trading Tools`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Apps, platforms, mobile alerts, notifications with the latest news from the cryptomarkets`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: bullet4,
+    title: {
+      en: `Constant Live Support`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `24/7 specialized support from our analysts`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section class="relative pb-7 md:pb-11">
+  <div
+    class="container relative z-10 flex max-w-[950px] flex-col flex-wrap items-center justify-center gap-12 md:flex-row md:items-start md:justify-between"
+  >
+    {
+      bullets.map((bullet, index) => {
+        return (
+          <div class="relative flex flex-col items-center justify-center gap-4 text-center md:w-full md:max-w-[45%]">
+            <div
+              class="max-w-[105px] [&>svg]:h-auto [&>svg]:max-w-full"
+              set:html={bullet.icon}
+            />
+            <div>
+              <p
+                class="text-[18px] font-extrabold uppercase text-foreground"
+                set:html={bullet.title[componentProps.lang]}
+              />
+              <p
+                class="max-w-[35ch] text-[18px]"
+                set:html={bullet.para[componentProps.lang]}
+              />
+            </div>
+
+            {index % 2 === 0 && (
+              <div class="absolute -right-[46%] top-12 hidden w-[70%] border-t-[10px] border-dotted border-black md:block" />
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

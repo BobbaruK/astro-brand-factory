@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import bgPicture from "../../../assets/imgs/v1/big.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Need help?`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `We are available 24/5 to assist you`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="relative border-t border-gray-200 py-9">
+  <Image
+    src={bgPicture}
+    alt="Graph presentation"
+    class="absolute left-0 top-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgPicture.width]}
+    sizes={`
+      (max-width: 320px) 320px,
+      (max-width: 639px) 640px,
+      (max-width: 767px) 768px,
+      (max-width: 1023px) 1024px,
+      (max-width: 1279px) 1280px,
+      (max-width: 1535px) 1536px,
+      100vw
+    `}
+  />
+  <div class="container relative z-10 flex flex-col gap-4">
+    <h2
+      class="text-center text-heading2 font-bold"
+      set:html={title[componentProps.lang]}
+    />
+    <p class="text-center text-xl" set:html={para[componentProps.lang]} />
+  </div>
+</section>

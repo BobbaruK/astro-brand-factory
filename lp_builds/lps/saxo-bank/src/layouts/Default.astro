@@ -1,0 +1,265 @@
+---
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+import Form from "../../../../globals/components/Form/Form.astro";
+import { siteBtn } from "../composables/siteBtn";
+import Footer from "../sections/Footer.astro";
+import Header from "../sections/Header.astro";
+import HomeSection1 from "../sections/home/Section1.astro";
+import HomeSection2 from "../sections/home/Section2.astro";
+import HomeSection3 from "../sections/home/Section3.astro";
+import HomeSection4 from "../sections/home/Section4.astro";
+import HomeSection5 from "../sections/home/Section5.astro";
+---
+
+<div id="siteWrapper">
+  <Header componentProps={componentProps} />
+  <main>
+    <HomeSection1 componentProps={componentProps} />
+    <div class="counter">
+      <HomeSection2 componentProps={componentProps} />
+      <HomeSection3 componentProps={componentProps} />
+    </div>
+    <HomeSection4 componentProps={componentProps} />
+    <HomeSection5 componentProps={componentProps} />
+  </main>
+  <Footer componentProps={componentProps} />
+
+  <div id="myModal" class="myModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <Form componentProps={componentProps} id="form1" button={siteBtn[componentProps.lang]} />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal
+  // Get the modal
+  var formModal = document.getElementById("myModal") as HTMLElement; // Get the button that opens the modal
+  var formModalBtns = Array.from(document.querySelectorAll(".js-modal")) as HTMLElement[]; // Get the <span> element that closes the modal
+  var formModalSpan = document.getElementsByClassName("close")[0] as HTMLElement; // When the user clicks on the button, open the modal
+  formModalBtns.forEach((btn) => {
+    btn.onclick = function () {
+      formModal.style.display = "block";
+    };
+  }); // When the user clicks on <span> (x), close the modal
+  formModalSpan.onclick = function () {
+    formModal.style.display = "none";
+  }; // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == formModal) {
+      formModal.style.display = "none";
+    }
+  };
+</script>
+
+<style is:global>
+  .registerForm {
+    button {
+    --primary_bg: var(--clr-black);
+    --primary_color: var(--clr-white);
+    --primary_border_color: var(--primary_bg);
+    --primary_bg-hover: var(--clr-main_yellow);
+    --primary_color-hover: var(--clr-text_color);
+    --primary_border_color-hover: var(--primary_bg);
+    --primary_bg-focus: var(--clr-accent_orange);
+    --primary_color-focus: var(--primary_color);
+    --primary_border_color-focus: var(--primary_bg);
+
+    --secondary_bg: transparent;
+    --secondary_color: var(--clr-text_color);
+    --secondary_border_color: var(--clr-black);
+    --secondary_bg-hover: var(--clr-main_yellow);
+    --secondary_color-hover: var(--secondary_color);
+    --secondary_border_color-hover: var(--clr-black);
+    --secondary_bg-focus: var(--clr-accent_orange);
+    --secondary_color-focus: var(--clr-white);
+    --secondary_border_color-focus: var(--clr-black);
+
+    --cta_bg: var(--clr-accent_orange);
+    --cta_color: var(--clr-white);
+    --cta_border_color: var(--clr-black);
+    --cta_bg-hover: var(--clr-accent_orange-600);
+    --cta_color-hover: var(--cta_color);
+    --cta_border_color-hover: var(--cta_bg);
+    --cta_bg-focus: var(--clr-accent_orange-300);
+    --cta_color-focus: var(--clr-text_color);
+    --cta_border_color-focus: var(--cta_bg);
+    --cta_outline_color: var(--clr-main_blue);
+
+    --ease: ease-in-out;
+    --duration: 320ms;
+    --border-width: 3px;
+
+    &--light {
+      --primary_bg: var(--clr-white);
+      --primary_color: var(--clr-text_color);
+      --primary_border_color: var(--clr-white);
+      --primary_bg-hover: var(--clr-main_yellow);
+      --primary_color-hover: var(--clr-text_color);
+      --primary_border_color-hover: var(--primary_bg);
+      --primary_bg-focus: var(--clr-accent_orange-300);
+      --primary_color-focus: var(--primary_color);
+      --primary_border_color-focus: var(--primary_bg);
+
+      --secondary_bg: transparent;
+      --secondary_color: var(--clr-white);
+      --secondary_border_color: var(--clr-white);
+      --secondary_bg-hover: var(--clr-main_yellow);
+      --secondary_color-hover: var(--clr-black);
+      --secondary_border_color-hover: var(--clr-white);
+      --secondary_bg-focus: var(--clr-accent_orange);
+      --secondary_color-focus: var(--clr-white);
+      --secondary_border_color-focus: var(--clr-white);
+
+      --cta_bg: var(--clr-accent_orange);
+      --cta_color: var(--clr-white);
+      --cta_border_color: var(--clr-black);
+      --cta_bg-hover: var(--clr-accent_orange-600);
+      --cta_color-hover: var(--cta_color);
+      --cta_border_color-hover: var(--cta_bg);
+      --cta_bg-focus: var(--clr-accent_orange-300);
+      --cta_color-focus: var(--clr-text_color);
+      --cta_border_color-focus: var(--cta_bg);
+      --cta_outline_color: var(--clr-white);
+    }
+
+    align-items: center;
+    display: inline-flex;
+    gap: 1em;
+    justify-content: center;
+    margin: 0;
+    padding: var(--spacing-1) var(--spacing-6);
+    position: relative;
+    z-index: 0;
+
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+
+    background-color: var(--clr-gray-500);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--clr-gray-600);
+    color: var(--primary_color);
+    cursor: pointer;
+
+    transition: color var(--duration) var(--ease), background var(--duration) var(--ease), border var(--duration) var(--ease);
+
+    &::before,
+    &::after {
+      transition: inset var(--duration) ease-in-out;
+    }
+
+    &:hover {
+      background-color: var(--clr-gray-600);
+      border-color: var(--clr-gray-500);
+      color: var(--clr-white);
+    }
+    &:focus {
+      background-color: var(--clr-gray-100);
+      border-color: var(--clr-gray-200);
+      color: var(--clr-black);
+    }
+
+    &--lg {
+      padding: var(--spacing-2) var(--spacing-8);
+    }
+
+    &--primary {
+      background-color: var(--primary_bg);
+      border-color: var(--primary_border_color);
+      color: var(--primary_color);
+
+      &:hover {
+        background-color: var(--primary_bg-hover);
+        border-color: var(--primary_bg-hover);
+        color: var(--primary_color-hover);
+      }
+      &:focus {
+        background-color: var(--primary_bg-focus);
+        border-color: var(--primary_bg-focus);
+        color: var(--primary_color-focus);
+      }
+    }
+
+    &--secondary {
+      background-color: var(--secondary_bg);
+      border-color: var(--secondary_border_color);
+      color: var(--secondary_color);
+
+      &:hover {
+        background-color: var(--secondary_bg-hover);
+        border-color: var(--secondary_border_color-hover);
+        color: var(--secondary_color-hover);
+      }
+      &:focus {
+        background-color: var(--secondary_bg-focus);
+        border-color: var(--secondary_border_color-focus);
+        color: var(--secondary_color-focus);
+      }
+    }
+
+    &--cta {
+      // background-color: var(--cta_bg);
+      // border-color: var(--cta_bg);
+      color: var(--cta_color);
+      &::before {
+        content: "";
+        background-color: var(--cta_bg);
+        border-radius: var(--border-radius);
+        inset: calc(var(--border-width) * -1);
+        position: absolute;
+        z-index: -1;
+      }
+
+      &::after {
+        border-radius: var(--border-radius);
+        border: var(--border-width) solid var(--cta_outline_color);
+        content: "";
+        height: calc(100% + var(--border-width));
+        inset: var(--spacing-2) auto auto var(--spacing-2);
+        position: absolute;
+        width: calc(100% + var(--border-width));
+        z-index: -2;
+      }
+
+      &:hover {
+        // background-color: var(--cta_bg-hover);
+        // border-color: var(--cta_bg-hover);
+        color: var(--cta_color);
+
+        &::before {
+          background-color: var(--cta_bg-hover);
+          border-color: var(--cta_bg-hover);
+        }
+
+        &::after {
+          inset: var(--spacing-1) auto auto var(--spacing-1);
+        }
+      }
+      &:focus {
+        // background-color: var(--cta_bg-focus);
+        // border-color: var(--cta_bg-focus);
+        color: var(--cta_color-focus);
+
+        &::before {
+          background-color: var(--cta_bg-focus);
+          border-color: var(--cta_bg-focus);
+        }
+
+        &::after {
+          inset: var(--spacing-2) auto auto var(--spacing-2);
+        }
+      }
+    }
+  }
+  }
+</style>

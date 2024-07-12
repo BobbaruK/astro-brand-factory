@@ -1,0 +1,97 @@
+---
+import ButtonDisclaimer from "@/components/ButtonDisclaimer.astro";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import bg from "../../../assets/imgs/v1/bg-desktop.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `A world of opportunities, awaits for you!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `<strong class="text-primary">Fill in the form below to get in touch</strong> with one of our representatives and set up your trading goals.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Register Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="relative py-7">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-top"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
+  />
+  <div class="absolute inset-0 z-10 bg-black/70 lg:bg-black/50"></div>
+  <div class="container relative z-20 grid place-items-center gap-7 text-white">
+    <h2
+      class="text-center text-v1-heading2 font-bold"
+      set:html={title[componentProps.lang]}
+    />
+    <p class="max-w-[40ch] text-center" set:html={para[componentProps.lang]} />
+    <ButtonDisclaimer
+      buttonLabel={buttonLabel[componentProps.lang]}
+      lang={componentProps.lang}
+      whatsapp={componentProps.brandObj.whatsapp}
+    />
+  </div>
+</section>

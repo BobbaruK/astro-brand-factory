@@ -1,0 +1,87 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { Image } from "astro:assets";
+import topHeaderImage from "../../assets/imgs/header.jpg";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Ottieni il nostro kit di formazione",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Hämta vårt utbildningspaket`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paraLead: TranslationsType = {
+  en: "",
+  it: "Un pacchetto didattico e intensivo!",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Ett intensivt utbildningspaket!`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<header id="header" class="siteHeader relative py-6 text-white">
+  <Image
+    src={topHeaderImage}
+    alt="Background"
+    class="bgImage absolute left-0 top-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, topHeaderImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="container relative z-10">
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
+    <div class="md:py-18 py-6 sm:py-14 lg:py-20 xl:py-32 2xl:pb-96 2xl:pt-32">
+      <h1
+        class="text-heading1 uppercase"
+        set:html={title[componentProps.lang]}
+      />
+      <p class="text-para-lead" set:html={paraLead[componentProps.lang]} />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  .bgImage {
+    @media (min-width: 768px) {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    }
+    @media (min-width: 1400px) {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    }
+    @media (min-width: 1536px) {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+    }
+  }
+</style>

@@ -1,0 +1,192 @@
+---
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations.ts";
+import ButtonDisclaimer from "../../../components/ButtonDisclaimer.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Your next step`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Następne kroki`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `<strong>Complete the registration form</strong>`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Wypełnij formularz rejestracyjny`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Choose the <strong>right account</strong> for your trading needs`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Wybierz rodzaj konta`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Confirm your information and <strong>proceed with verification</strong>`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Potwierdź podane informację i kontynuuj`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Start your <strong>trading experience</strong>`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Zacznij handlować`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const button: TranslationsType = {
+  en: `Subscribe now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Zasubskrybuj`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="py-4 sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14">
+  <div class="container flex flex-col gap-6">
+    <h2
+      class="text-center text-heading2 font-bold"
+      set:html={title[componentProps.lang]}
+    />
+    <div class="flex flex-col gap-8 md:flex-row">
+      <div class="md:flex md:grow md:items-center md:justify-end">
+        <ol
+          class="flex list-inside list-decimal flex-col gap-1 text-center md:text-end"
+        >
+          {list.map((el) => <li set:html={el[componentProps.lang]} />)}
+        </ol>
+      </div>
+      <dir
+        class="flex items-center justify-center p-0 md:w-[50%] md:min-w-[50%] md:justify-start"
+      >
+        <svg
+          width="407"
+          height="533"
+          viewBox="0 0 407 533"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-auto max-w-[200px]"
+        >
+          <path
+            d="M347.5 427.7H155C150.5 427.8 146.9 431.5 146.9 436C146.9 440.5 150.5 444.2 155 444.3H347.5C352 444.4 355.9 440.5 355.8 436C355.8 431.4 352.1 427.7 347.5 427.7Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M146.7 209.3C146.7 213.9 150.4 217.6 155 217.6H347.5C352.1 217.6 355.8 213.9 355.8 209.3C355.9 204.8 352 200.9 347.5 201H155C150.4 201 146.7 204.7 146.7 209.3Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M347.5 314.4H155C150.4 314.4 146.7 318.1 146.7 322.7C146.7 327.3 150.4 331 155 331H347.5C352.1 331 355.8 327.3 355.8 322.7C355.9 318.2 351.9 314.3 347.5 314.4Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M405.4 123.9C405.4 121.7 404.5 119.6 402.9 118L287.1 3.09988C285.6 1.59988 283.5 0.69988 281.3 0.69988H8.90001C4.50001 0.59988 0.500026 4.49988 0.600026 8.99988V522.9C0.500026 527.3 4.40001 531.3 8.90001 531.2C14.7 528.9 398.9 535.7 403 528.8C410 524.7 403.1 129.8 405.4 123.9ZM290.6 29.8999L377 115.6H290.6V29.8999ZM388.9 514.7H17.2V17.2999H274V87.6999H155C150.4 87.6999 146.7 91.3999 146.7 95.9999C146.7 100.6 150.4 104.3 155 104.3H274C275.1 111.5 269.7 132.5 282.3 132.2H388.9V514.7Z"
+            fill="#1C1F38"
+            stroke="black"
+            stroke-width="0.5"
+            stroke-miterlimit="10"></path>
+          <path
+            d="M90.1 194.3L76.8 207.6L71.2 202C63.7 194.3 51.8 206.2 59.5 213.7C63.2 216.4 71.5 228.3 76.8 227.6C82.2 228.8 98 208.7 101.8 206C109.3 198.5 97.6 186.8 90.1 194.3Z"
+            fill="#FFAD00"></path>
+          <path
+            d="M41.1999 249.2C41.7999 254.2 111 250.6 114.3 251.6C118.8 251.7 122.7 247.8 122.6 243.3V176C122.7 171.5 118.8 167.6 114.3 167.7H46.9999C42.4999 167.6 38.5999 171.5 38.6999 176C39.7999 179.7 36.0999 248.4 41.1999 249.2ZM55.3999 184.4H106V235.1H55.2999V184.4H55.3999Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M90.0999 421L76.7999 434.3L71.1999 428.7C63.6999 421 51.6999 432.9 59.3999 440.4C63.0999 443.2 71.3999 455 76.6999 454.3C82.0999 455.4 97.8999 435.4 101.7 432.7C108.9 425.2 97.5999 414 90.0999 421Z"
+            fill="#FFAD00"></path>
+          <path
+            d="M46.9997 478.3H114.3C118.7 478.4 122.7 474.5 122.6 470V402.7C122.7 398.2 118.8 394.3 114.3 394.4H46.9997C42.3997 394.4 38.6997 398.1 38.6997 402.7V470C38.6997 474.6 42.4997 478.3 46.9997 478.3ZM55.3997 411.1H106V461.8H55.2997V411.1H55.3997Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M70.8999 338.5C74.0999 341.7 79.3999 341.7 82.5999 338.5L101.8 319.3C108.8 311.9 97.5999 300.6 90.0999 307.6L76.7999 320.9L71.1999 315.3C63.6999 307.6 51.6999 319.5 59.3999 327L70.8999 338.5Z"
+            fill="#FFAD00"></path>
+          <path
+            d="M114.3 281.1H47.0001C42.6001 281 38.6001 284.9 38.7001 289.4V356.7C38.7001 361.3 42.4001 365 47.0001 365H114.3C118.7 365.1 122.7 361.2 122.6 356.7V289.4C122.7 285 118.8 281 114.3 281.1ZM106 348.4H55.3001V297.7H106V348.4Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M47.0001 138.3H114.3C118.7 138.4 122.7 134.5 122.6 130V62.6998C122.7 58.1998 118.8 54.2998 114.3 54.3998H47.0001C42.5001 54.2998 38.6001 58.1998 38.7001 62.6998V130C38.7001 134.6 42.5001 138.3 47.0001 138.3ZM55.4001 70.9998H106V121.7H55.3001V70.9998H55.4001Z"
+            fill="#1C1F38"></path>
+          <path
+            d="M90.1001 80.8998L76.8001 94.1998L71.2001 88.5998C63.7001 81.0998 52.0001 92.7998 59.5001 100.3L71.0001 111.7C74.1001 114.9 79.6001 114.9 82.7001 111.7L101.9 92.4998C108.9 85.1998 97.6001 73.8998 90.1001 80.8998Z"
+            fill="#FFAD00"></path>
+        </svg>
+      </dir>
+    </div>
+    <ButtonDisclaimer
+      buttonLabel={button[componentProps.lang]}
+      lang={componentProps.lang}
+      whatsapp={componentProps.brandObj.whatsapp}
+    />
+  </div>
+</section>

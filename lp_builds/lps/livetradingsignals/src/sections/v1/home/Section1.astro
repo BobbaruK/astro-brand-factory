@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import tabletImage from "../../../assets/imgs/v1/hands_holding_tablet.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "Receive 3 signals 3 times a day",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "Every financial trader knows that the difference between success and failure is timely information. Receive free trading signals directly to your smartphone or to your email, so that you can always be aware of market developments. Sign up now.",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section
+  class="relative overflow-hidden border-y-8 border-stone-500 lg:border-t-0"
+>
+  <div class="absolute z-10 h-full w-full bg-primary/90 lg:hidden"></div>
+  <div class="container flex flex-col gap-4 lg:flex-row">
+    <div class="lg:w-[50%] lg:min-w-[50%]">
+      <Image
+        src={tabletImage}
+        alt="Apple Laptop Diploma"
+        class="absolute bottom-0 left-0 right-0 top-0 max-w-full object-cover lg:relative lg:z-10 lg:-mb-12"
+        widths={[320, 576, 640, 768, 1024, tabletImage.width]}
+        sizes={`
+          (max-width: 320px) 320px,
+          (max-width: 576px) 640px,
+          (max-width: 768px) 1024px,
+          490px
+        `}
+      />
+    </div>
+    <div
+      class="relative z-20 flex grow items-center justify-center py-9 text-center lg:z-0 lg:justify-start lg:p-0 lg:pb-10 lg:text-start"
+    >
+      <div
+        class="fullBleedPrimary flex max-w-[75ch] flex-col gap-8 lg:max-w-none lg:bg-primary lg:pt-4 lg:pb-8"
+      >
+        <h1
+          class="text-heading1 uppercase"
+          set:html={title[componentProps.lang]}
+        />
+        <p set:html={para[componentProps.lang]} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1024px) {
+    .fullBleedPrimary {
+      box-shadow: 0 0 0 100vmax hsl(var(--primary));
+      clip-path: inset(0 -100vmax);
+    }
+  }
+</style>

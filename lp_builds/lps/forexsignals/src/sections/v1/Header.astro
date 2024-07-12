@@ -1,0 +1,26 @@
+---
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+<header class="py-5">
+  <div class="container">
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
+  </div>
+</header>
+
+<style define:vars={{}}>
+  #header.siteHeader {
+    background-color: var(--bgColor);
+    color: white;
+  }
+</style>

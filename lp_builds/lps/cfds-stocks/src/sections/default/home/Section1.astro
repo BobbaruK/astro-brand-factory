@@ -1,0 +1,173 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../../../globals/components/Form/";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import desktopBrands from "../../../assets/imgs/mobile_brands-desktop.png";
+import mobileBrands from "../../../assets/imgs/mobile_brands-mobile.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const titleCYSEC: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `${useFxoroBrandOutput(componentProps.brandObj.name)} oferuje dostęp do więcej niż 100 róznych spółek!`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const titleFSA: TranslationsType = {
+  en: "Trade CFDs on shares with FXORO and claim your trading bonus!",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Giao dịch CFD trên cổ phiếu với FXORO và nhận tiền thưởng giao dịch!",
+};
+
+const paraFSA: TranslationsType = {
+  en: "Earn up to 50% trading power*, starting today!",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Bỏ túi tới 50% giá trị giao dịch*, bắt đầu từ hôm nay!",
+};
+
+const formButton: TranslationsType = {
+  en: "Start your trading now",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Zacznij handlować teraz`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Bắt đầu giao dịch ngay",
+};
+
+const formDisclaimer: TranslationsType = {
+  en: `* This offer is subjected to <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>terms and conditions</a>`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: `* Ưu đãi này tuân thủ các <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>điều khoản và điều kiện</a>`,
+};
+---
+
+<section id="section1" class="pb-7 sm:py-7 md:py-8 lg:py-9 xl:py-11">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div class="lg:basis-7/12">
+      <h1
+        set:html={componentProps.langType === "cysec"
+          ? titleCYSEC[componentProps.lang]
+          : titleFSA[componentProps.lang]}
+        class="mb-2 text-heading1 font-medium text-white"
+      />
+      {
+        componentProps.langType === "fsa" && (
+          <p
+            class="mb-2 text-heading2 font-medium text-white"
+            set:html={paraFSA[componentProps.lang]}
+          />
+        )
+      }
+      <Image
+        src={desktopBrands}
+        alt="Background"
+        class="mx-auto hidden max-w-full lg:block"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, desktopBrands.width]}
+        sizes={`
+          (max-width: 1023px) 0,
+          (max-width: 1280px) 708px,
+          780px
+        `}
+      />
+    </div>
+    <div class="lg:basis-5/12">
+      <div id="formWrapper" class="bg-gray-200 p-4">
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="form1"
+        />
+        {
+          componentProps.langType === "fsa" && (
+            <p
+              class="mt-4 text-center text-sm"
+              set:html={formDisclaimer[componentProps.lang]}
+            />
+          )
+        }
+      </div>
+      <Image
+        src={mobileBrands}
+        alt="Background"
+        class="mx-auto mt-4 block max-w-full lg:hidden"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, mobileBrands.width]}
+        sizes={`270px`}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  form.registerForm {
+    .form-control {
+      input,
+      select {
+        @apply rounded-none border border-gray-400;
+      }
+      button[type="submit"] {
+        @apply gap-4 rounded-none py-7;
+      }
+    }
+  }
+</style>

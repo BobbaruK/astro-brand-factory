@@ -1,0 +1,151 @@
+---
+import ButtonWrapper from "@/components/ButtonWrapper.astro";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import bg from "../../../assets/imgs/v1/s3-bg.svg";
+import { s2bullet1, s2bullet2, s2bullet3 } from "../../../constants";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgSRC = `url('${bg.src}')`;
+
+const title: TranslationsType = {
+  en: "Ready to Trade?",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "¿Listo para operar?",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  image: string;
+  para: TranslationsType;
+}[] = [
+  {
+    image: s2bullet1("w-full h-auto"),
+    para: {
+      en: "<strong>Sign Up:</strong> Quick and easy - jump straight into action.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "<strong>Regístrate:</strong> Rápido y fácil: salta directamente a la acción.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    image: s2bullet2("w-full h-auto"),
+    para: {
+      en: "<strong>Trade:</strong> Access a wide range of markets with our user-friendly platform.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "<strong>Opere:</strong> acceda a una amplia gama de mercados con nuestra plataforma fácil de usar.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    image: s2bullet3("w-full h-auto"),
+    para: {
+      en: "<strong>Withdraw:</strong> Submit a withdrawal request, and we will process your request in maximum 24 hours!",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "<strong>Retiro:</strong> envíe una solicitud de retiro y procesaremos su solicitud en un máximo de 24 horas.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section
+  id="section2"
+  class="relative border-b-2 border-t-2 border-b-primary border-t-primary"
+>
+  <div class="absolute z-0 h-full w-full bg-secondary"></div>
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute left-0 top-0 z-10 h-full w-full object-cover"
+    sizes={`100vw`}
+  />
+  <div
+    class="container relative z-20 flex flex-col items-center justify-center gap-4 py-6 text-center md:gap-6 lg:gap-10"
+  >
+    <h2
+      class="text-h2 font-black leading-tight"
+      set:html={title[componentProps.lang]}
+    />
+    <div
+      class="flex w-full flex-col items-center justify-between gap-4 xl:flex-row"
+    >
+      {
+        bullets.map((bullet, index) => (
+          <div
+            class={`relative w-[271px] sm:w-[400px] xl:w-[380px] ${index === 1 ? "text-primary" : "text-primary-foreground"}`}
+          >
+            <Fragment set:html={bullet.image} />
+            <div class="absolute inset-0 flex items-center justify-end ps-16 sm:ps-0">
+              <p
+                class="w-[20ch] pe-1 text-[14px] sm:w-[26ch] sm:text-[16px]"
+                set:html={bullet.para[componentProps.lang]}
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <ButtonWrapper componentProps={componentProps} color="primary" />
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ bgSRC }}>
+  #section2 {
+    background-color: var(--primary);
+    background-image: var(--bgSRC);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>

@@ -1,0 +1,308 @@
+---
+import ButtonWrapper from "@/components/ButtonWrapper";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  homeSection4Bullet1Icon,
+  homeSection4Bullet2Icon,
+  homeSection4Bullet3Icon,
+  homeSection4Bullet4Icon,
+  homeSection4Bullet5Icon,
+} from "@/constants";
+import {
+  buttonWrapperDisclaimer,
+  buttonWrapperLabel,
+} from "@/translations/buttonWrapper";
+import useFxoroBrandOutput from "../../../../../../globals/composables/useFxoroBrandOutput";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import type { Bullet } from "../../../types/Bullet";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const titleCYSEC: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Załóż rachunek ${useFxoroBrandOutput(componentProps.brandObj.name)} i zacznij zarabiać od razu!`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const titleFSA: TranslationsType = {
+  en: `Open your ${useFxoroBrandOutput(componentProps.brandObj.name)} account today and start trading!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: `Mở tài khoản ${useFxoroBrandOutput(componentProps.brandObj.name)} ngay hôm nay và bắt đầu giao dịch!`,
+};
+
+const bulletsRows: Bullet[][] = [
+  [
+    {
+      title: {
+        en: "Advanced Platforms",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Zaawansowany interfejs`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Nền tảng tân tiến",
+      },
+      para: {
+        en: "Exchange technology on easy-to-use platforms.",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Przewalutowania bez opłat`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Công nghệ giao dịch trên các nền tảng dễ sử dụng.",
+      },
+      svgIcon: homeSection4Bullet1Icon,
+    },
+    {
+      title: {
+        en: "Professional support 24/5",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Obsługa 24/5`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Hỗ trợ chuyên nghiệp 24/5",
+      },
+      para: {
+        en: "A multilingual and dedicated support team.",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Wielojęzyczny i oddany zespół wsparcia.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Đội ngũ hỗ trợ đa ngôn ngữ và tận tâm.",
+      },
+      svgIcon: homeSection4Bullet2Icon,
+    },
+    {
+      title: {
+        en: "100 shares at your fingertips",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Wszystkie aktywa w zasięgu ręki`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "100 cổ phiếu trong tầm tay",
+      },
+      para: {
+        en: "You can trade on the shares of major international companies without paying commissions.",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Handluj kontraktami na akcjach największych międzynarodowych firm.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Bạn có thể giao dịch cổ phiếu của các công ty quốc tế lớn mà không phải trả phí hoa hồng.",
+      },
+      svgIcon: homeSection4Bullet3Icon,
+    },
+  ],
+  [
+    {
+      title: {
+        en: "Market updates",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Aktualizacje na temat rynku`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Cập nhật thị trường",
+      },
+      para: {
+        en: "Keep up to date with the latest market movements using our tools, webinars, and news.",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Bądź na bieżąco ze wszystkimi najnowszymi wydarzeniami na rynku`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Luôn cập nhật những chuyển động mới nhất của thị trường nhờ vào các công cụ, hội thảo trực tuyến và tin tức của chúng tôi.",
+      },
+      svgIcon: homeSection4Bullet4Icon,
+    },
+    {
+      title: {
+        en: "Speed and efficiency of execution",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Stawiamy głównie na skuteczność wykonywanych transakcji.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Tốc độ và hiệu quả xử lý",
+      },
+      para: {
+        en: "Enjoy the ultra-fast execution time of your operations",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Ciesz się natychmiastową realizacją każdego trade-a.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "Tận hưởng tốc độ xử lý siêu nhanh",
+      },
+      svgIcon: homeSection4Bullet5Icon,
+    },
+  ],
+];
+---
+
+<section id="section4" class="bg-gray-200 py-7 pb-7 md:py-8 lg:py-9 xl:py-11">
+  <div class="container">
+    <h2
+      set:html={componentProps.langType === "cysec"
+        ? titleCYSEC[componentProps.lang]
+        : titleFSA[componentProps.lang]}
+      class="text-center text-heading2 font-bold"
+    />
+  </div>
+  {
+    bulletsRows.map((row, index) => {
+      let bulletClasses: string;
+
+      if (index === 0) bulletClasses = "lg:basis-1/3";
+      if (index === 1) bulletClasses = "lg:basis-1/2";
+
+      return (
+        <div class={`container flex flex-col gap-6 pt-6 lg:flex-row`}>
+          {row.map((bullet) => {
+            return (
+              <div class={bulletClasses}>
+                <Card className="h-full">
+                  <CardHeader className="text-center flex items-center justify-start lg:[&>svg]:h-16 lg:py-20 xl:py-28">
+                    {bullet.svgIcon && <Fragment set:html={bullet.svgIcon} />}
+                    <CardTitle className="text-[1rem] text-primary">
+                      {bullet.title[componentProps.lang]}
+                    </CardTitle>
+                    {bullet.para && (
+                      <CardDescription>
+                        {bullet.para[componentProps.lang]}
+                      </CardDescription>
+                    )}
+                  </CardHeader>
+                </Card>
+              </div>
+            );
+          })}
+        </div>
+      );
+    })
+  }
+  <div class="container mt-8 grid place-items-center">
+    <ButtonWrapper
+      buttonLabel={buttonWrapperLabel[componentProps.lang]}
+      buttonDisclaimer={buttonWrapperDisclaimer[componentProps.lang]}
+      hrefTo="formWrapper"
+      whatsapp={componentProps.brandObj.whatsapp}
+      client:only
+    />
+  </div>
+</section>

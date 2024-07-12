@@ -1,0 +1,244 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+import icon1 from "../../../assets/imgs/BitcoinGuy/icon1.png";
+import icon2 from "../../../assets/imgs/BitcoinGuy/icon2.png";
+import icon3 from "../../../assets/imgs/BitcoinGuy/icon3.png";
+import icon4 from "../../../assets/imgs/BitcoinGuy/icon4.png";
+import phone from "../../../assets/imgs/BitcoinGuy/iphone.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "Compila il modulo sopra e accedi a:",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "Wypełnij powyższy formularz i uzyskaj dostęp do:",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  title: TranslationsType;
+  para: TranslationsType;
+  iconImage: ImageMetadata;
+}[] = [
+  {
+    title: {
+      en: "",
+      it: "Strumenti didattici",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Narzędzia edukacyjne",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "eBook, assistenza clienti",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "e-booki, obsługa klienta",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: icon1,
+  },
+  {
+    title: {
+      en: "",
+      it: "Materiali per la formazione",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Materiały treningowe",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "Corsi per tutti i livelli",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Kursy na wszystkich poziomach",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: icon2,
+  },
+  {
+    title: {
+      en: "",
+      it: "Dizionario",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Słownik",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "Familiarizza con la terminologia del mondo del trading",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Zapoznaj się z terminologią świata tradingu",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: icon3,
+  },
+  {
+    title: {
+      en: "",
+      it: "Notizie di mercato",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Wiadomości rynkowe",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "Essere in prima linea sul mercato",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Bądź na szczycie rynku",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    iconImage: icon4,
+  },
+];
+---
+
+<section id="section1" class="py-9">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div class="lg:grow">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="pb-2 text-center font-raleway text-BitcoinGuy-heading2 font-extrabold md:max-w-[40ch] md:text-start lg:mb-16"
+      />
+      <div
+        class="mt-8 flex flex-col items-start justify-center gap-8 md:flex-row md:flex-wrap md:items-start md:justify-start md:gap-0 md:gap-y-12 md:text-start"
+      >
+        {
+          bullets.map((bullet) => {
+            return (
+              <div class="flex h-full items-center justify-center gap-2 md:basis-1/2 md:items-start md:justify-start lg:gap-6 xl:gap-9">
+                <Image
+                  src={bullet.iconImage}
+                  alt="Graph presentation"
+                  class="w-10"
+                  widths={[320, bullet.iconImage.width]}
+                  sizes={`40px`}
+                />
+                <div>
+                  <h3
+                    set:html={bullet.title[componentProps.lang]}
+                    class="font-raleway text-BitcoinGuy-heading3 font-extrabold text-primary lg:max-w-[30ch]"
+                  />
+                  {bullet.para[componentProps.lang] && (
+                    <p
+                      set:html={bullet.para[componentProps.lang]}
+                      class="pe-4"
+                    />
+                  )}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="grid place-items-center lg:w-[230px] lg:min-w-[230px]">
+      <Image
+        src={phone}
+        alt="Graph presentation"
+        class="w-full max-w-[230px]"
+        widths={[320]}
+        sizes={`230px`}
+      />
+    </div>
+  </div>
+
+  <style lang="scss">
+    h2 {
+    }
+  </style>
+</section>

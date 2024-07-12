@@ -1,0 +1,30 @@
+---
+import Logo from "../../../../../globals/components/Logo/Logo.astro";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgColor = "#000";
+---
+
+<header id="header" class="siteHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <Logo brandObj={componentProps.brandObj} color="white" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss" define:vars={{ bgColor }}>
+  @use "../../assets/scss-lp/abstracts/mixins" as mxns;
+
+  #header.siteHeader {
+    background-color: var(--bgColor);
+    color: white;
+  }
+</style>

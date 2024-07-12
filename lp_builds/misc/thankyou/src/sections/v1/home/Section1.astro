@@ -1,0 +1,167 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+import book_EN from "../../../assets/imgs/v1/book_EN.png";
+import book_IT from "../../../assets/imgs/v1/book_IT.png";
+import book_SV from "../../../assets/imgs/v1/book_SV.png";
+import book_PL from "../../../assets/imgs/v1/book_PL.png";
+import type { TranslationsType } from "../../../../../../globals/types/Translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Thank you for your <span class="text-primary">registration!</span>`,
+  it: `Grazie per la tua <span class="text-primary">registrazione!</span>`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Gracias por su <span class="text-primary">registro!</span>`,
+  sv: `Tack för din <span class="text-primary">registrering!</span>`,
+  pt: ``,
+  fi: ``,
+  pl: `Dziękujemy za <span class="text-primary">rejestrację!</span>`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para1: TranslationsType = {
+  en: `Your interest means a great deal, and we're excited to connect with you soon. We're committed to providing you with personalized attention and information you might need, so expect a call from our team within the next 24 to 48 working hours. In the meanwhile we wish to offer your a free eBook: <strong class="uppercase">an introduction to trading</strong>. Click on the button below to dowload it on your device.`,
+  it: `Il tuo interesse significa moltoe siamo entusiasti di metterci presto in contatto con te. Ci impegniamo a fornirti l'attenzione personalizzata e le informazioni di cui potresti aver bisogno, quindi aspettati una chiamata dal nostro team entro le prossime 24-48 ore lavorative. Nel frattempo desideriamo offrirti un eBook gratuito: <strong class="uppercase">un'introduzione al trading</strong>. Clicca sul pulsante qui sotto per scaricarlo sul tuo dispositivo.`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Su interés significa mucho y estamos entusiasmados de conectarnos con usted pronto. Estamos comprometidos a brindarle la atención personalizada y la información que pueda necesitar, así que espere una llamada de nuestro equipo dentro de las próximas 24 a 48 horas hábiles. Mientras tanto queremos ofrecerle un libro electrónico gratuito: <strong class="uppercase">una introducción al trading</strong>. Haga clic en el botón de abajo para descargarlo en su dispositivo.`,
+  sv: `Ditt intresse betyder mycket för oss och vi ser fram emot att få kontakt med dig snart. Vi är fast beslutna att ge dig personlig uppmärksamhet och information som du kan behöva, så förvänta dig ett samtal från vårt team inom de närmaste 24 till 48 arbetstimmarna. Under tiden vill vi erbjuda dig en gratis e-bok: <strong class="uppercase">en introduktion till trading</strong>. Klicka på knappen nedan för att ladda ner den till din enhet.`,
+  pt: ``,
+  fi: ``,
+  pl: `Twoje zainteresowanie ma ogromne znaczenie i cieszymy się, że wkrótce się z Tobą skontaktujemy. Zależy nam na zapewnieniu Ci spersonalizowanej uwagi i informacji, których możesz potrzebować, więc spodziewaj się telefonu od naszego zespołu w ciągu najbliższych 24 do 48 godzin roboczych. W międzyczasie chcielibyśmy zaoferować Ci darmowy eBook: WPROWADZENIE DO HANDLU. Kliknij przycisk poniżej, aby pobrać go na swoje urządzenie.`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `DOWNLOAD eBOOK`,
+  it: `SCARICA l'e-BOOK`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `DESCARGAR LIBRO electrónico`,
+  sv: `LADDA NED e-boken`,
+  pt: ``,
+  fi: ``,
+  pl: `POBIERZ eBOOKA`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para2: TranslationsType = {
+  en: `We appreciate your patience and look forward to speaking with you!`,
+  it: `Apprezziamo la tua pazienza e non vediamo l'ora di parlare con te!`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Apreciamos su paciencia y esperamos hablar con usted!`,
+  sv: `Vi uppskattar ditt tålamod och ser fram emot att prata med dig!`,
+  pt: ``,
+  fi: ``,
+  pl: `Dziękujemy za cierpliwość i nie możemy się doczekać rozmowy z Tobą!`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const handleImage = () => {
+  const image: {
+    [key: string]: ImageMetadata | null;
+  } = {
+    en: book_EN,
+    it: book_IT,
+    tr: null,
+    ro: null,
+    ar: null,
+    de: null,
+    es: null,
+    sv: book_SV,
+    pt: null,
+    fi: null,
+    pl: book_PL,
+    hu: null,
+    th: null,
+    ms: null,
+    vi: null,
+  };
+
+  if (image[componentProps.lang] === null) return book_EN;
+
+  return image[componentProps.lang] as ImageMetadata;
+};
+const image = handleImage();
+
+const handleBook = () => {
+  const book: TranslationsType = {
+    en: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    it: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-it.pdf',
+    tr: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    ro: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    ar: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    de: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    es: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    sv: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-sv.pdf',
+    pt: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    fi: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    pl: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-pl.pdf',
+    hu: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    th: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    ms: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+    vi: 'https://assets.smartsupporthub.com/documents/ebooks/introduction_to_trading/introduction_to_trading-en.pdf',
+  }
+
+  return book[componentProps.lang]
+};
+const bookLink = handleBook()
+---
+
+<section id="section1" class="py-4 lg:py-10">
+  <div class="container flex flex-col lg:flex-row gap-8">
+    <div class="grow flex flex-col justify-center items-center text-center gap-4 lg:items-start lg:text-start lg:gap-8">
+      <h1 class="font-black uppercase text-heading-1 leading-tight" set:html={title[componentProps.lang]} />
+      <p class="text-para-s1" set:html={para1[componentProps.lang]} />
+      <a href={bookLink} target="_blank" class={`${buttonVariants({ variant: "default" })} lg:text-lg font-bold`} set:html={buttonLabel[componentProps.lang]} />
+      <p class="font-bold text-secondary text-para-s1" set:html={para2[componentProps.lang]} />
+    </div>
+    <div class="grid place-items-center relative lg:min-w-[400px] lg:w-[400px] lg:flex lg:justify-center lg:items-start">
+      <Image
+        src={image}
+        alt="Introduction to trading"
+        class="max-w-[350px] w-full relative z-10 lg:mt-8"
+        widths={[320, 576, image.width]}
+        loading="eager"
+        sizes={`
+          (max-width: 320px) 270px,
+          350px
+        `}
+      />
+
+      <svg width="389" height="362" viewBox="0 0 389 362" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute z-0 hidden lg:block right-3 h-auto w-[250px] text-secondary">
+        <path
+          d="M157.29 0C180.78 0.31 201.14 9.42 220.74 20.9C259.42 43.55 291.4 74.19 322.19 106.19C341.71 126.48 359.31 148.3 372.94 173.08C382.84 191.06 390.34 209.97 388.32 230.87C387.31 241.32 384.99 252.13 380.8 261.69C368.32 290.19 350.14 314.96 326.59 335.34C300.95 357.53 270.61 363.88 237.44 360.21C177.19 353.54 120.52 334.22 64.83 311.58C49.77 305.46 35.86 296.93 24.02 285.44C4.59999 266.61 -1.9 242.91 0.819999 217.08C7.47 154.08 33.22 98.66 71.49 48.91C88.03 27.42 108.4 10.14 135.61 3.26C142.67 1.5 150.06 1.06 157.29 0Z"
+          fill="currentColor"></path>
+      </svg>
+    </div>
+  </div>
+</section>

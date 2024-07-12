@@ -1,0 +1,13 @@
+---
+import { type ComponentProps } from "../../types/ComponentProps";
+import { type LandingPageLangType } from "../../types/LandingPageType";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+<div id="globalFooter" data-lang={componentProps.lang} data-type={componentProps.langType}></div>
+
+<script src="https://assets.smartsupporthub.com/js/bundle/global_footer.js?1255_29012024"></script>

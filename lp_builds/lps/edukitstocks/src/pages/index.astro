@@ -1,0 +1,38 @@
+---
+import HomePage from "@/layouts/v1/home.astro";
+import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
+import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
+import "../assets/styles/index.scss";
+
+const langTypeRegion: LandingPageLangType = "cysec";
+
+export interface CustomOptions {
+  logoSquare: boolean;
+}
+const componentProps: ComponentProps<
+  TradingProfilerSVGVariation,
+  CustomOptions
+> = {
+  lang: "sv",
+  langType: langTypeRegion,
+  dir: "ltr",
+  lpName: "EduKitStocks",
+  brandObj: useBrandFactory({
+    brand: "tradingprofiler",
+    region: langTypeRegion,
+    whatsapp: true,
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType: "esma",
+  formValidation: "classic",
+  customOptions: {
+    logoSquare: false,
+  },
+};
+---
+
+<HomePage componentProps={componentProps} />

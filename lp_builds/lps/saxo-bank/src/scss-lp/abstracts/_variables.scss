@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// BreakPoints
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$breakpoints_max_widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+$mobileBreakpoint: xxl;
+
+// Grid system
+$columns: 12;
+$gap: 30px;
+
+// Font family
+$ff-fallback_serif: "Times New Roman", Times, Georgia, Garamond, serif;
+$ff-fallback_sans_serif: Arial, Helvetica, Tahoma, Verdana, "Trebuchet MS", Helvetica, Geneva, Verdana, sans-serif;
+$ff-fallback_monospace: "Courier New", Courier, monospace;
+$ff-fallback_cursive: "Brush Script MT", cursive;
+$ff-fallback_fantasy: Copperplate, Papyrus, fantasy;
+
+$fontFamily: (
+  base: "'Montserrat', #{$ff-fallback_sans_serif}",
+  alt_alpha: "'Roboto', #{$ff-fallback_sans_serif}",
+  alt_beta: "'Playfair Display', #{$ff-fallback_serif}",
+);

@@ -1,0 +1,231 @@
+---
+import useFxoroBrandOutput from "../../../../../globals/composables/useFxoroBrandOutput";
+import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
+import type { TranslationsType } from "../../../../../globals/types/Translations";
+import type { Bullets } from "../../types/bullets";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `${useFxoroBrandOutput(componentProps.brandObj.name)}'s commitment`,
+  it: `L'impegno di ${useFxoroBrandOutput(componentProps.brandObj.name)}`,
+  tr: ``,
+  ro: `${useFxoroBrandOutput(componentProps.brandObj.name)} se angajează se ofere`,
+  ar: ``,
+  de: ``,
+  es: `El compromiso de ${useFxoroBrandOutput(componentProps.brandObj.name)}`,
+  sv: `${useFxoroBrandOutput(componentProps.brandObj.name)}:s åtagande`,
+  pt: ``,
+  fi: ``,
+  pl: `Zaangażowanie ${useFxoroBrandOutput(componentProps.brandObj.name)}`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: Bullets[] = [
+  {
+    title: {
+      en: `Comprehensive Market Analysis: `,
+      it: `Analisi di mercato completa:`,
+      tr: ``,
+      ro: `Analiza cuprinzătoare a pieței:`,
+      ar: ``,
+      de: `Análisis exhaustivo del mercado:`,
+      es: ``,
+      sv: `Omfattande marknadsanalys:`,
+      pt: ``,
+      fi: ``,
+      pl: `Kompleksowa analiza rynku:`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Providing thorough continuous market news.`,
+      it: `fornitura continua e approfondita di notizie di mercato.`,
+      tr: ``,
+      ro: `Furnizarea de știri complete și continue despre piață.`,
+      ar: ``,
+      de: ``,
+      es: `Proporcionando exhaustivas noticias continuas sobre el mercado.`,
+      sv: `Tillhandahåller grundliga kontinuerliga marknadsnyheter.`,
+      pt: ``,
+      fi: ``,
+      pl: `dostarczanie dokładnych, ciągłych wiadomości rynkowych.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Up-to-Date Market Information:`,
+      it: `Informazioni di mercato aggiornate:`,
+      tr: ``,
+      ro: `Informații actualizate de piață:`,
+      ar: ``,
+      de: ``,
+      es: `Información de mercado actualizada:`,
+      sv: `Uppdaterad marknadsinformation:`,
+      pt: ``,
+      fi: ``,
+      pl: `Aktualne informacje rynkowe:`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Ensuring you have the latest data.`,
+      it: `assicurati di avere i dati più recenti.`,
+      tr: ``,
+      ro: `asigurându-vă că aveți cele mai recente date.`,
+      ar: ``,
+      de: ``,
+      es: `Garantizándole los datos más recientes.`,
+      sv: `Säkerställ att du har de senaste uppgifterna.`,
+      pt: ``,
+      fi: ``,
+      pl: `pewność, że masz najnowsze dane.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Strong Emphasis on Risk Awareness:`,
+      it: `Forte enfasi sulla consapevolezza del rischio:`,
+      tr: ``,
+      ro: `Accent puternic pe conștientizarea riscurilor:`,
+      ar: ``,
+      de: ``,
+      es: `Gran énfasis en el conocimiento del riesgo:`,
+      sv: `Stark betoning på riskmedvetenhet:`,
+      pt: ``,
+      fi: ``,
+      pl: `Silny nacisk na świadomość ryzyka:`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Ensuring you have the latest data.`,
+      it: `focalizzazione sulla gestione informata del rischio.`,
+      tr: ``,
+      ro: `concentrarea pe managementul informat al riscurilor.`,
+      ar: ``,
+      de: ``,
+      es: `Centrándose en la gestión informada del riesgo. `,
+      sv: `Fokus på välgrundad riskhantering.`,
+      pt: ``,
+      fi: ``,
+      pl: `skupienie się na świadomym zarządzaniu ryzykiem.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+
+const source: TranslationsType = {
+  en: `Source`,
+  it: `Fonte`,
+  tr: ``,
+  ro: `Sursă`,
+  ar: ``,
+  de: ``,
+  es: `Fuente`,
+  sv: `Källa`,
+  pt: ``,
+  fi: ``,
+  pl: `Źródło`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section5" class="section5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h2 set:html={title[componentProps.lang]} />
+      </div>
+    </div>
+    <div class="row">
+      {
+        bullets.map((bullet) => (
+          <div class="col-12 col-lg-4 bullet">
+            <h3 set:html={bullet.title[componentProps.lang]} />
+            <p set:html={bullet.para[componentProps.lang]} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="row">
+      <div class="col-12 bullet">
+        <p>
+          <a href="https://www.home.saxo/insights/news-and-research/thought-leadership/outrageous-predictions" target="_blank">
+            {source[componentProps.lang]}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../scss-lp/abstracts/mixins" as mxns;
+
+  section#section5.section5 {
+    background-color: var(--clr-white);
+    padding-bottom: 0;
+
+    h2 {
+      margin-bottom: var(--spacing-10);
+      text-transform: uppercase;
+
+      @include mxns.mediamax(lg) {
+        text-align: center;
+      }
+    }
+
+    .bullet {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: var(--spacing-2);
+      padding-bottom: var(--spacing-7);
+
+      > * {
+        margin: 0;
+      }
+    }
+
+    h3,
+    p {
+      text-align: center;
+    }
+
+    h3 {
+      max-width: 18ch;
+    }
+
+    p {
+      max-width: 20ch;
+    }
+  }
+</style>

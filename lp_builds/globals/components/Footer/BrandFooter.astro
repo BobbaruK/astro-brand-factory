@@ -1,0 +1,34 @@
+---
+import { type ComponentProps } from "../../types/ComponentProps";
+import footerTranslations from "../../translations/footer";
+
+// import { type ComponentProps } from "../../../../globals/types/ComponentProps";
+// import footerTranslations from "../../../../globals/translations/footer";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const translations = footerTranslations(componentProps.brandObj.name);
+---
+
+<footer class="brandFooter">
+  <div class="container">
+    {componentProps.lpType === "classic" && <Fragment set:html={translations.classic[componentProps.lang]} />}
+
+    {componentProps.lpType === "esma" && <Fragment set:html={translations.esma[componentProps.lang]} />}
+
+    {componentProps.lpType === "endorsed" && <Fragment set:html={translations.endorsed[componentProps.lang]} />}
+
+    {
+      (componentProps.lpType === "esma" || componentProps.lpType === "endorsed") && (
+        <div class="logoWrapper">
+          <img src="https://fxoro.com/wp-content/themes/CSSecoStarterThemeV2-master/imgs/poweredfxoro-white-gold.png" alt="Logo" width="150" height="60" />
+        </div>
+      )
+    }
+  </div>
+</footer>
+
+<style lang="scss"></style>
