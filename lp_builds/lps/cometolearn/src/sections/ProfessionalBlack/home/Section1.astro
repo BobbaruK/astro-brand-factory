@@ -1,14 +1,12 @@
 ---
 import {
-  professionalBlackSection1Icon1,
-  professionalBlackSection1Icon2,
-  professionalBlackSection1Icon3,
+professionalBlackSection1Icon1,
+professionalBlackSection1Icon2,
+professionalBlackSection1Icon3,
 } from "@/constants";
-import useTextVersion from "../../../../../../globals/composables/useTextVersion";
 import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
 import type {
-  TextVersionTranslation,
-  TranslationsType,
+TranslationsType
 } from "../../../../../../globals/types/Translations";
 
 interface Props {
@@ -16,195 +14,227 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const titleVs: TextVersionTranslation = {
-  v1: {
-    en: "Start trading in an intelligent way with these 3 simple steps:",
-    it: "",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: "",
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
-  },
-  v2: {
-    en: "",
-    it: "",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: ``,
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
-  },
+// Design version 1
+const titleV1: TranslationsType = {
+  en: `Follow these three easy steps and become an expert trader:`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
 };
-const title = useTextVersion(
-  titleVs,
-  componentProps.textVersion,
-) as TranslationsType;
-
-const bullets: {
-  title: TextVersionTranslation;
+const bulletsV1: {
+  title: TranslationsType;
   svgIcon: string;
 }[] = [
   {
     title: {
-      v1: {
-        en: "Receive your free PDF guide",
-        it: "",
-        tr: "",
-        ro: "",
-        ar: "",
-        de: "",
-        es: "",
-        sv: "",
-        pt: "",
-        fi: "",
-        pl: ``,
-        hu: "",
-        th: "",
-        ms: "",
-        vi: "",
-      },
-      v2: {
-        en: "",
-        it: "",
-        tr: "",
-        ro: "",
-        ar: "",
-        de: "",
-        es: "",
-        sv: ``,
-        pt: "",
-        fi: "",
-        pl: ``,
-        hu: "",
-        th: "",
-        ms: "",
-        vi: "",
-      },
+      en: "Receive your free PDF guide",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
     },
     svgIcon: professionalBlackSection1Icon1,
   },
   {
     title: {
-      v1: {
-        en: "Get a free training session with a representative",
-        it: "",
-        tr: "",
-        ro: "",
-        ar: "",
-        de: "",
-        es: "",
-        sv: "",
-        pt: "",
-        fi: "",
-        pl: ``,
-        hu: "",
-        th: "",
-        ms: "",
-        vi: "",
-      },
-      v2: {
-        en: "",
-        it: "",
-        tr: "",
-        ro: "",
-        ar: "",
-        de: "",
-        es: "",
-        sv: ``,
-        pt: "",
-        fi: "",
-        pl: ``,
-        hu: "",
-        th: "",
-        ms: "",
-        vi: "",
-      },
+      en: "Get a free training session with a representative",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
     },
     svgIcon: professionalBlackSection1Icon2,
   },
   {
     title: {
-      v1: {
-        en: "Test your skills on a demo account",
-        it: "",
-        tr: "",
-        ro: "",
-        ar: "",
-        de: "",
-        es: "",
-        sv: "",
-        pt: "",
-        fi: "",
-        pl: ``,
-        hu: "",
-        th: "",
-        ms: "",
-        vi: "",
-      },
-      v2: {
-        en: "",
-        it: "",
-        tr: "",
-        ro: "",
-        ar: "",
-        de: "",
-        es: "",
-        sv: ``,
-        pt: "",
-        fi: "",
-        pl: ``,
-        hu: "",
-        th: "",
-        ms: "",
-        vi: "",
-      },
+      en: "Test your skills on a demo account",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    svgIcon: professionalBlackSection1Icon3,
+  },
+];
+
+// Design version 2
+const titleV2: TranslationsType = {
+  en: `Get started the intelligent way with 3 steps`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const bulletsV2: {
+  title: TranslationsType;
+  svgIcon: string;
+}[] = [
+  {
+    title: {
+      en: "Fill in the form on this page.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    svgIcon: professionalBlackSection1Icon1,
+  },
+  {
+    title: {
+      en: "You will get in touch with one of our regulated broker partners.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    svgIcon: professionalBlackSection1Icon2,
+  },
+  {
+    title: {
+      en: "Get the educational free course to learn how to trade.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
     },
     svgIcon: professionalBlackSection1Icon3,
   },
 ];
 ---
 
-<section id="section1" class="my-12">
+<section id="section1" class="my-12 lg:mt-0">
   <div class="container flex flex-col gap-6 md:gap-8 lg:gap-12">
-    <h2
-      set:html={title[componentProps.lang]}
-      class="text-professional-black-heading2 font-extrabold uppercase text-primary lg:w-[30ch]"
-    />
+    {
+      componentProps.designVersion === "v1" && (
+        <h2
+          set:html={titleV1[componentProps.lang]}
+          class="text-professional-black-heading2 font-extrabold uppercase text-primary lg:w-[40ch]"
+        />
+      )
+    }
+    {
+      componentProps.designVersion === "v2" && (
+        <h2
+          set:html={titleV2[componentProps.lang]}
+          class="text-professional-black-heading2 font-extrabold uppercase text-primary lg:w-[30ch]"
+        />
+      )
+    }
     <div class="flex flex-col gap-6 md:flex-row lg:gap-8 xl:gap-28">
       {
-        bullets.map((bullet) => {
-          const actualBullet = useTextVersion(
-            bullet.title,
-            componentProps.textVersion,
-          ) as TranslationsType;
-
-          return (
-            <div class="md:basis-1/3">
-              <div
-                set:html={bullet.svgIcon}
-                class="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
-              />
-              <p set:html={actualBullet[componentProps.lang]} class="" />
-            </div>
-          );
-        })
+        componentProps.designVersion === "v1" && (
+          <>
+            {bulletsV1.map((bullet) => {
+              return (
+                <div class="md:basis-1/3">
+                  <div
+                    set:html={bullet.svgIcon}
+                    class="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
+                  />
+                  <p set:html={bullet.title[componentProps.lang]} class="" />
+                </div>
+              );
+            })}
+          </>
+        )
+      }
+      {
+        componentProps.designVersion === "v2" && (
+          <>
+            {bulletsV2.map((bullet) => {
+              return (
+                <div class="md:basis-1/3">
+                  <div
+                    set:html={bullet.svgIcon}
+                    class="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
+                  />
+                  <p set:html={bullet.title[componentProps.lang]} class="" />
+                </div>
+              );
+            })}
+          </>
+        )
       }
     </div>
   </div>

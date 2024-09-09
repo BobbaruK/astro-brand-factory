@@ -4,18 +4,22 @@
 // import HomePage from "@/layouts/ProfessionalBlack/home.astro";
 import HomePage from "@/layouts/ProfessionalBlack-v2/home.astro";
 import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
-import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
+import type {
+  LandingPageLangType,
+  LandingPageType,
+} from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
 
 const langTypeRegion: LandingPageLangType = "cysec";
+const lpType: LandingPageType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
 }
 const componentProps: ComponentProps<
-  TradingProfilerSVGVariation,
+  TradeStrategyHubSVGVariation,
   CustomOptions
 > = {
   lang: "en",
@@ -23,16 +27,17 @@ const componentProps: ComponentProps<
   dir: "ltr",
   lpName: "Cometolearn",
   brandObj: useBrandFactory({
-    brand: "tradingprofiler",
+    brand: "tradestrategyhub",
     region: langTypeRegion,
     whatsapp: false,
+    lpType: lpType,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
   },
-  lpType: "classic",
+  lpType: lpType,
   formValidation: "classic",
-  textVersion: "v1",
+  designVersion: "v2",
   customOptions: {
     logoSquare: false,
   },

@@ -29,7 +29,7 @@ const titleVs: TextVersionTranslation = {
     sv: ``,
     pt: "",
     fi: "",
-    pl: `Zacznij mądrze z 3 krokami`,
+    pl: `Zacznij mądrze z 3 krokami`, // fsa
     hu: "",
     th: "",
     ms: "",
@@ -46,7 +46,7 @@ const titleVs: TextVersionTranslation = {
     sv: ``,
     pt: "",
     fi: "",
-    pl: `Zainteresowany zarabianiem poprzez inwestycje? sprawdź co oferuje ${useFxoroBrandOutput(componentProps.brandObj.name)}:`,
+    pl: `Zainteresowany zarabianiem poprzez inwestycje? sprawdź co oferuje ${useFxoroBrandOutput(componentProps.brandObj.name)}:`, // cysec
     hu: "",
     th: "",
     ms: "",
@@ -55,7 +55,7 @@ const titleVs: TextVersionTranslation = {
 };
 const title = useTextVersion(
   titleVs,
-  componentProps.textVersion,
+  componentProps.designVersion,
 ) as TranslationsType;
 
 interface Bullet {
@@ -217,7 +217,7 @@ const bullets: Bullet[] = [
               set:html={() => {
                 const bulletTitle = useTextVersion(
                   bullet.title,
-                  componentProps.textVersion,
+                  componentProps.designVersion,
                 ) as TranslationsType;
 
                 return bulletTitle[componentProps.lang];

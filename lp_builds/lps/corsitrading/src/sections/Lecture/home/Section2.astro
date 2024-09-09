@@ -17,7 +17,8 @@ const titleVs: TextVersionTranslation = {
     en: "",
     it: "",
     tr: "",
-    ro: "",
+    ro:
+      componentProps.langType === "fsa" ? `Obține cursul educativ gratuit` : ``,
     ar: "",
     de: "",
     es: "",
@@ -84,7 +85,7 @@ const titleVs: TextVersionTranslation = {
 };
 const title = useTextVersion(
   titleVs,
-  componentProps.textVersion,
+  componentProps.designVersion,
 ) as TranslationsType;
 
 const formBtnVs: TextVersionTranslation = {
@@ -92,11 +93,11 @@ const formBtnVs: TextVersionTranslation = {
     en: "",
     it: "",
     tr: "",
-    ro: "",
+    ro: componentProps.langType === "fsa" ? `Înregistrează-te acum` : ``,
     ar: "",
     de: "",
     es: "",
-    sv: "Registera nu",
+    sv: "Registera nu",  // fsa
     pt: "",
     fi: "",
     pl: ``,
@@ -159,7 +160,7 @@ const formBtnVs: TextVersionTranslation = {
 };
 const formBtn = useTextVersion(
   formBtnVs,
-  componentProps.textVersion,
+  componentProps.designVersion,
 ) as TranslationsType;
 ---
 

@@ -23,14 +23,23 @@ const titleVs: TextVersionTranslation = {
     en: "Get access to our Tools:",
     it: "Ottieni l'accesso ai nostri tools:",
     tr: "",
-    ro: "",
+    ro:
+      componentProps.langType === "fsa"
+        ? `Tranzacționează valute, acțiuni, materii prime și altele, având o cunoaștere mai bună a pieței.`
+        : ``,
     ar: "",
     de: "",
-    es: "Acceda a nuestras herramientas:",
+    es:
+      componentProps.langType === "fsa"
+        ? `Opere con divisas, acciones, materias primas y más con un mejor conocimiento del mercado.`
+        : "Acceda a nuestras herramientas:",
     sv: "Få tillgång till våra verktyg:",
     pt: "",
     fi: "",
-    pl: "Uzyskaj dostęp do naszych narzędzi:",
+    pl:
+      componentProps.langType === "fsa"
+        ? `Handluj walutami, akcjami, towarami i innymi instrumentami z lepszą znajomością rynku.`
+        : "Uzyskaj dostęp do naszych narzędzi:",
     hu: "",
     th: "",
     ms: "",
@@ -90,7 +99,7 @@ const titleVs: TextVersionTranslation = {
 };
 const title = useTextVersion(
   titleVs,
-  componentProps.textVersion,
+  componentProps.designVersion,
 ) as TranslationsType;
 
 const bullets: {
@@ -101,17 +110,17 @@ const bullets: {
   {
     title: {
       v1: {
-        en: "The latest market news",
-        it: "Le ultime new di mercato",
+        en: "The latest market news", // fsa
+        it: "Le ultime new di mercato", // fsa
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Webinarii` : ``,
         ar: "",
         de: "",
-        es: "Las últimas noticias del mercado",
-        sv: "De senaste marknadsnyheterna",
+        es: "Las últimas noticias del mercado", // fsa
+        sv: "De senaste marknadsnyheterna",  // fsa
         pt: "",
         fi: "",
-        pl: "Najnowsze nowości rynkowe",
+        pl: "Najnowsze nowości rynkowe", // fsa
         hu: "",
         th: "",
         ms: "",
@@ -121,7 +130,7 @@ const bullets: {
         en: "The latest market news",
         it: "Le ultime new di mercato",
         tr: "",
-        ro: "",
+        ro: ``,
         ar: "",
         de: "",
         es: "Las últimas noticias del mercado",
@@ -174,7 +183,10 @@ const bullets: {
         en: "",
         it: "",
         tr: "",
-        ro: "",
+        ro:
+          componentProps.langType === "fsa"
+            ? `Învață să citești tendințele și cele mai bune oportunități de tranzacționare cu ajutorul webinariilor noastre.`
+            : ``,
         ar: "",
         de: "",
         es: "",
@@ -247,7 +259,7 @@ const bullets: {
         en: "Video tutorials",
         it: "Video tutorial",
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Tutoriale video` : ``,
         ar: "",
         de: "",
         es: "Tutoriales en vídeo",
@@ -317,7 +329,7 @@ const bullets: {
         en: "",
         it: "",
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Tutoriale video, clare și concise, pentru a descoperi tactici noi de tranzacționare.` : ``,
         ar: "",
         de: "",
         es: "",
@@ -390,7 +402,7 @@ const bullets: {
         en: "Online training",
         it: "Trading on-line",
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Cursuri personalizate` : ``,
         ar: "",
         de: "",
         es: "Formación en línea",
@@ -460,7 +472,7 @@ const bullets: {
         en: "",
         it: "",
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Descoperă strategii noi cu ajutorul sesiunilor de trading unu la unu cu experții nostri.` : ``,
         ar: "",
         de: "",
         es: "",
@@ -533,7 +545,7 @@ const bullets: {
         en: "Support line",
         it: "Supporto-on line",
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Semnale` : ``,
         ar: "",
         de: "",
         es: "Línea de asistencia",
@@ -603,7 +615,7 @@ const bullets: {
         en: "",
         it: "",
         tr: "",
-        ro: "",
+        ro: componentProps.langType === "fsa" ? `Semnale precise în timp real.` : ``,
         ar: "",
         de: "",
         es: "",
@@ -687,11 +699,11 @@ const bullets: {
           bullets.map((bullet) => {
             const actualBullet = useTextVersion(
               bullet.title,
-              componentProps.textVersion,
+              componentProps.designVersion,
             ) as TranslationsType;
             const actualPara = useTextVersion(
               bullet.para,
-              componentProps.textVersion,
+              componentProps.designVersion,
             ) as TranslationsType;
 
             return (

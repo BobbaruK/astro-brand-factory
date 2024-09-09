@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/astro_lp/arealsharesoffer/en/",
+  base: "/lp/arealsharesoffer/en/",
   trailingSlash: "ignore",
   integrations: [
     react(),

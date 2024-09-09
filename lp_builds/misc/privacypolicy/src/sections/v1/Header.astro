@@ -1,18 +1,21 @@
 ---
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
-import { useReturnSVG } from "../../../../../globals/composables/useReturnSVG";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const svgLogo = useReturnSVG(componentProps, "blackGreen");
 ---
 
 <header id="header" class="py-4 bg-background text-foreground">
   <div class="container">
-    <Fragment set:html={svgLogo} />
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
   </div>
 </header>
 

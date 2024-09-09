@@ -1,8 +1,9 @@
 ---
 // import HomePage from "@/layouts/v1/home.astro";
-import HomePage from "@/layouts/v2/home.astro";
+// import HomePage from "@/layouts/v2/home.astro";
+import HomePage from "@/layouts/v3/home.astro";
 import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
@@ -13,26 +14,27 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 const componentProps: ComponentProps<
-  TradingProfilerSVGVariation,
+  TradeStrategyHubSVGVariation,
   CustomOptions
 > = {
-  lang: "en",
+  lang: "es",
   langType: langTypeRegion,
   dir: "ltr",
   lpName: "LiveTradingSignals",
   brandObj: useBrandFactory({
-    brand: "tradingprofiler",
+    brand: "tradestrategyhub",
     region: langTypeRegion,
-    whatsapp: false,
+    whatsapp: true,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
   },
-  lpType: "classic",
+  lpType: "endorsed",
   formValidation: "classic",
   customOptions: {
     logoSquare: false,
   },
+  designVersion: "v1",
 };
 ---
 

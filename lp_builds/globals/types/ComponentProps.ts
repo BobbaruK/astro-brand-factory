@@ -11,7 +11,7 @@ export interface ComponentProps<TSVGLogoVariations = any, TCustomOpts = any> {
   logo: () => string;
   lpType: LandingPageType;
   formValidation: FormValidation;
-  textVersion?: TextVersion;
+  designVersion?: DesignVersion;
   fxoroFooter?: boolean;
   customOptions?: TCustomOpts; // any
 }
@@ -20,4 +20,4 @@ export interface ComponentProps<TSVGLogoVariations = any, TCustomOpts = any> {
  * if you modify this, pay attention also to
  * TextVersionTranslation in ./Translations.ts
  */
-export type TextVersion = "v1" | "v2" | "v3" | "v4" | "v5";
+export type DesignVersion = "v1" | "v2" | "v3" | "v4" | "v5";

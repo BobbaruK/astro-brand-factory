@@ -1,5 +1,5 @@
 ---
-import Logo from "../../../../../globals/components/logos/MainLogo/Logo.astro";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../../globals/types/ComponentProps";
 
 interface Props {
@@ -7,22 +7,16 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const bgColor = "#000";
 ---
 
-<header id="header" class="siteHeader">
+<header id="header" class="py-4 bg-background text-foreground">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <Logo brandObj={componentProps.brandObj} />
-      </div>
-    </div>
+    <MainLogo
+      size={componentProps.brandObj.nameToLower}
+      logo={componentProps.logo()}
+      square={componentProps.customOptions?.logoSquare}
+    />
   </div>
 </header>
 
-<style define:vars={{ bgColor }}>
-  #header.siteHeader {
-    background-color: var(--bgColor);
-    color: white;
-  }
-</style>
+<style></style>

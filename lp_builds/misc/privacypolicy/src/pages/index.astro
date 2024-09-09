@@ -1,25 +1,39 @@
 ---
-import { useBrands } from "../../../../globals/composables/useBrands";
-import { type BrandArrItem } from "../../../../globals/types/Brands";
+// import HomePage from "@/layouts/v1/home.astro";
+import HomePage from "@/layouts/v2/home.astro";
+import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
+import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
-import HomePage from "@/layouts/v1/home.astro";
 
-const brandId: number = 8;
 const langTypeRegion: LandingPageLangType = "cysec";
 
-const brandObj = useBrands({ whatsapp: true, region: langTypeRegion }).find((brand) => brand.id === brandId);
-
-const componentProps: ComponentProps = {
+export interface CustomOptions {
+  logoSquare: boolean;
+}
+const componentProps: ComponentProps<
+  TradeStrategyHubSVGVariation,
+  CustomOptions
+> = {
   lang: "en",
   langType: langTypeRegion,
   dir: "ltr",
-  lpName: "LP NAME",
-  brandObj: brandObj || ({} as BrandArrItem),
-  lpType: "esma",
+  lpName: "Cometolearn",
+  brandObj: useBrandFactory({
+    brand: "tradestrategyhub",
+    region: langTypeRegion,
+    whatsapp: false,
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType: "outbrain",
   formValidation: "classic",
-  // fxoroFooter: true,
+  designVersion: "v1",
+  customOptions: {
+    logoSquare: false,
+  },
 };
 ---
 

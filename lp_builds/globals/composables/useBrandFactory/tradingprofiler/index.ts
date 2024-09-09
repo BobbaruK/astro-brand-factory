@@ -12,7 +12,7 @@ export const tradingprofiler = (whatsapp: boolean, whatsappNumber: () => Transla
     en: "https://tradingprofiler.com/thank-you/en/",
     it: "",
     tr: "",
-    ro: "",
+    ro: "https://tradingprofiler.com/thank-you/ro/",
     ar: "",
     de: "",
     es: "https://tradingprofiler.com/thank-you/es/",

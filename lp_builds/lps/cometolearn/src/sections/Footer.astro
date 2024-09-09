@@ -4,6 +4,7 @@ import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 // import FooterContent from "../../../../globals/components/Footer/FooterContent.astro";
 
 import BrandFooter from "../../../../globals/components/Footer/BrandFooter.astro";
+// import BrandFooter from "./BrandFooter.astro";
 import FxoroFooter from "../../../../globals/components/Footer/FxoroFooter.astro";
 
 interface Props {
@@ -22,7 +23,7 @@ const { componentProps } = Astro.props;
 
 <style lang="scss" is:global>
   .brandFooter {
-    @apply bg-stone-700 text-gray-100 py-8;
+    @apply bg-stone-700 py-8 text-gray-100;
 
     .container {
       @apply flex flex-col gap-8;

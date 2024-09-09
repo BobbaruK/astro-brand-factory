@@ -1,5 +1,5 @@
 ---
-import { type BrandsNames } from "../../types/Brands/names";
+import {type BrandsNames} from '../../types/Brands/names'
 
 interface Props {
   size: BrandsNames;
@@ -26,18 +26,6 @@ interface LogoCSSVars {
 
 const cssVars = (): LogoCSSVars => {
   switch (size) {
-    case "genericBrand":
-      return {
-        sm: {
-          width: 150,
-          height: 16,
-        },
-        lg: {
-          width: 200,
-          height: 32,
-        },
-      };
-
     case "daytradingstar":
       return {
         sm: {

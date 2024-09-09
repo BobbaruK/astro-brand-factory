@@ -1,7 +1,7 @@
 ---
 import HomePage from "@/layouts/yellow/home.astro";
 import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
-import { type GenericBrandSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
@@ -12,7 +12,7 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 const componentProps: ComponentProps<
-  GenericBrandSVGVariation,
+  TradingProfilerSVGVariation,
   CustomOptions
 > = {
   lang: "sv",
@@ -20,14 +20,14 @@ const componentProps: ComponentProps<
   dir: "ltr",
   lpName: "Amazon World",
   brandObj: useBrandFactory({
-    brand: "genericBrand",
+    brand: "tradingprofiler",
     region: langTypeRegion,
     whatsapp: false,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
   },
-  lpType: "classic",
+  lpType: "esma",
   formValidation: "classic",
   customOptions: {
     logoSquare: false,

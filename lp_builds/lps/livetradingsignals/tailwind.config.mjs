@@ -74,7 +74,8 @@ module.exports = {
 
         paraLead: "clamp(1.25rem, 1.25rem + 1.3333vw, 2.25rem)",
 
-        "v3-heading1": "clamp(1.75rem, 1.3523rem + 1.9886vw, 2.625rem)",
+        "v3-heading1-tv1": "clamp(1.75rem, 1.3523rem + 1.9886vw, 2.625rem)",
+        "v3-paraLead-tv2": "clamp(1.25rem, 0.9091rem + 1.7045vw, 2rem)",
       },
     },
   },

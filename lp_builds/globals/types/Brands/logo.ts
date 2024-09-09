@@ -1,7 +1,3 @@
-export type GenericBrandSVGVariation = {
-  default: string;
-};
-
 export type Investingtips101SVGVariation = {
   default: string;
 };

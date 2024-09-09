@@ -1,5 +1,6 @@
 ---
 import Form from "../../../../../../globals/components/Form/";
+import useCheckDesignVersion from "../../../../../../globals/composables/useCheckDesignVersion";
 import type { ComponentProps } from "../../../../../../globals/types/ComponentProps.ts";
 import type { TranslationsType } from "../../../../../../globals/types/Translations";
 
@@ -8,11 +9,16 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
+useCheckDesignVersion(componentProps);
+
 const formTitle: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro:
+    componentProps.langType === "fsa"
+      ? `Obține semnale de tranzacționare gratuite`
+      : ``,
   ar: "",
   de: "",
   es: `¡Comience hoy mismo!`,
@@ -30,7 +36,7 @@ const formButton: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro: componentProps.langType === "fsa" ? `Deschide cont acum ≫` : "",
   ar: "",
   de: "",
   es: `Aprenda Más`,
@@ -44,7 +50,7 @@ const formButton: TranslationsType = {
   vi: "",
 };
 
-const list: {
+const listV1: {
   icon: string;
   title: TranslationsType;
   para: TranslationsType;
@@ -161,6 +167,133 @@ const list: {
     },
   },
 ];
+
+const listV2: {
+  percent: number;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    percent: 100,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: componentProps.langType === "fsa" ? `Fiabilitate` : ``,
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro:
+        componentProps.langType === "fsa"
+          ? `Obține semnale de trading de la analiști profesioniști.`
+          : ``,
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    percent: 78,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: componentProps.langType === "fsa" ? `Acuratețe` : ``,
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro:
+        componentProps.langType === "fsa"
+          ? `Poți conta pe semnale ce au o acuratețe de 78%.`
+          : ``,
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    percent: 100,
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: componentProps.langType === "fsa" ? `Gratuitate` : ``,
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro:
+        componentProps.langType === "fsa"
+          ? `Intră în lumea ${componentProps.brandObj.name} și vei primi cele mai bune semnale în mod gratuit!`
+          : ``,
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
 ---
 
 <section class="my-6 border-stone-500 lg:mt-24 lg:border-t-8">
@@ -185,23 +318,44 @@ const list: {
     >
       <ul class="flex flex-col gap-4 text-center lg:items-start lg:text-start">
         {
-          list.map((li) => (
-            <li class="flex flex-col items-center justify-center gap-4 lg:flex-row">
-              <div class="bulletSquare relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border border-[hsl(var(--secondary-dark))] bg-[hsl(var(--secondary-dark))]/50 p-4 shadow-md lg:w-28 lg:min-w-28">
-                <div
-                  class="grid h-full w-full place-items-center rounded-full bg-[hsl(var(--secondary-dark))] text-3xl font-bold text-background"
-                  set:html={li.icon}
-                />
-              </div>
-              <div class="leading-tight">
-                <h3
-                  class="text-heading3 font-bold uppercase text-[hsl(var(--secondary-dark))]"
-                  set:html={li.title[componentProps.lang]}
-                />
-                <p set:html={li.para[componentProps.lang]} />
-              </div>
-            </li>
-          ))
+          componentProps.designVersion === "v1" &&
+            listV1.map((li) => (
+              <li class="flex flex-col items-center justify-center gap-4 lg:flex-row">
+                <div class="bulletSquare relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border border-[hsl(var(--secondary-dark))] bg-[hsl(var(--secondary-dark))]/50 p-4 shadow-md lg:w-28 lg:min-w-28">
+                  <div
+                    class="grid h-full w-full place-items-center rounded-full bg-[hsl(var(--secondary-dark))] text-3xl font-bold text-background"
+                    set:html={li.icon}
+                  />
+                </div>
+                <div class="leading-tight">
+                  <h3
+                    class="text-heading3 font-bold uppercase text-[hsl(var(--secondary-dark))]"
+                    set:html={li.title[componentProps.lang]}
+                  />
+                  <p set:html={li.para[componentProps.lang]} />
+                </div>
+              </li>
+            ))
+        }
+        {
+          componentProps.designVersion === "v2" &&
+            listV2.map((li) => (
+              <li class="flex flex-col items-center justify-center gap-4 lg:flex-row">
+                <div class="bulletSquare relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border border-[hsl(var(--secondary-dark))] bg-[hsl(var(--secondary-dark))]/50 p-4 shadow-md lg:w-28 lg:min-w-28">
+                  <div
+                    class="grid h-full w-full place-items-center rounded-full bg-[hsl(var(--secondary-dark))] text-2xl font-bold text-background"
+                    set:html={li.percent + "%"}
+                  />
+                </div>
+                <div class="leading-tight">
+                  <h3
+                    class="text-heading3 font-bold uppercase text-[hsl(var(--secondary-dark))]"
+                    set:html={li.title[componentProps.lang]}
+                  />
+                  <p set:html={li.para[componentProps.lang]} />
+                </div>
+              </li>
+            ))
         }
       </ul>
     </div>
@@ -310,8 +464,8 @@ const list: {
         &::placeholder {
         }
       }
-      button[type=submit] {
-        @apply flex h-12 gap-4 bg-secondary uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground border-b-2 border-e-2 border-[hsl(var(--secondary-dark))] flex-row-reverse;
+      button[type="submit"] {
+        @apply flex h-12 flex-row-reverse gap-4 border-b-2 border-e-2 border-[hsl(var(--secondary-dark))] bg-secondary uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground;
       }
     }
   }

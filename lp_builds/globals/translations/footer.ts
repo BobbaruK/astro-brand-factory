@@ -3,13 +3,13 @@ import type { FooterTranslations, TranslationsType } from "../types/Translations
 export default function footerTranslations(brandName: string): FooterTranslations {
   const classic: TranslationsType = {
     en: `<p>Trading carries a high level of risk to your capital due to the volatility of the underlying market. Trading is not suitable for everyone and may result in you losing all your investment. ${brandName} products may not be suitable for all investors. Therefore, you should ensure that you understand the risks and seek advice from an independent and suitably licensed financial advisor.</p>`,
-    it: "",
+    it: `<p>Il trading ha un elevato livello di rischio per il capitale a causa della volatilità del mercato. Il trading non è adatto a tutti e può causare la perdita di tutto il tuo investimento. I segnali ${brandName} potrebbero non essere adatti a tutti gli investitori. Pertanto, è necessario assicurarsi di comprendere i rischi e richiedere consulenza da un consulente finanziario indipendente e adeguatamente autorizzato.</p>`,
     tr: "",
-    ro: "",
+    ro: `<p>Tranzacționarea implică un nivel ridicat de risc pentru capitalul dumneavoastră din cauza volatilității pieței subiacente. Tranzacționarea nu este potrivită pentru toată lumea și poate duce la pierderea tuturor investițiilor. Este posibil ca produsele ${brandName} să nu fie potrivite pentru toți investitorii. Prin urmare, ar trebui să vă asigurați că înțelegeți riscurile și că solicitați sfatul unui consilier financiar independent și autorizat corespunzător.</p>`,
     ar: "",
     de: "",
     es: `<p>El comercio tiene un alto nivel de riesgo para el capital debido a la volatilidad del mercado. El comercio no es adecuado para todos y puede hacer que pierda toda su inversión. Las señales de ${brandName} pueden no ser adecuadas para todos los inversores. Por lo tanto, debe asegurarse de comprender los riesgos y buscar el asesoramiento de un asesor financiero independiente y debidamente autorizado.</p>`,
-    sv: `<p>Handel innebär en hög risk för ditt kapital på grund av marknadens volatilitet. Handel är inte lämplig för alla och kan resultera i att du förlorar hela din investering. ${brandName} produkter kanske inte är lämpliga för alla investerare. Därför bör du säkerställa att du förstår riskerna och söka råd från en oberoende och lämpligt licensierad finansiell rådgivare.</p>`,
+    sv: "<p>Handel innebär en hög risk för ditt kapital på grund av volatiliteten på den underliggande marknaden. Handel är inte lämpligt för alla och kan leda till att hela din investering går förlorad. TradeStrategyHub-produkter kanske inte är lämpliga för alla investerare. Därför bör du se till att du förstår riskerna och be om råd från en oberoende och lämpligt licensierad finansiell rådgivare.</p>",
     pt: "",
     fi: "",
     pl: `<p>Handel niesie ze sobą wysoki poziom ryzyka dla Twojego kapitału ze względu na zmienność rynku bazowego. Handel nie jest odpowiedni dla każdego i może doprowadzić do utraty wszystkich inwestycji. Produkty ${brandName} mogą nie być odpowiednie dla wszystkich traderów. Dlatego upewnij się, że rozumiesz ryzyko i zasięgnij porady niezależnego i odpowiednio licencjonowanego doradcy finansowego</p>`,
@@ -72,15 +72,29 @@ export default function footerTranslations(brandName: string): FooterTranslation
     vi: "",
   };
 
+  const outbrain: TranslationsType = {
+    en: `
+      <p>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. The vast majority of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.</p>`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: ``,
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  };
+
   return {
-    classic: {
-      ...classic,
-    },
-    esma: {
-      ...esma,
-    },
-    endorsed: {
-      ...endorsed,
-    },
+    classic,
+    esma,
+    endorsed,
+    outbrain,
   };
 }

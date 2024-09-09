@@ -1,9 +1,10 @@
-import { BrandArrItem } from "../../../types/Brands";
-import { TradeStrategyHubSVGVariation } from "../../../types/Brands/logo";
-import { TranslationsType } from "../../../types/Translations";
+import { type BrandArrItem } from "../../../types/Brands";
+import { type TradeStrategyHubSVGVariation } from "../../../types/Brands/logo";
+import type { LandingPageType } from "../../../types/LandingPageType";
+import { type TranslationsType } from "../../../types/Translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
-export const tradestrategyhub = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<TradeStrategyHubSVGVariation> => ({
+export const tradestrategyhub = (whatsapp: boolean, whatsappNumber: () => TranslationsType, lpType?: LandingPageType): BrandArrItem<TradeStrategyHubSVGVariation> => ({
   id: 7,
   nameToLower: "tradestrategyhub",
   name: "TradeStrategyHub",
@@ -26,21 +27,21 @@ export const tradestrategyhub = (whatsapp: boolean, whatsappNumber: () => Transl
   },
   recaptchaKey: "6LeapJgpAAAAABjc0UySawSAB6zKqRNwbqFiMbUk",
   privacyLink: {
-    en: "https://tradestrategyhub.com/privacypolicy/en/",
-    it: "https://tradestrategyhub.com/privacypolicy/en/",
-    tr: "https://tradestrategyhub.com/privacypolicy/en/",
-    ro: "https://tradestrategyhub.com/privacypolicy/en/",
-    ar: "https://tradestrategyhub.com/privacypolicy/en/",
-    de: "https://tradestrategyhub.com/privacypolicy/en/",
-    es: "https://tradestrategyhub.com/privacypolicy/en/",
-    sv: "https://tradestrategyhub.com/privacypolicy/en/",
-    pt: "https://tradestrategyhub.com/privacypolicy/en/",
-    fi: "https://tradestrategyhub.com/privacypolicy/en/",
-    pl: "https://tradestrategyhub.com/privacypolicy/en/",
-    hu: "https://tradestrategyhub.com/privacypolicy/en/",
-    th: "https://tradestrategyhub.com/privacypolicy/en/",
-    ms: "https://tradestrategyhub.com/privacypolicy/en/",
-    vi: "https://tradestrategyhub.com/privacypolicy/en/",
+    en: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    it: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    tr: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    ro: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    ar: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    de: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    es: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    sv: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    pt: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    fi: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    pl: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    hu: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    th: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    ms: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    vi: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

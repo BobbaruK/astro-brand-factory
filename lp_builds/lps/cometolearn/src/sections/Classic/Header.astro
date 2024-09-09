@@ -17,7 +17,10 @@ const title: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro:
+    componentProps.langType === "fsa"
+      ? `Învaţă să tranzacţionezi <strong>gratuit</strong> pe piaţa financiară cu risc 0.`
+      : ``,
   ar: "",
   de: "",
   es: "",
@@ -35,7 +38,10 @@ const paraLead: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro:
+    componentProps.langType === "fsa"
+      ? `Primeşte pdf-ul gratuit şi începe să înveţi acum`
+      : ``,
   ar: "",
   de: "",
   es: "",
@@ -53,7 +59,7 @@ const formTitle: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro: componentProps.langType === "fsa" ? `Înregistrează-te acum` : ``,
   ar: "",
   de: "",
   es: "",
@@ -71,7 +77,10 @@ const formSubTitle: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro:
+    componentProps.langType === "fsa"
+      ? `şi primeşti <strong>GRATUIT GHIDUL PDF</strong>`
+      : ``,
   ar: "",
   de: "",
   es: "",
@@ -107,7 +116,7 @@ const formButton: TranslationsType = {
   en: "",
   it: "",
   tr: "",
-  ro: "",
+  ro: componentProps.langType === "fsa" ? `Primeşte ghidul` : ``,
   ar: "",
   de: "",
   es: "",

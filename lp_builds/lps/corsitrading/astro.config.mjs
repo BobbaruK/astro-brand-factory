@@ -12,7 +12,8 @@ export default defineConfig({
   // base: "/lp/corsitrading/v2/pl/",
   // base: "/lp/bitcoin_bubble/it/",
   base: "/lp/corsitrading/v1/es/",
-  base: "/lp/educationalkitstocks_v2/en/",
+  // base: "/lp/educationalkitstocks_v2/en/",
+  // base: "/lp/corsitrading/v1/ro/",
   trailingSlash: "ignore",
   integrations: [
     react(),

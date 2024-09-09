@@ -1,6 +1,6 @@
-import { BrandArrItem } from "../../../types/Brands";
-import { TradersAcademicSVGVariation } from "../../../types/Brands/logo";
-import { TranslationsType } from "../../../types/Translations";
+import { type BrandArrItem } from "../../../types/Brands";
+import { type TradersAcademicSVGVariation } from "../../../types/Brands/logo";
+import { type TranslationsType } from "../../../types/Translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
 export const tradersacademic = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<TradersAcademicSVGVariation> => ({
@@ -8,7 +8,7 @@ export const tradersacademic = (whatsapp: boolean, whatsappNumber: () => Transla
   nameToLower: "tradersacademic",
   name: "Traders Academic",
   typage: {
-    en: "",
+    en: "https://tradersacademic.com/thank-you/en/",
     it: "",
     tr: "",
     ro: "",

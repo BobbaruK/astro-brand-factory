@@ -76,7 +76,7 @@ const { componentProps } = Astro.props;
     </style>
   </head>
   <body>
-    <div id="siteWrapper">
+    <div id="siteWrapper" class="grid-rows-siteLayout grid min-h-[100vh]">
       <Header componentProps={componentProps} />
       <main>
         <slot />
@@ -85,7 +85,7 @@ const { componentProps } = Astro.props;
     </div>
     <script
       type="module"
-      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?v1"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js"
     ></script>
   </body>
 </html>

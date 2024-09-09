@@ -20,23 +20,32 @@ const { componentProps } = Astro.props;
   data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
   data-typage={componentProps.brandObj.typage[componentProps.lang]}
   data-openwa={componentProps.brandObj.whatsapp && "true"}
-  data-wanumber={componentProps.brandObj.whatsapp ? componentProps.brandObj.whatsappNumber[componentProps.lang] : false}
+  data-wanumber={componentProps.brandObj.whatsapp
+    ? componentProps.brandObj.whatsappNumber[componentProps.lang]
+    : false}
 >
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={componentProps.brandObj.images.faviconLink} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={componentProps.brandObj.images.faviconLink}
+    />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
   </head>
   <body>
-    <div id="siteWrapper">
+    <div id="siteWrapper" class="grid-rows-siteLayout grid min-h-[100vh]">
       <Header componentProps={componentProps} />
-      <main>
+      <main class="space-y-4 pb-4">
         <slot />
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <script type="module" src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?v1" is:inline></script>
+    <script
+      type="module"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp.js?v1"
+      is:inline></script>
   </body>
 </html>

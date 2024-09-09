@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/astro_lp/amazon_yellowworld/sv/",
+  base: "/lp/amazon_yellowworld/sv/",
   trailingSlash: "ignore",
   integrations: [
     react(),

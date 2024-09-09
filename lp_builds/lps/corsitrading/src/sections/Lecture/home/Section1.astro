@@ -13,12 +13,21 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
+//  https://protraderzone.com/lp/corsitrading/it/
+//  https://protraderzone.com/lp/corsitrading/sv/
+//  https://tradestrategyhub.com/lp/corsitrading/pl/
+
+// Forex trading
+// Forex is the largest and most liquid market in the world and many people are attracted by the idea of ​​online trading.
+// For those who are just starting their trading journey, education is a must. Before embarking on this journey, it is important to do the necessary research and broaden your knowledge.
+
 const titleVs: TextVersionTranslation = {
   v1: {
     en: "",
     it: "",
     tr: "",
-    ro: "",
+    ro:
+      componentProps.langType === "fsa" ? "Curs de Trading Online GRATUIT" : "",
     ar: "",
     de: "",
     es: "",
@@ -85,7 +94,7 @@ const titleVs: TextVersionTranslation = {
 };
 const title = useTextVersion(
   titleVs,
-  componentProps.textVersion,
+  componentProps.designVersion,
 ) as TranslationsType;
 
 const parasVs: TextVersionTranslation = {
@@ -93,13 +102,19 @@ const parasVs: TextVersionTranslation = {
     en: "",
     it: "",
     tr: "",
-    ro: "",
+    ro:
+      componentProps.langType === "fsa"
+        ? `
+      <p>Piaţa de trading este cea mai mare şi cea mai lichidă din lume. De aceea, este legată de multe poveşti de succes. Cursul nostru permite atât începătorilor, cât şi profesioniştilor, să îşi îmbunătăţească propria capacitate de trading.</p>
+      <p>Cine are inteligenţa de a urmări până la capăt cursul nostru de Forex, va putea descoperi cele mai bune strategii şi cei mai buni indicatori pentru a tranzacţiona pe piaţa Forex.</p>
+    `
+        : "",
     ar: "",
     de: "",
     es: "",
     sv: `
       <p>Forex-marknaden är den största och mest likvida marknaden i världen. Det är därför den är kopplad till många framgångshistorier. Vår kurs tillåter både nybörjare och proffs att förbättra sina handelsfärdigheter.</p>
-      <p>De som har intelligensen att följa vår Forex-kurs till slutet kommer att upptäcka de bästa strategierna och indikatorerna för Forex-handel.</p>`,
+      <p>De som har intelligensen att följa vår Forex-kurs till slutet kommer att upptäcka de bästa strategierna och indikatorerna för Forex-handel.</p>`, // fsa
     pt: "",
     fi: "",
     pl: ``,
@@ -124,12 +139,12 @@ const parasVs: TextVersionTranslation = {
       <p>Para quienes comienzan su andadura en el trading, la formación es un requisito indispensable. Antes de iniciar este viaje, es importante realizar la investigación necesaria ampliando sus conocimientos. </p>`,
     sv: `
       <p>Forex är den största och mest likvida marknaden i världen, och många människor känner sig lockade av tanken på onlinehandel.</p>
-      <p>För dem som precis har börjat sin handelsresa är utbildning en förutsättning. Innan du börjar denna resa är det viktigt att göra nödvändig forskning genom att utöka din kunskap.</p>`,
+      <p>För dem som precis har börjat sin handelsresa är utbildning en förutsättning. Innan du börjar denna resa är det viktigt att göra nödvändig forskning genom att utöka din kunskap.</p>`, // keep this
     pt: "",
     fi: "",
     pl: `
       <p>Forex to największy i najbardziej płynny rynek na świecie i wiele osób czuje pociąg do handlu online.</p>
-      <p>Dla tych, którzy dopiero rozpoczynają swoją podróż handlową, wykształcenie jest warunkiem wstępnym. Przed rozpoczęciem tej podróży ważne jest, aby przeprowadzić niezbędne badania i poszerzyć swoją wiedzę.</p>`,
+      <p>Dla tych, którzy dopiero rozpoczynają swoją podróż handlową, wykształcenie jest warunkiem wstępnym. Przed rozpoczęciem tej podróży ważne jest, aby przeprowadzić niezbędne badania i poszerzyć swoją wiedzę.</p>`, // keep this seprat
     hu: "",
     th: "",
     ms: "",
@@ -164,7 +179,7 @@ const parasVs: TextVersionTranslation = {
     es: `
       <p>El mercado Forex es el de mayor tamaño y liquidez del mundo, y el que puede garantizar los mayores beneficios, por lo tanto, es normal que muchos principiantes se sientan atraídos por él. Nuestro curso permite a todo el mundo, incluso a aquellos que no tienen experiencia, comenzar a operar Forex con éxito.</p>
       <p>Quien se sienta con ganas de seguir nuestro curso de forex hasta el final tendrá la oportunidad de descubrir las mejores estrategias y los mejores indicadores para operar forex.</p>
-    `,
+    `, // cysec
     sv: ``,
     pt: "",
     fi: "",
@@ -177,7 +192,7 @@ const parasVs: TextVersionTranslation = {
 };
 const paras = useTextVersion(
   parasVs,
-  componentProps.textVersion,
+  componentProps.designVersion,
 ) as TranslationsType;
 ---
 

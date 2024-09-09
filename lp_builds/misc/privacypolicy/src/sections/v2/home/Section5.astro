@@ -7,9 +7,9 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const infoSection1: InfoSection = {
+const infoSection5: InfoSection = {
   title: {
-    en: "Privacy Policy",
+    en: "Data transfer ",
     it: "",
     tr: "",
     ro: "",
@@ -27,7 +27,7 @@ const infoSection1: InfoSection = {
   },
   paras: [
     {
-      en: "This Privacy Policy shall enable the reader (and/or “You”) to receive information regarding the use and processing of data collected during accessing this website. Additionally, the reader shall be informed of the measures taken for protecting such data.",
+      en: "Before leaving any personal information, please make sure that you have read and understood this Privacy Policy. ",
       it: "",
       tr: "",
       ro: "",
@@ -44,7 +44,7 @@ const infoSection1: InfoSection = {
       vi: "",
     },
     {
-      en: "This Policy can be changed / amended at any time without prior notification; therefore, readers are strongly advised to frequently visit this page to keep up to date with any changes.",
+      en: "When transferring data, adequate level of protection is maintained. Such transfers are made only and when necessary, as per the existing arrangements between the Company and an affiliated party. ",
       it: "",
       tr: "",
       ro: "",
@@ -64,14 +64,14 @@ const infoSection1: InfoSection = {
 };
 ---
 
-<section id="section1">
+<section id="section5">
   <div class="container space-y-4">
-    <h1
-      set:html={infoSection1.title[componentProps.lang]}
-      class="text-2xl font-medium"
-    />
+    <h2 class="flex items-center justify-start gap-4 text-lg font-medium">
+      &bull;
+      <span set:html={infoSection5.title[componentProps.lang]} />
+    </h2>
     {
-      infoSection1.paras?.map((para) => (
+      infoSection5.paras?.map((para) => (
         <p set:html={para[componentProps.lang]} class="mb-2" />
       ))
     }

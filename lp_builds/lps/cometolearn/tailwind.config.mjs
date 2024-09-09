@@ -70,13 +70,23 @@ module.exports = {
         "classic-heading1": "clamp(1.5rem, 1.3519rem + 0.7407vw, 2rem)",
         "classic-paraLead": "clamp(1.5rem, 1.4259rem + 0.3704vw, 1.75rem)",
         "classic-remake-heading1": "clamp(1.5rem, 1.3519rem + 0.7407vw, 2rem)",
-        "classic-remake-paraLead": "clamp(1.25rem, 1.1389rem + 0.5556vw, 1.625rem)",
-        "classic-remake-formTitle": "clamp(1.5rem, 1.4259rem + 0.3704vw, 1.75rem)",
-        "professional-black-heading1": "clamp(1.25rem, 0.9537rem + 1.4815vw, 2.25rem)",
-        "professional-black-heading2": "clamp(1.125rem, 1.0509rem + 0.3704vw, 1.375rem)",
-        "professional-black-paraLead": "clamp(1rem, 0.9259rem + 0.3704vw, 1.25rem)",
-        "professional-black-formTitle": "clamp(0.875rem, 0.7639rem + 0.5556vw, 1.25rem)",
-        "professional-black-v2-heading1": "clamp(1.25rem, 0.9167rem + 1.6667vw, 2.25rem)",
+        "classic-remake-paraLead":
+          "clamp(1.25rem, 1.1389rem + 0.5556vw, 1.625rem)",
+        "classic-remake-formTitle":
+          "clamp(1.5rem, 1.4259rem + 0.3704vw, 1.75rem)",
+        "professional-black-heading1":
+          "clamp(1.25rem, 0.9537rem + 1.4815vw, 2.25rem)",
+        "professional-black-heading2":
+          "clamp(1.125rem, 1.0509rem + 0.3704vw, 1.375rem)",
+        "professional-black-paraLead":
+          "clamp(1rem, 0.9259rem + 0.3704vw, 1.25rem)",
+        "professional-black-formTitle":
+          "clamp(0.875rem, 0.7639rem + 0.5556vw, 1.25rem)",
+        "professional-black-v2-heading1":
+          "clamp(1.25rem, 0.9167rem + 1.6667vw, 2.25rem)",
+      },
+      gridTemplateRows: {
+        siteLayout: "auto 1fr auto",
       },
     },
   },

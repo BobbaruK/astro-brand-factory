@@ -1,7 +1,7 @@
 ---
 import HomePage from "@/layouts/v1/home.astro";
 import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
-import { type GenericBrandSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
@@ -12,7 +12,7 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 const componentProps: ComponentProps<
-  GenericBrandSVGVariation,
+  TradingProfilerSVGVariation,
   CustomOptions
 > = {
   lang: "en",
@@ -20,7 +20,7 @@ const componentProps: ComponentProps<
   dir: "ltr",
   lpName: "New Real Share",
   brandObj: useBrandFactory({
-    brand: "genericBrand",
+    brand: "tradingprofiler",
     region: langTypeRegion,
     whatsapp: false,
   }),

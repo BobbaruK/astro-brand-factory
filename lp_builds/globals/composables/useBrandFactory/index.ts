@@ -1,11 +1,10 @@
 import { type BrandArrItem } from "../../types/Brands";
 import { type BrandsNames } from "../../types/Brands/names";
-import { type LandingPageLangType } from "../../types/LandingPageType";
+import { type LandingPageLangType, type LandingPageType } from "../../types/LandingPageType";
 import { daytradingstar } from "./daytradingstar";
 import { facoltaditrading } from "./facoltaditrading";
 import { fxoro } from "./fxoro";
 import { fxoro_global } from "./fxoro_global";
-import { genericBrand } from "./genericBrand";
 import { investingtips101 } from "./investingtips101";
 import { piutrading } from "./piutrading";
 import { protraderzone } from "./protraderzone";
@@ -13,36 +12,33 @@ import { tradersacademic } from "./tradersacademic";
 import { tradestrategyhub } from "./tradestrategyhub";
 import { tradingprofiler } from "./tradingprofiler";
 
-interface Args {
+interface BrandFactory {
   brand: BrandsNames;
   region: LandingPageLangType;
   whatsapp: boolean;
+  lpType?: LandingPageType;
 }
 
-export const useBrandFactory = <T>({
-  brand,
-  region,
-  whatsapp,
-}: Args): BrandArrItem<T> => {
+export const useBrandFactory = <T>({ brand, region, whatsapp, lpType }: BrandFactory): BrandArrItem<T> => {
   const whatsappNumber = () => {
     switch (region) {
       case "cysec":
         return {
-          en: "442045864398",
-          it: "3901119881294",
-          tr: "",
-          ro: "",
-          ar: "",
-          de: "",
-          es: "34683785822",
-          sv: "46790083304",
-          pt: "",
-          fi: "",
-          pl: "48884787595",
-          hu: "",
-          th: "",
-          ms: "",
-          vi: "",
+          en: "35725205563",
+          it: "35725205563",
+          tr: "35725205563",
+          ro: "35725205563",
+          ar: "35725205563",
+          de: "35725205563",
+          es: "35725205563",
+          sv: "35725205563",
+          pt: "35725205563",
+          fi: "35725205563",
+          pl: "35725205563",
+          hu: "35725205563",
+          th: "35725205563",
+          ms: "35725205563",
+          vi: "35725205563",
         };
 
       case "fsa":
@@ -67,9 +63,6 @@ export const useBrandFactory = <T>({
   };
 
   switch (brand) {
-    case "genericBrand":
-      return genericBrand(whatsapp, whatsappNumber) as BrandArrItem<T>;
-
     case "investingtips101":
       return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
@@ -89,7 +82,7 @@ export const useBrandFactory = <T>({
       return daytradingstar(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "tradestrategyhub":
-      return tradestrategyhub(whatsapp, whatsappNumber) as BrandArrItem<T>;
+      return tradestrategyhub(whatsapp, whatsappNumber, lpType) as BrandArrItem<T>;
 
     case "protraderzone":
       return protraderzone(whatsapp, whatsappNumber) as BrandArrItem<T>;
@@ -101,6 +94,6 @@ export const useBrandFactory = <T>({
       return tradingprofiler(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     default:
-      return genericBrand(whatsapp, whatsappNumber) as BrandArrItem<T>;
+      return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;
   }
 };

@@ -21,6 +21,8 @@ const translations = footerTranslations(componentProps.brandObj.name);
 
     {componentProps.lpType === "endorsed" && <Fragment set:html={translations.endorsed[componentProps.lang]} />}
 
+    {componentProps.lpType === "outbrain" && <Fragment set:html={translations.outbrain[componentProps.lang]} />}
+
     {
       (componentProps.lpType === "esma" || componentProps.lpType === "endorsed") && (
         <div class="logoWrapper">

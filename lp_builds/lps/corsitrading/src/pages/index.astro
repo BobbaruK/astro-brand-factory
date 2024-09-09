@@ -1,9 +1,9 @@
 ---
-// import HomePage from "@/layouts/Lecture/home.astro";
+import HomePage from "@/layouts/Lecture/home.astro";
 // import HomePage from "@/layouts/BitcoinGuy/home.astro";
-import HomePage from "@/layouts/HipsterGuy/home.astro";
+// import HomePage from "@/layouts/HipsterGuy/home.astro";
 import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
@@ -14,15 +14,15 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 const componentProps: ComponentProps<
-  TradingProfilerSVGVariation,
+  TradeStrategyHubSVGVariation,
   CustomOptions
 > = {
-  lang: "en",
+  lang: "es",
   langType: langTypeRegion,
   dir: "ltr",
   lpName: "Corsitrading",
   brandObj: useBrandFactory({
-    brand: "tradingprofiler",
+    brand: "tradestrategyhub",
     region: langTypeRegion,
     whatsapp: false,
   }),
@@ -31,7 +31,7 @@ const componentProps: ComponentProps<
   },
   lpType: "classic",
   formValidation: "classic",
-  textVersion: "v4",
+  designVersion: "v1",
   customOptions: {
     logoSquare: false,
   },

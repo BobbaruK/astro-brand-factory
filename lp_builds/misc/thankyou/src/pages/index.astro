@@ -1,7 +1,8 @@
 ---
+// import HomePage from "@/layouts/v1/home.astro";
 import HomePage from "@/layouts/v2/home.astro";
 import { useBrandFactory } from "../../../../globals/composables/useBrandFactory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/Brands/logo";
+import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/Brands/logo";
 import { type ComponentProps } from "../../../../globals/types/ComponentProps";
 import type { LandingPageLangType } from "../../../../globals/types/LandingPageType";
 import "../assets/styles/index.scss";
@@ -12,15 +13,15 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 const componentProps: ComponentProps<
-  TradingProfilerSVGVariation,
+  TradeStrategyHubSVGVariation,
   CustomOptions
 > = {
-  lang: "es",
+  lang: "pl",
   langType: langTypeRegion,
   dir: "ltr",
   lpName: "Signals",
   brandObj: useBrandFactory({
-    brand: "tradingprofiler",
+    brand: "tradestrategyhub",
     region: langTypeRegion,
     whatsapp: false,
   }),
